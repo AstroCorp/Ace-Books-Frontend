@@ -1,5 +1,5 @@
-# React Base App
-> Base para desarrollar páginas webs con React y TypeScript.
+# Ace Books Frontend
+> Frontend de Ace Books. Una web que permite tener una biblioteca de archivos PDF, permitiendo ordenar, buscar y leer tus documentos.
 
 
 ## Comandos:
