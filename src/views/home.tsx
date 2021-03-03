@@ -14,18 +14,16 @@ const Home = (props: any) => {
 		<div className="bg-index h-screen p-4 flex flex-col">
 			<header>
 				<nav className="flex items-center p-3 flex-wrap">
-				    <a href="#" className="p-2 mr-4 inline-flex items-center">
-				        <div className="text-white font-sans text-4xl">
-				            Ace Books
-				        </div>
-				    </a>
+				    <Link to="/" className="p-2 mr-4 inline-flex items-center text-white font-sans text-4xl cursor-pointer">
+				        Ace Books
+				    </Link>
 
-				    <a className="inline-flex md:hidden ml-auto cursor-pointer" onClick={ toggleNav }>
+				    <button className="inline-flex md:hidden ml-auto cursor-pointer" onClick={ toggleNav }>
 						<Menu
 							width="32px"
 							height="32px"
 						/>
-					</a>
+					</button>
 
 				    <div className={classNames("relative w-full md:inline-flex md:flex-grow md:w-auto", {
 						"hidden": !navActive,
