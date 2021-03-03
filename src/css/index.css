@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-index {
+    background-image: url('../images/bg_index.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}

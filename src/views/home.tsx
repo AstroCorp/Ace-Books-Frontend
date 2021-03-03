@@ -1,34 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classNames from "classnames";
 import { Link } from "react-router-dom";
-import { bindActionCreators, Dispatch } from 'redux';
-import { connect } from 'react-redux';
-import { increment, decrement, listRepos } from '../store/actions/exampleActions';
+import Menu from '../images/icons/menu';
 
-const Home = (props: any) => (
-	<div>
-		<nav>
-			<div>Example</div>
-			<ul>
-				<li><Link className="text-purple-700" to="/login">Login</Link></li>
-			</ul>
-		</nav>
-		<p>Count: {props.count}</p>
+const Home = (props: any) => {
+	const [ navActive, setNavActive ] = useState(false);
 
-		<p><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={props.increment}>Increment</button></p>
-		<p><button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={props.decrement}>Decrement</button></p>
+	const toggleNav = () => {
+		setNavActive(!navActive);
+	}
 
-		<p><button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={props.listRepos}>List repos in console</button></p>
-	</div>
-);
+	return (
+		<div className="bg-index h-screen p-4 flex flex-col">
+			<header>
+				<nav className="flex items-center p-3 flex-wrap">
+				    <a href="#" className="p-2 mr-4 inline-flex items-center">
+				        <div className="text-white font-sans text-4xl">
+				            Ace Books
+				        </div>
+				    </a>
 
-const mapStateToProps = ({ exampleReducer }: any) => ({
-	count: exampleReducer.count,
-});
+				    <a className="inline-flex md:hidden ml-auto cursor-pointer" onClick={ toggleNav }>
+						<Menu
+							width="32px"
+							height="32px"
+						/>
+					</a>
 
-const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
-	increment,
-	decrement,
-	listRepos,
-}, dispatch);
+				    <div className={classNames("relative w-full md:inline-flex md:flex-grow md:w-auto", {
+						"hidden": !navActive,
+						"block justify-end bg-white bg-opacity-25 py-4 pr-2": navActive,
+					})}>
+				        <ul className="md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start flex flex-col md:h-auto">
+				            <li className="md:inline-flex md:w-auto w-full items-center justify-center text-right">
+				                <Link className="text-white p-2 hover:underline" to="/">Inicio</Link>
+				            </li>
+				            <li className={classNames("md:inline-flex md:w-auto w-full items-center justify-center text-right md:mx-6", {
+								"mt-5 mb-8 md:my-0": navActive
+							})}>
+				                <Link className="text-white p-2 hover:underline" to="/faqs">Preguntas frecuentes</Link>
+				            </li>
+				            <li className="md:inline-flex md:w-auto w-full items-center justify-center text-right">
+				                <Link className="text-white p-2 border-2" to="/login">Iniciar Sesión</Link>
+				            </li>
+				        </ul>
+				    </div>
+				</nav>
+			</header>
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+			<div className="h-screen flex flex-col justify-center">
+				<article className="text-white w-full md:w-2/3 md:mx-auto xl:w-1/2 xl:ml-32">
+					<h1 className="text-4xl font-semibold">Sincroniza y disfruta</h1>
+					<p className="text-sm mt-2 mb-8">
+						Ten todos tus libros siempre a mano, retoma tu lectura en cualquier dispositivo, 
+						ya sea en un ordenador, una tablet o un smartphone, crea anotaciones y organiza tu
+						biblioteca como desees.</p>
+
+					<Link className="text-white p-2 border-2 uppercase" to="/register">Registrarse</Link>
+				</article>
+			</div>
+
+			<header className="text-white text-center">
+				<p>Copyright &copy; { new Date().getFullYear() } Ace Books. All rights reserved.</p>
+			</header>
+		</div>
+	);
+}
+
+export default Home;
