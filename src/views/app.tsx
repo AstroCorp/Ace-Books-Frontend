@@ -4,7 +4,7 @@ import Home from './home';
 import NoMatch from './no_match';
 
 const App = () => (
-	<BrowserRouter basename={process.env.PUBLIC_URL}>
+	<BrowserRouter basename="/Ace-Books-Frontend">
 		<Switch>
 			<Route exact path="/">
 				<Home />
