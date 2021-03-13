@@ -2,6 +2,7 @@
   "name": "ace-books-frontend",
   "version": "1.0.0",
   "private": false,
+  "homepage": "https://astrocorp.github.io/Ace-Books-Frontend",
   "scripts": {
     "start": "craco start",
     "build": "craco build",
