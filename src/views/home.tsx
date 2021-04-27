@@ -53,7 +53,7 @@ const Home = (props: any) => {
 				            <li className="md:inline-flex md:w-auto w-full items-center justify-center">
 				                <Link className={classNames("md:text-white md:border-white p-2 border-2", {
 									"text-gray-700 border-gray-700": navActive,
-								})} to="/login">Sign in</Link>
+								})} to="/auth/login">Sign in</Link>
 				            </li>
 				        </ul>
 				    </div>
@@ -67,7 +67,7 @@ const Home = (props: any) => {
 						Resume your reading from any device.
 					</p>
 
-					<Link className="text-white p-2 border-2 uppercase" to="/register">Sign up</Link>
+					<Link className="text-white p-2 border-2 uppercase" to="/auth/register">Sign up</Link>
 				</article>
 			</div>
 
