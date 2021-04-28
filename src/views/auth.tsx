@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { AuthRouteParams } from '../types/RoutesParams';
+import { AuthRouteParams } from '../types/routesParams';
 
 const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
     const [mode, setMode] = useState(props.match.params.mode || 'login');
