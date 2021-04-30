@@ -29,7 +29,7 @@ serviceWorker.unregister();
 // Hot reloading
 if (module.hot) {
 	// Reload components
-	module.hot.accept('./views/app', () => {
+	module.hot.accept('./app', () => {
 		renderDOM();
 	});
 }
