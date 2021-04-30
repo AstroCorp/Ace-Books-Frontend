@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from './home';
-import Auth from './auth';
-import NoMatch from './no_match';
+import Home from './views/home';
+import Auth from './views/auth';
+import NoMatch from './views/no_match';
 
 const App = () => (
 	<BrowserRouter basename="/Ace-Books-Frontend">

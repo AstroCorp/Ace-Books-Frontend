@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-index {
+.bg-books {
     background-image: url('../images/bg_index.jpg');
     background-position: center;
     background-repeat: no-repeat;

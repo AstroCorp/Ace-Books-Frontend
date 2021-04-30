@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import configureStore, { history } from './store/configureStore';
-import App from './views/app';
+import App from './app';
 import * as serviceWorker from './serviceWorker';
 
 import './css/index.css';

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 import Menu from '../images/icons/menu';
 
-const Home = (props: any) => {
+const Home = () => {
 	const [ navActive, setNavActive ] = useState(false);
 
 	const toggleNav = () => {
@@ -11,7 +11,7 @@ const Home = (props: any) => {
 	}
 
 	return (
-		<div className="bg-index h-screen flex flex-col">
+		<div className="bg-books h-screen flex flex-col">
 			<header className={classNames("md:bg-opacity-0 md:h-auto", {
 				"absolute bg-white bg-opacity-90 h-full w-full": navActive,
 			})}>
