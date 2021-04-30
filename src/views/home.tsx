@@ -67,7 +67,7 @@ const Home = () => {
 						Resume your reading from any device.
 					</p>
 
-					<Link className="text-white p-2 border-2 uppercase" to="/auth/register">Sign up</Link>
+					<Link className="text-white p-2 border-2 uppercase" to="/auth/register">Start Reading</Link>
 				</article>
 			</div>
 
