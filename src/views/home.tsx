@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Menu from '../images/icons/menu';
 
 const Home = () => {
+	const [ t ] = useTranslation('home');
+
 	const [ navActive, setNavActive ] = useState(false);
 
 	const toggleNav = () => {
@@ -44,12 +47,16 @@ const Home = () => {
 							})}>
 				                <Link className={classNames("md:text-white p-2 hover:underline", {
 									"text-gray-700 hover:text-darkblue-500": navActive,
-								})} to="/legal/faqs">FAQs</Link>
+								})} to="/legal/faqs">
+									{ t('nav.faqs') }
+								</Link>
 				            </li>
 				            <li className="md:inline-flex md:w-auto w-full items-center justify-center">
 				                <Link className={classNames("md:text-white md:border-white p-2 border-2", {
 									"text-gray-700 border-gray-700": navActive,
-								})} to="/auth/login">Sign in</Link>
+								})} to="/auth/login">
+									{ t('nav.signIn') }
+								</Link>
 				            </li>
 				        </ul>
 				    </div>
@@ -58,17 +65,15 @@ const Home = () => {
 
 			<div className="h-screen flex flex-col justify-center">
 				<article className="text-white w-full p-4 mx-auto md:w-2/3 xl:w-1/2 xl:ml-32">
-					<h1 className="text-4xl font-semibold">Your books always with you.</h1>
-					<p className="text-sm mt-2 mb-8">
-						Resume your reading from any device.
-					</p>
+					<h1 className="text-4xl font-semibold">{ t('main.title') }</h1>
+					<p className="text-sm mt-2 mb-8">{ t('main.description') }</p>
 
-					<Link className="text-white p-2 border-2 uppercase" to="/auth/register">Start Reading</Link>
+					<Link className="text-white p-2 border-2 uppercase" to="/auth/register">{ t('main.button') }</Link>
 				</article>
 			</div>
 
 			<footer className="text-white text-shadow text-center p-4">
-				<p>Copyright &copy; { new Date().getFullYear() } Ace Books. All rights reserved.</p>
+				<p>Copyright &copy; { new Date().getFullYear() } Ace Books. { t('footer') }</p>
 			</footer>
 		</div>
 	);

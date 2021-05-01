@@ -6,6 +6,8 @@ import configureStore, { history } from './store/configureStore';
 import App from './app';
 import * as serviceWorker from './serviceWorker';
 
+import './i18n';
+
 import './css/index.css';
 
 const target = document.querySelector('#root');
