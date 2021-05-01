@@ -16,8 +16,9 @@ const Home = () => {
 				"absolute bg-white bg-opacity-90 h-full w-full": navActive,
 			})}>
 				<nav className="flex items-center p-4 flex-wrap">
-				    <Link to="/" className={classNames("p-2 mr-4 inline-flex items-center text-white md:text-white font-sans text-4xl cursor-pointer", {
+				    <Link to="/" className={classNames("p-2 mr-4 inline-flex items-center text-white md:text-white text-4xl cursor-pointer", {
 						"text-gray-700 hover:text-darkblue-500": navActive,
+						"text-shadow": !navActive,
 					})}>
 				        Ace Books
 				    </Link>
@@ -71,7 +72,7 @@ const Home = () => {
 				</article>
 			</div>
 
-			<footer className="text-white text-center p-4">
+			<footer className="text-white text-shadow text-center p-4">
 				<p>Copyright &copy; { new Date().getFullYear() } Ace Books. All rights reserved.</p>
 			</footer>
 		</div>

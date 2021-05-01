@@ -14,6 +14,10 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
     return (
         <div className="min-h-screen bg-books flex flex-col justify-center">
             <div className="sm:mx-auto sm:w-full sm:max-w-md m-6">
+                <Link to="/" className="block mb-6 text-shadow text-center text-4xl cursor-pointer text-white md:text-white">
+				    Ace Books
+				</Link>
+
                 <div>
                     <button
                         onClick={() => setMode('login')}
@@ -90,6 +94,10 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                     }
                 </div>
             </div>
+
+            <footer className="text-white text-shadow text-center">
+				<p>Copyright &copy; { new Date().getFullYear() } Ace Books. All rights reserved.</p>
+			</footer>
         </div>
     );
 }
