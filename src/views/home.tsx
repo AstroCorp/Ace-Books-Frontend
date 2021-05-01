@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import classNames from "classnames";
-import { Link } from "react-router-dom";
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import Menu from '../images/icons/menu';
 
 const Home = () => {
