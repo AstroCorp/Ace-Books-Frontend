@@ -39,17 +39,12 @@ const Home = () => {
 				        <ul className={classNames("md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start flex flex-col md:h-auto md:text-right md:mt-0", {
 							"text-center mt-8": navActive,
 						})}>
-				            <li className="md:inline-flex md:w-auto w-full items-center justify-center">
-				                <Link className={classNames("md:text-white p-2 hover:underline", {
-									"text-gray-700 hover:text-darkblue-500": navActive,
-								})} to="/">Home</Link>
-				            </li>
 				            <li className={classNames("md:inline-flex md:w-auto w-full items-center justify-center md:mx-6", {
 								"mt-5 mb-8 md:my-0 text-gray-700 hover:text-darkblue-500": navActive
 							})}>
 				                <Link className={classNames("md:text-white p-2 hover:underline", {
 									"text-gray-700 hover:text-darkblue-500": navActive,
-								})} to="/faqs">FAQs</Link>
+								})} to="/legal/faqs">FAQs</Link>
 				            </li>
 				            <li className="md:inline-flex md:w-auto w-full items-center justify-center">
 				                <Link className={classNames("md:text-white md:border-white p-2 border-2", {

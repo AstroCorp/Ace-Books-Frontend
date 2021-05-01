@@ -1,3 +1,7 @@
 export type AuthRouteParams = { 
-    mode: string;
+    option: string;
+}
+
+export type LegalRouteParams = { 
+    option: string;
 }

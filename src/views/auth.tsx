@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import { AuthRouteParams } from '../types/routesParams';
 
 const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
-    const [ mode, setMode ] = useState(props.match.params.mode || 'login');
+    const [ option, setOption ] = useState(props.match.params.option || 'login');
 
     useEffect(() => {
-        props.history.replace('/auth/' + mode);
-    }, [mode]);
+        props.history.replace('/auth/' + option);
+    }, [option]);
 
     return (
         <div className="min-h-screen bg-books flex flex-col justify-center">
@@ -20,17 +20,17 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
 
                 <div>
                     <button
-                        onClick={() => setMode('login')}
+                        onClick={() => setOption('login')}
                         className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 focus:outline-none", {
-                            "shadow-inner-full bg-opacity-85": mode !== 'login',
+                            "shadow-inner-full bg-opacity-85": option !== 'login',
                         })}>
                         Log in
                     </button>
 
                     <button
-                        onClick={() => setMode('register')}
+                        onClick={() => setOption('register')}
                         className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 focus:outline-none", {
-                            "shadow-inner-full bg-opacity-85": mode !== 'register',
+                            "shadow-inner-full bg-opacity-85": option !== 'register',
                         })}>
                         Sign up
                     </button>
@@ -48,7 +48,7 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                     </div>
 
                     {
-                        mode === 'register' && (
+                        option === 'register' && (
                             <>
                                 <label className="block text-sm font-medium text-gray-700 mt-4">Confirm Password</label>
                                 <div className="mt-1">
@@ -69,7 +69,7 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                     }
 
                     {
-                        mode === 'login' && (
+                        option === 'login' && (
                             <>
                                 <div className="flex items-center justify-between mt-4">
                                     <div className="flex items-center">
