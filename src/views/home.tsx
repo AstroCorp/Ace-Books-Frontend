@@ -51,8 +51,9 @@ const Home = () => {
 									{ t('nav.faqs') }
 								</Link>
 				            </li>
+							
 				            <li className="md:inline-flex md:w-auto w-full items-center justify-center">
-				                <Link className={classNames("md:text-white md:border-white p-2 border-2", {
+				                <Link className={classNames("md:text-white md:border-white p-2 border-2 rounded-md bg-white bg-opacity-0 hover:bg-opacity-20 transition duration-300 ease-in-out", {
 									"text-gray-700 border-gray-700": navActive,
 								})} to="/auth/login">
 									{ t('nav.signIn') }
@@ -66,9 +67,9 @@ const Home = () => {
 			<div className="h-screen flex flex-col justify-center">
 				<article className="text-white w-full p-4 mx-auto md:w-2/3 xl:w-1/2 xl:ml-32">
 					<h1 className="text-4xl font-semibold">{ t('main.title') }</h1>
-					<p className="text-sm mt-2 mb-8">{ t('main.description') }</p>
+					<p className="text-sm mt-2 mb-10">{ t('main.description') }</p>
 
-					<Link className="text-white p-2 border-2 uppercase" to="/auth/register">{ t('main.button') }</Link>
+					<Link className="text-white px-4 py-3 border-2 rounded-md uppercase bg-white bg-opacity-0 hover:bg-opacity-20 transition duration-300 ease-in-out" to="/auth/register">{ t('main.button') }</Link>
 				</article>
 			</div>
 

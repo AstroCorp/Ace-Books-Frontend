@@ -3,8 +3,14 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import Home_EN from './translations/en/home.json';
-import Home_ES from './translations/es/home.json';
+import Global_EN from './en/global.json';
+import Global_ES from './es/global.json';
+
+import Home_EN from './en/home.json';
+import Home_ES from './es/home.json';
+
+import Legal_EN from './en/legal.json';
+import Legal_ES from './es/legal.json';
 
 i18n
     .use(Backend)
@@ -19,10 +25,14 @@ i18n
         },
         resources: {
             en: {
+                global: Global_EN,
                 home: Home_EN,
+                legal: Legal_EN,
             },
             es: {
-                home: Home_ES
+                global: Global_ES,
+                home: Home_ES,
+                legal: Legal_ES,
             },
         },
     });

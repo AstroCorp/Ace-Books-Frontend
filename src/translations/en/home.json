@@ -2,11 +2,5 @@
     "nav": {
         "faqs": "FAQs",
         "signIn": "Sign in"
-    },
-    "main": {
-        "title": "Your books always with you.",
-        "description": "Resume your reading from any device.",
-        "button": "Start reading"
-    },
-    "footer": "All rights reserved."
+    }
 }

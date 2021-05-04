@@ -1,0 +1,11 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "signIn": "Iniciar sesión"
+    },
+    "options": {
+        "faqs": "Preguntas frecuentes",
+        "terms": "Términos y condiciones",
+        "privacy": "Política de privacidad"
+    }
+}

@@ -21,7 +21,7 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                 <div>
                     <button
                         onClick={() => setOption('login')}
-                        className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 focus:outline-none", {
+                        className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tl-md focus:outline-none", {
                             "shadow-inner-full bg-opacity-85": option !== 'login',
                         })}>
                         Log in
@@ -29,14 +29,14 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
 
                     <button
                         onClick={() => setOption('register')}
-                        className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 focus:outline-none", {
+                        className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tr-md focus:outline-none", {
                             "shadow-inner-full bg-opacity-85": option !== 'register',
                         })}>
                         Sign up
                     </button>
                 </div>
                 
-                <div className="px-6 py-8 sm:px-6 lg:px-8 bg-white">
+                <div className="px-6 py-8 sm:px-6 lg:px-8 bg-white rounded-b-md">
                     <label className="block text-sm font-medium text-gray-700">Email</label>
                     <div className="mt-1">
                         <input type="email" className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />

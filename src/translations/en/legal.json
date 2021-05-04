@@ -1,0 +1,9 @@
+{
+    "nav": {
+        "home": "Home",
+        "faqs": "FAQs",
+        "terms": "Terms & conditions",
+        "privacy": "Privacy policy",
+        "signIn": "Sign in"
+    }
+}
