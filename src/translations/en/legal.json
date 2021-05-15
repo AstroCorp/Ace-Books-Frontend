@@ -1,9 +1,20 @@
 {
     "nav": {
         "home": "Home",
-        "faqs": "FAQs",
-        "terms": "Terms & conditions",
-        "privacy": "Privacy policy",
         "signIn": "Sign in"
+    },
+    "options": {
+        "faqs": {
+            "title": "FAQs",
+            "description": "The best way to solve your doubts quickly."
+        },
+        "terms": {
+            "title": "Terms & conditions",
+            "description": "All you have to know about our services."
+        },
+        "privacy": {
+            "title": "Privacy policy",
+            "description": "Your data is important, that's why we treat them with great care."
+        }
     }
 }

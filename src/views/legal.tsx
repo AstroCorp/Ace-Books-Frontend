@@ -5,20 +5,18 @@ import classNames from 'classnames';
 import { LegalRouteParams } from '../types/routesParams';
 import Menu from '../images/icons/menu';
 import { useTranslation } from 'react-i18next';
+import Faqs from '../images/icons/faqs';
+import Terms from '../images/icons/terms';
+import Privacy from '../images/icons/privacy';
 
 const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
     const [ option, setOption ] = useState(props.match.params.option || 'faqs');
     const [ t ] = useTranslation('legal');
 
     const [ navActive, setNavActive ] = useState(false);
-	const [ navLegalActive, setNavLegalActive ] = useState(false);
 
 	const toggleNav = () => {
 		setNavActive(!navActive);
-	}
-
-	const toggleLegal = () => {
-		setNavLegalActive(!navLegalActive);
 	}
 
     useEffect(() => {
@@ -78,68 +76,38 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 
 			<div className="h-screen flex flex-col justify-center m-6">
 				<article className="w-full lg:w-3/4 xl:w-2/3 p-4 mx-auto flex flex-col md:flex-row">
-					<div className="bg-white bg-opacity-75 p-2 flex flex-col items-end w-1/3 rounded-l-md">
-						<button 
-							className={classNames("text-white inline-flex md:hidden cursor-pointer", {
-								"text-gray-700 hover:text-darkblue-500": navActive,
-							})} 
-							onClick={ toggleLegal }
-						>
-							<Menu
-								width="32px"
-								height="32px"
-								color="currentColor"
-							/>
-						</button>
-
-				    	<div className={classNames("md:flex w-full", {
-							"hidden": !navLegalActive,
-						})}>
-				    	    <ul className={classNames("w-full", {
-								"text-center": navLegalActive,
-							})}>
-				    	        <li className={classNames("w-full", {
-									"text-gray-700 hover:text-darkblue-500": navLegalActive
-								})}>
-				    	            <button 
-										className={classNames("w-full md:text-white p-2 hover:underline", {
-											"text-gray-700 hover:text-darkblue-500": navLegalActive,
-										})}
-										onClick={() => setOption('faqs')}
-									>
-										{ t('options.faqs') }
-									</button>
-				    	        </li>
-
-				    	        <li className={classNames("w-full", {
-									"text-gray-700 hover:text-darkblue-500": navLegalActive
-								})}>
-				    	            <button 
-										className={classNames("w-full md:text-white p-2 hover:underline", {
-											"text-gray-700 hover:text-darkblue-500": navLegalActive,
-										})}
-										onClick={() => setOption('terms')}
-									>
-										{ t('options.terms') }
-									</button>
-				    	        </li>
-
-								<li className={classNames("w-full", {
-									"text-gray-700 hover:text-darkblue-500": navLegalActive
-								})}>
-				    	            <button 
-										className={classNames("w-full md:text-white p-2 hover:underline", {
-											"text-gray-700 hover:text-darkblue-500": navLegalActive,
-										})}
-										onClick={() => setOption('privacy')}
-									>
-										{ t('options.privacy') }
-									</button>
-				    	        </li>
-				    	    </ul>
-				    	</div>
+					<div className="flex flex-col items-end w-96">
+				    	<ul>
+				    	    <li className="bg-white bg-opacity-80 rounded-md p-4 mb-4 flex flex-row">
+								<div>
+									<Faqs height="40px" width="40px" />
+								</div>
+				    	        <div className="ml-4">
+									<div className="font-semibold">{ t('options.faqs.title') }</div>
+									<p className="text-xs text-gray-600">{ t('options.faqs.description') }</p>
+								</div>
+				    	    </li>
+				    	    <li className="bg-white bg-opacity-80 rounded-md p-4 mb-4 flex flex-row">
+								<div>
+									<Terms height="40px" width="40px" />
+								</div>
+				    	        <div className="ml-4">
+									<div className="font-semibold">{ t('options.terms.title') }</div>
+									<p className="text-xs text-gray-600">{ t('options.terms.description') }</p>
+								</div>
+				    	    </li>
+							<li className="bg-white bg-opacity-80 rounded-md p-4 flex flex-row">
+								<div>
+									<Privacy height="40px" width="40px" />
+								</div>
+				    	        <div className="ml-4">
+									<div className="font-semibold">{ t('options.privacy.title') }</div>
+									<p className="text-xs text-gray-600">{ t('options.privacy.description') }</p>
+								</div>
+				    	    </li>
+				    	</ul>
 					</div>
-					<div className="bg-white bg-opacity-50 p-2 w-2/3 rounded-r-md">{ option }</div>
+					<div className="bg-white bg-opacity-95 p-2 w-full rounded-md">{ option }</div>
 				</article>
 			</div>
 

@@ -4,8 +4,17 @@
         "signIn": "Iniciar sesión"
     },
     "options": {
-        "faqs": "Preguntas frecuentes",
-        "terms": "Términos y condiciones",
-        "privacy": "Política de privacidad"
+        "faqs": {
+            "title": "Preguntas frecuentes",
+            "description": "La mejor forma de resolver tus dudas rápidamente."
+        },
+        "terms": {
+            "title": "Términos y condiciones",
+            "description": "Todo lo que tienes que saber sobre nuestros servicios."
+        },
+        "privacy": {
+            "title": "Política de privacidad",
+            "description": "Tus datos son importantes, por eso los tratamos con sumo cuidado."
+        }
     }
 }
