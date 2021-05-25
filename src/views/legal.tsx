@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { LegalRouteParams } from '../types/routesParams';
+import { LegalRouteParams } from '../types';
 import Menu from '../images/icons/menu';
 import { useTranslation } from 'react-i18next';
 import Faqs from '../images/icons/faqs';
 import Terms from '../images/icons/terms';
 import Privacy from '../images/icons/privacy';
+import { LegalOption } from '../components';
 
 const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
     const [ option, setOption ] = useState(props.match.params.option || 'faqs');
@@ -20,8 +21,29 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 	}
 
     useEffect(() => {
-        props.history.replace('/legal/' + option);
-    }, [option]);
+        setOption(props.match.params.option);
+    }, [props.match.params.option]);
+
+	const legalOptions = [
+		{
+			icon: <Faqs height="40px" width="40px" />,
+			title: t('options.faqs.title'),
+			description: t('options.faqs.description'),
+			url: '/legal/faqs',
+		},
+		{
+			icon: <Terms height="40px" width="40px" />,
+			title: t('options.terms.title'),
+			description: t('options.terms.description'),
+			url: '/legal/terms-of-service',
+		},
+		{
+			icon: <Privacy height="40px" width="40px" />,
+			title: t('options.privacy.title'),
+			description: t('options.privacy.description'),
+			url: '/legal/privacy-notice',
+		},
+	];
 
     return (
         <div className="bg-books h-screen flex flex-col">
@@ -78,33 +100,17 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 				<article className="w-full lg:w-3/4 xl:w-2/3 p-4 mx-auto flex flex-col md:flex-row">
 					<div className="flex flex-col items-end w-96">
 				    	<ul>
-				    	    <li className="bg-white bg-opacity-80 rounded-md p-4 mb-4 flex flex-row">
-								<div>
-									<Faqs height="40px" width="40px" />
-								</div>
-				    	        <div className="ml-4">
-									<div className="font-semibold">{ t('options.faqs.title') }</div>
-									<p className="text-xs text-gray-600">{ t('options.faqs.description') }</p>
-								</div>
-				    	    </li>
-				    	    <li className="bg-white bg-opacity-80 rounded-md p-4 mb-4 flex flex-row">
-								<div>
-									<Terms height="40px" width="40px" />
-								</div>
-				    	        <div className="ml-4">
-									<div className="font-semibold">{ t('options.terms.title') }</div>
-									<p className="text-xs text-gray-600">{ t('options.terms.description') }</p>
-								</div>
-				    	    </li>
-							<li className="bg-white bg-opacity-80 rounded-md p-4 flex flex-row">
-								<div>
-									<Privacy height="40px" width="40px" />
-								</div>
-				    	        <div className="ml-4">
-									<div className="font-semibold">{ t('options.privacy.title') }</div>
-									<p className="text-xs text-gray-600">{ t('options.privacy.description') }</p>
-								</div>
-				    	    </li>
+							{
+								legalOptions.map((legalOption) => (
+									<LegalOption
+										key={legalOption.url}
+										icon={legalOption.icon}
+										title={legalOption.title}
+										description={legalOption.description}
+										url={legalOption.url}
+									/>
+								))
+							}
 				    	</ul>
 					</div>
 					<div className="bg-white bg-opacity-95 p-2 w-full rounded-md">{ option }</div>

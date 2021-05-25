@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from '../../types/icon';
+import { IconProps } from '../../types';
 
-const Bookmark = (props: Icon) => (
+const Bookmark = (props: IconProps) => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 24 24" 

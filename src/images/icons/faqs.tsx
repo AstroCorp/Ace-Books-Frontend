@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from '../../types/icon';
+import { IconProps } from '../../types';
 
-const Faqs = (props: Icon) => (
+const Faqs = (props: IconProps) => (
     <svg 
         viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
         fill={props.color || '#FFF'} 

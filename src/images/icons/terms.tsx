@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from '../../types/icon';
+import { IconProps } from '../../types';
 
-const Sync = (props: Icon) => (
+const Sync = (props: IconProps) => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 403.333 512"

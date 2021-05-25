@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from '../../types/icon';
+import { IconProps } from '../../types';
 
-const Privacy = (props: Icon) => (
+const Privacy = (props: IconProps) => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="-18 0 475.211 429.969"

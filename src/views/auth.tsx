@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import classNames from "classnames";
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
-import { AuthRouteParams } from '../types/routesParams';
+import { AuthRouteParams } from '../types';
 
 const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
     const [ option, setOption ] = useState(props.match.params.option || 'login');
