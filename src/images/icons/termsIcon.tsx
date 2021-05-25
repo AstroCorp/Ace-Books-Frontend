@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconProps } from '../../types';
 
-const Sync = (props: IconProps) => (
+const TermsIcon = (props: IconProps) => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 403.333 512"
@@ -9,11 +9,11 @@ const Sync = (props: IconProps) => (
         width={props.width} 
         height={props.height}
     >
-        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="256" x2="256" y1="0" y2="256">
+        <linearGradient id="lg_terms" gradientUnits="userSpaceOnUse" x1="256" x2="256" y1="0" y2="256">
             <stop offset="0" stop-color="#0ea5e9" />
             <stop offset="1" stop-color="#0ea5e9" />
         </linearGradient>
-        <g fill="url(#SVGID_1_)">
+        <g fill="url(#lg_terms)">
             <path
                 d="M0 0v512h298.546l104.787-104.787V0zm30 30h343.333v349.667H270.999V482h-241V30zm328.452 379.667l-57.453 57.453v-57.453z" />
             <path
@@ -22,4 +22,4 @@ const Sync = (props: IconProps) => (
     </svg>
 );
 
-export default Sync;
+export default TermsIcon;

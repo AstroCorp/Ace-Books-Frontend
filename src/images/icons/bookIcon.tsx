@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconProps } from '../../types';
 
-const Book = (props: IconProps) => (
+const BookIcon = (props: IconProps) => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 24 24" 
@@ -14,4 +14,4 @@ const Book = (props: IconProps) => (
     </svg>
 );
 
-export default Book;
+export default BookIcon;

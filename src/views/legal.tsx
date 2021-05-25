@@ -2,13 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { LegalRouteParams } from '../types';
-import Menu from '../images/icons/menu';
 import { useTranslation } from 'react-i18next';
-import Faqs from '../images/icons/faqs';
-import Terms from '../images/icons/terms';
-import Privacy from '../images/icons/privacy';
 import { LegalOption } from '../components';
+import { LegalRouteParams } from '../types';
+import { FaqsIcon, MenuIcon, PrivacyIcon, TermsIcon } from '../images/icons';
 
 const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
     const [ option, setOption ] = useState(props.match.params.option || 'faqs');
@@ -26,19 +23,19 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 
 	const legalOptions = [
 		{
-			icon: <Faqs height="40px" width="40px" />,
+			icon: <FaqsIcon height="40px" width="40px" />,
 			title: t('options.faqs.title'),
 			description: t('options.faqs.description'),
 			url: '/legal/faqs',
 		},
 		{
-			icon: <Terms height="40px" width="40px" />,
+			icon: <TermsIcon height="40px" width="40px" />,
 			title: t('options.terms.title'),
 			description: t('options.terms.description'),
 			url: '/legal/terms-of-service',
 		},
 		{
-			icon: <Privacy height="40px" width="40px" />,
+			icon: <PrivacyIcon height="40px" width="40px" />,
 			title: t('options.privacy.title'),
 			description: t('options.privacy.description'),
 			url: '/legal/privacy-notice',
@@ -61,7 +58,7 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 				    <button className={classNames("text-white inline-flex md:hidden ml-auto cursor-pointer", {
 						"text-gray-700 hover:text-darkblue-500": navActive,
 					})} onClick={ toggleNav }>
-						<Menu
+						<MenuIcon
 							width="32px"
 							height="32px"
 							color="currentColor"

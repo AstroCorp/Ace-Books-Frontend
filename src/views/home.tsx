@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import Menu from '../images/icons/menu';
+import { MenuIcon } from '../images/icons';
 
 const Home = () => {
 	const [ t ] = useTranslation('home');
@@ -29,7 +29,7 @@ const Home = () => {
 				    <button className={classNames("text-white inline-flex md:hidden ml-auto cursor-pointer", {
 						"text-gray-700 hover:text-darkblue-500": navActive,
 					})} onClick={ toggleNav }>
-						<Menu
+						<MenuIcon
 							width="32px"
 							height="32px"
 							color="currentColor"
