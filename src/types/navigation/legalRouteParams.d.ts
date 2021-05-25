@@ -1,5 +1,11 @@
+enum LegalOption {
+    'faqs' = 'faqs',
+    'terms-of-service' = 'terms-of-service',
+    'privacy-notice' = 'privacy-notice',
+}
+
 type LegalRouteParams = { 
-    option: string;
+    option: LegalOption;
 }
 
 export default LegalRouteParams;

@@ -8,10 +8,10 @@ import { LegalRouteParams } from '../types';
 import { FaqsIcon, MenuIcon, PrivacyIcon, TermsIcon } from '../images/icons';
 
 const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
-    const [ option, setOption ] = useState(props.match.params.option || 'faqs');
+    const [ option, setOption ] = useState<string>(props.match.params.option || 'faqs');
     const [ t ] = useTranslation('legal');
 
-    const [ navActive, setNavActive ] = useState(false);
+    const [ navActive, setNavActive ] = useState<boolean>(false);
 
 	const toggleNav = () => {
 		setNavActive(!navActive);

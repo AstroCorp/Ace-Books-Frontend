@@ -7,7 +7,7 @@ import { MenuIcon } from '../images/icons';
 const Home = () => {
 	const [ t ] = useTranslation('home');
 
-	const [ navActive, setNavActive ] = useState(false);
+	const [ navActive, setNavActive ] = useState<boolean>(false);
 
 	const toggleNav = () => {
 		setNavActive(!navActive);

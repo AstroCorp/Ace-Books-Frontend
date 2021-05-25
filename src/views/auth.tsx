@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import { AuthRouteParams } from '../types';
 
 const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
-    const [ option, setOption ] = useState(props.match.params.option || 'login');
+    const [ option, setOption ] = useState<string>(props.match.params.option || 'login');
 
     useEffect(() => {
         props.history.replace('/auth/' + option);
-    }, [option]);
+    }, [option, props.history]);
 
     return (
         <div className="min-h-screen bg-books flex flex-col justify-center">
@@ -18,34 +18,52 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
 				    Ace Books
 				</Link>
 
-                <div>
-                    <button
-                        onClick={() => setOption('login')}
-                        className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tl-md focus:outline-none", {
-                            "shadow-inner-full bg-opacity-85": option !== 'login',
-                        })}>
-                        Log in
-                    </button>
-
-                    <button
-                        onClick={() => setOption('register')}
-                        className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tr-md focus:outline-none", {
-                            "shadow-inner-full bg-opacity-85": option !== 'register',
-                        })}>
-                        Sign up
-                    </button>
-                </div>
+                {
+                    option !== 'recovery' && (
+                        <>
+                            <button
+                                onClick={() => setOption('login')}
+                                className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tl-md focus:outline-none", {
+                                    "shadow-inner-full bg-opacity-85": option !== 'login',
+                                })}>
+                                Log in
+                            </button>
+                            
+                            <button
+                                onClick={() => setOption('register')}
+                                className={classNames("w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tr-md focus:outline-none", {
+                                    "shadow-inner-full bg-opacity-85": option !== 'register',
+                                })}>
+                                Sign up
+                            </button>
+                        </>
+                    )
+                }
                 
-                <div className="px-6 py-8 sm:px-6 lg:px-8 bg-white rounded-b-md">
+                <div className={classNames("px-6 py-8 sm:px-6 lg:px-8 bg-white rounded-b-md", {
+                    'rounded-t-md': option === 'recovery',
+                })}>
+                    {
+                        option === 'recovery' && (
+                            <h1 className="text-2xl text-gray-500 mb-4">Recover your account</h1>
+                        )
+                    }
+
                     <label className="block text-sm font-medium text-gray-700">Email</label>
                     <div className="mt-1">
                         <input type="email" className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
                     </div>
 
-                    <label className="block text-sm font-medium text-gray-700 mt-4">Password</label>
-                    <div className="mt-1">
-                        <input type="password" className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
-                    </div>
+                    {
+                        option !== 'recovery' && (
+                            <>
+                                <label className="block text-sm font-medium text-gray-700 mt-4">Password</label>
+                                <div className="mt-1">
+                                    <input type="password" className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                </div>
+                            </>
+                        )
+                    }
 
                     {
                         option === 'register' && (
@@ -80,9 +98,9 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                                     </div>
 
                                     <div className="text-sm">
-                                        <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+                                        <button onClick={() => setOption('recovery')} className="font-medium text-blue-600 hover:text-blue-500">
                                             Forgot your password?
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -90,6 +108,14 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                                     Log in
                                 </button>
                             </>
+                        )
+                    }
+
+                    {
+                        option === 'recovery' && (
+                            <button type="button" className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                Next
+                            </button>
                         )
                     }
                 </div>

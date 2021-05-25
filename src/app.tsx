@@ -8,7 +8,7 @@ const App = () => (
 			<Switch>
 				<Route exact path="/" component={Home} />
 
-				<Route exact path="/auth/:option(login|register)" component={Auth} />
+				<Route exact path="/auth/:option(login|register|recovery)" component={Auth} />
 				<Route exact path="/auth/:option?">
 					<Redirect to="/auth/login" />
 				</Route>

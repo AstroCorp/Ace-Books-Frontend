@@ -1,5 +1,11 @@
+enum AuthOption {
+    'login' = 'login',
+    'register' = 'register',
+    'recovery' = 'recovery',
+}
+
 type AuthRouteParams = { 
-    option: string;
+    option: AuthOption;
 }
 
 export default AuthRouteParams;
