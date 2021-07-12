@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { LegalOption } from '../components';
+import ReactMarkdown from 'react-markdown';
 import { LegalRouteParams } from '../types';
 import { FaqsIcon, MenuIcon, PrivacyIcon, TermsIcon } from '../images/icons';
 
@@ -42,8 +42,26 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 		},
 	];
 
+	const terms = () => {
+		const texts = t('options.terms.content', { returnObjects: true, }) as string[];
+
+		return texts.map((text: string, index: number) => (
+			<ReactMarkdown 
+				key={'line-' + index}
+				components={{
+					h1: ({ children }) => (<h1 className="mb-4 text-3xl font-semibold">{ children }</h1>),
+					h2: ({ children }) => (<h2 className="mt-6 text-xl font-bold">{ children }</h2>),
+					h3: ({ children }) => (<h3 className="text-base font-bold">{ children }</h3>),
+					p: ({ children }) => (<p className="py-2">{ children }</p>),
+				}}
+			>
+				{ text }
+			</ReactMarkdown>
+		));
+	}
+
     return (
-        <div className="bg-books h-screen flex flex-col">
+        <div className="bg-books min-h-screen">
 			<header className={classNames("md:bg-opacity-0 md:h-auto", {
 				"absolute bg-white bg-opacity-90 h-full w-full": navActive,
 			})}>
@@ -93,25 +111,31 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 				</nav>
 			</header>
 
-			<div className="h-screen flex flex-col justify-center m-6">
-				<article className="w-full lg:w-3/4 xl:w-2/3 p-4 mx-auto flex flex-col md:flex-row">
-					<div className="flex flex-col items-end w-96">
-				    	<ul>
+			<div className="flex flex-col justify-center m-6">
+				<div className="w-full lg:w-3/4 xl:w-2/3 p-4 mx-auto flex flex-col md:flex-row">
+					<div className="flex flex-col items-end w-full md:w-96 mr-4">
+				    	<ul className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4 mb-4 md:mb-0">
 							{
-								legalOptions.map((legalOption) => (
-									<LegalOption
-										key={legalOption.url}
-										icon={legalOption.icon}
-										title={legalOption.title}
-										description={legalOption.description}
-										url={legalOption.url}
-									/>
+								legalOptions.map((legalOption, index) => (
+									<Link key={'legalOption' + index} className="bg-white bg-opacity-80 rounded-md p-4 md:mb-1 flex flex-row" to={legalOption.url}>
+										<div>
+											{ legalOption.icon }
+										</div>
+									    <div className="ml-4">
+											<div className="font-semibold">{ legalOption.title }</div>
+											<p className="text-xs text-gray-600">{ legalOption.description }</p>
+										</div>
+									</Link>
 								))
 							}
 				    	</ul>
 					</div>
-					<div className="bg-white bg-opacity-95 p-2 w-full rounded-md">{ option }</div>
-				</article>
+					<div className="bg-white bg-opacity-95 p-6 w-full rounded-md">
+						{
+							option === 'terms-of-service' && (terms())
+						}
+					</div>
+				</div>
 			</div>
 
 			<footer className="text-white text-shadow text-center p-4">

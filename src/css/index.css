@@ -4,6 +4,7 @@
 
 .bg-books {
     background-image: url('../images/bg_index.jpg');
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 

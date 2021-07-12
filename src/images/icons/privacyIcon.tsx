@@ -10,8 +10,8 @@ const PrivacyIcon = (props: IconProps) => (
         height={props.height}
     >
         <linearGradient id="lg_privacy" gradientUnits="userSpaceOnUse" x1="256" x2="256" y1="0" y2="256">
-            <stop offset="0" stop-color="#0ea5e9" />
-            <stop offset="1" stop-color="#0ea5e9" />
+            <stop offset="0" stopColor="#0ea5e9" />
+            <stop offset="1" stopColor="#0ea5e9" />
         </linearGradient>
         <g fill="url(#lg_privacy)">
             <path
