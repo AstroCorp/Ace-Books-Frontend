@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import { AuthRouteParams } from '../types';
 import { CloseIcon } from '../images/icons';
+import { Footer } from '../components';
 
 const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
     const [ option, setOption ] = useState<string>(props.match.params.option || 'login');
@@ -144,9 +145,7 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                 </div>
             </div>
 
-            <footer className="text-white text-shadow text-center">
-				<p>Copyright &copy; { new Date().getFullYear() } Ace Books. All rights reserved.</p>
-			</footer>
+            <Footer />
         </div>
     );
 }

@@ -1,8 +1,4 @@
 {
-    "nav": {
-        "home": "Inicio",
-        "signIn": "Iniciar sesión"
-    },
     "options": {
         "faqs": {
             "title": "Preguntas frecuentes",

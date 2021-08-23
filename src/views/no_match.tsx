@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { Footer } from '../components';
 
 const NoMatch = () => {
     const [ t ] = useTranslation('no_match');
@@ -24,9 +25,7 @@ const NoMatch = () => {
                 </article>
             </div>
 
-            <footer className="text-white text-shadow text-center p-4">
-                <p>Copyright &copy; { new Date().getFullYear() } Ace Books. { t('footer') }</p>
-            </footer>
+            <Footer className="p-4" />
         </div>
     );
 }

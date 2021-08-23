@@ -1,3 +1,8 @@
 {
+    "offlineHeader": {
+        "home": "Home",
+        "faqs": "FAQs",
+        "signIn": "Sign in"
+    },
     "footer": "All rights reserved."
 }
