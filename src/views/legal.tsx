@@ -10,9 +10,7 @@ import { Footer, OfflineHeader } from '../components';
 const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 	const [ t ] = useTranslation('legal');
     const [ option, setOption ] = useState<string>(props.match.params.option || 'faqs');
-	const content: string[] = t('options.' + option.split('-')[0] + '.content', { returnObjects: true, });
-
-	console.log(content);
+	const content: string[] = t('options.' + option.split('-')[0] + '.content', { returnObjects: true });
 
     useEffect(() => {
         setOption(props.match.params.option);
@@ -72,7 +70,7 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 						{
 							content.map((text: string, index: number) => (
 								<ReactMarkdown 
-									key={'line-' + index}
+									key={option + '-line-' + index}
 									components={{
 										h1: ({ children }) => (<h1 className="mb-4 text-3xl font-semibold">{ children }</h1>),
 										h2: ({ children }) => (<h2 className="mt-6 text-xl font-bold">{ children }</h2>),
