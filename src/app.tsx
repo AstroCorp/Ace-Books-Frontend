@@ -14,7 +14,7 @@ const App = () => (
 				</Route>
 
 				
-				<Route exact path="/legal/:option(faqs|terms-of-service|privacy-notice)" component={Legal} />
+				<Route exact path="/legal/:option(faqs|terms-of-service|privacy-notice|cookies-notice)" component={Legal} />
 				<Route exact path="/legal/:option?">
 					<Redirect to="/legal/faqs" />
 				</Route>

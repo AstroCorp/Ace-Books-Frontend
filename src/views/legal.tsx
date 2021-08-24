@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import { LegalRouteParams } from '../types';
-import { FaqsIcon, PrivacyIcon, TermsIcon } from '../images/icons';
+import { FaqsIcon, PrivacyIcon, TermsIcon, CookiesIcon } from '../images/icons';
 import { Footer, OfflineHeader } from '../components';
 
 const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
+	const [ t ] = useTranslation('legal');
     const [ option, setOption ] = useState<string>(props.match.params.option || 'faqs');
-    const [ t ] = useTranslation('legal');
+	const content: string[] = t('options.' + option.split('-')[0] + '.content', { returnObjects: true, });
+
+	console.log(content);
 
     useEffect(() => {
         setOption(props.match.params.option);
@@ -34,25 +37,13 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 			description: t('options.privacy.description'),
 			url: '/legal/privacy-notice',
 		},
+		{
+			icon: <CookiesIcon height="40px" width="40px" />,
+			title: t('options.cookies.title'),
+			description: t('options.cookies.description'),
+			url: '/legal/cookies-notice',
+		},
 	];
-
-	const terms = () => {
-		const texts = t('options.terms.content', { returnObjects: true, }) as string[];
-
-		return texts.map((text: string, index: number) => (
-			<ReactMarkdown 
-				key={'line-' + index}
-				components={{
-					h1: ({ children }) => (<h1 className="mb-4 text-3xl font-semibold">{ children }</h1>),
-					h2: ({ children }) => (<h2 className="mt-6 text-xl font-bold">{ children }</h2>),
-					h3: ({ children }) => (<h3 className="text-base font-bold">{ children }</h3>),
-					p: ({ children }) => (<p className="py-2">{ children }</p>),
-				}}
-			>
-				{ text }
-			</ReactMarkdown>
-		));
-	}
 
     return (
         <div className="bg-books min-h-screen">
@@ -79,9 +70,19 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 					</div>
 					<div className="bg-white bg-opacity-95 p-6 w-full rounded-md">
 						{
-							option === 'terms-of-service' && (
-								terms()
-							)
+							content.map((text: string, index: number) => (
+								<ReactMarkdown 
+									key={'line-' + index}
+									components={{
+										h1: ({ children }) => (<h1 className="mb-4 text-3xl font-semibold">{ children }</h1>),
+										h2: ({ children }) => (<h2 className="mt-6 text-xl font-bold">{ children }</h2>),
+										h3: ({ children }) => (<h3 className="text-base font-bold">{ children }</h3>),
+										p: ({ children }) => (<p className="py-2">{ children }</p>),
+									}}
+								>
+									{ text }
+								</ReactMarkdown>
+							))
 						}
 					</div>
 				</div>

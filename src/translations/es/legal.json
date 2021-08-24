@@ -2,7 +2,10 @@
     "options": {
         "faqs": {
             "title": "Preguntas frecuentes",
-            "description": "La mejor forma de resolver tus dudas rápidamente."
+            "description": "La mejor forma de resolver tus dudas rápidamente.",
+            "content": [
+                ""
+            ]
         },
         "terms": {
             "title": "Términos y condiciones",
@@ -65,7 +68,17 @@
         },
         "privacy": {
             "title": "Política de privacidad",
-            "description": "Tus datos son importantes, por eso los tratamos con sumo cuidado."
+            "description": "Tus datos son importantes, por eso los tratamos con sumo cuidado.",
+            "content": [
+                ""
+            ]
+        },
+        "cookies": {
+            "title": "Política de cookies",
+            "description": "Tipos de cookies y finalidad.",
+            "content": [
+                ""
+            ]
         }
     }
 }
