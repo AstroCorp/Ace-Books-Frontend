@@ -75,9 +75,31 @@
         },
         "cookies": {
             "title": "Política de cookies",
-            "description": "Tipos de cookies y finalidad.",
+            "description": "Tipos de cookies y su finalidad, nosotros no te rastreamos.",
             "content": [
-                ""
+                "# Política de cookies",
+
+                "### Agosto 2021",
+
+                "Esta política de cookies de Ace Books se aplica al uso que haces del sitio web, aplicaciones o servicios propiedad de o proporcionados u operados por los mismos. Esta política de cookies puede cambiar en cualquier momento, así que consulta la fecha que aparece arriba de esta página para saber cuándo fue la última vez que la modificamos.",
+
+                "## ¿Qué es una cookie?",
+
+                "Las cookies son pequeños archivos de texto que se almacenan en tu ordenador o dispositivo móvil. Su uso está muy extendido, y sirven para que las aplicaciones de software y los sitios web funcionen, o funcionen de una forma más eficiente. Los sitios web y aplicaciones de software pueden leer estos archivos y escribir en ellos, lo que les permite reconocerte y recordar información importante que hará que para ti sea más cómodo usar esos sitios web y aplicaciones (p. ej. recordando tus preferencias de usuario).",
+
+                "## ¿Qué cookies usamos y por qué motivos?",
+
+                "Abajo se incluye una lista de los distintos tipos de cookies que podemos usar en Ace Books.",
+
+                "Utilizamos cookies de sesión, que duran hasta que cierras el navegador, y cookies persistentes, que duran hasta que las eliminas del navegador o hasta que lleguen al final de su vida útil.",
+
+                "## Ejemplos de cookies",
+
+                "| Id. de cookie | Finalidad |",
+                "| ------------- | ------------- |",
+                "| auth-token | Autenticación y autorización |",
+                "| api_token | Seguridad |",
+                "| language | Preferencias de usuario |"
             ]
         }
     }

@@ -75,9 +75,31 @@
         },
         "cookies": {
             "title": "Cookies policy",
-            "description": "Types of cookies and purpose.",
+            "description": "Types of cookies and their purpose, we do not track you.",
             "content": [
-                ""
+                "# Cookies policy",
+
+                "### August 2021",
+
+                "This Cookies policy of Ace Books applies to the use you make of the website, applications or services owned by or provided by them.This cookies policy can change at any time, so check the date that appears above this page to know when it was the last time we modify it.",
+
+                "## What is a cookie?",
+
+                "Cookies are small text files that are stored on your device. They are widely used in order to make websites and software applications work, or work in a better, more efficient way. They can do this because websites and software applications can read and write these files, enabling them to recognize a particular device and remember important information that will make your use of a website or software application more convenient (e.g., by remembering your user preferences).",
+
+                "## What Cookies do we use and why do we use them?",
+
+                "Below we list the different types of cookies we may use in Ace Books.",
+
+                "We use session cookies (that last until you close your browser) and persistent cookies (that last until you delete them from your browser, or until they expire in accordance with their lifespan).",
+
+                "## Examples of cookies",
+
+                "| Cookie ID | Purpose |",
+                "| ------------- | ------------- |",
+                "| auth-token | Authentication & authorization |",
+                "| api_token | Security |",
+                "| language | User preferences |"
             ]
         }
     }
