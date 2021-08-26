@@ -4,7 +4,24 @@
             "title": "FAQs",
             "description": "The best way to solve your doubts quickly.",
             "content": [
-                ""
+                "# Frequently Asked Questions",
+
+                "### August 2021",
+
+                "## How can I share my documents?",
+                "Currently, we do not allow sharing documents, this is due to possible undue uses of the platform, such as distributing copyright content.",
+
+                "## How can I register?",
+                "In order to register on our website, you have to click on “Sign in”, option that you will find in the upper right corner.There you will find an option to register.",
+
+                "## Can I change my password? If so, how?",
+                "If you have forgotten the password you can recover it on the same log form, if not, from the dropdown menu that appears when you click on your avatar you will find an option to edit your profile, there you can modify your password.",
+
+                "## How do I modify my email address?",
+                "Currently by security issues we do not allow modifying your email.",
+
+                "## How can I delete my account?",
+                "To delete your Ace Books account you will have to click on your avatar, a menu will be displayed on which you will find an option to modify your profile, at the end of the page you will find a button to delete your account."
             ]
         },
         "terms": {
