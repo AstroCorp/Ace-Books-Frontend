@@ -77,6 +77,9 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 								h2: ({ children }) => <h2 className="mt-6 text-xl font-bold">{ children }</h2>,
 								h3: ({ children }) => <h3 className="text-base font-bold">{ children }</h3>,
 								p: ({ children }) => <p className="py-2">{ children }</p>,
+								a: ({ href, children }) => <a className="text-blue-600 hover:underline" href={href} target="_blank" rel="noreferrer">{ children }</a>,
+								ul: ({ children }) => <ul className="list-outside list-disc">{ children }</ul>,
+								li: ({ children }) => <li className="ml-5">{ children }</li>,
 								table: ({ children }) => <table className="w-full table-fixed rounded-md overflow-hidden text-left mt-3">{ children }</table>,
 								thead: ({ children }) => <thead className="bg-gray-300 bg-opacity-80 overflow-hidden">{ children }</thead>,
 								tbody: ({ children }) => <tbody className="bg-gray-200 overflow-hidden">{ children }</tbody>,
@@ -84,7 +87,14 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 								td: ({ children }) => <td className="py-2 px-3 border-t border-gray-300">{ children }</td>,
 							}}
 						>
-							{ content.join('\n') }
+							{
+								content.reduce((accumulator: string, currentValue: string, index: number) => 
+									accumulator + 
+									(index === 1 ? '\n' : '') + 
+									currentValue + 
+									(currentValue[currentValue.length - 1] === '|'  ? '\n' : '\n\n')
+								)
+							}
 						</ReactMarkdown>
 					</div>
 				</div>
