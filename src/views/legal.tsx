@@ -58,7 +58,7 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 									<Link 
 										key={'legalOption' + index} 
 										className={classNames("bg-white rounded-md p-4 md:mb-1 flex flex-row", {
-											"bg-opacity-75": !window.location.href.includes(legalOption.url),
+											"bg-opacity-80": !window.location.href.includes(legalOption.url),
 											"bg-opacity-95": window.location.href.includes(legalOption.url),
 										})}
 										to={legalOption.url}
