@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import classNames from 'classnames';
 import { LegalRouteParams } from '../types';
 import { FaqsIcon, PrivacyIcon, TermsIcon, CookiesIcon } from '../images/icons';
 import { Footer, OfflineHeader } from '../components';
@@ -54,7 +55,14 @@ const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
 				    	<ul className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4 mb-4 md:mb-0 sticky top-5">
 							{
 								legalOptions.map((legalOption, index) => (
-									<Link key={'legalOption' + index} className="bg-white bg-opacity-80 rounded-md p-4 md:mb-1 flex flex-row" to={legalOption.url}>
+									<Link 
+										key={'legalOption' + index} 
+										className={classNames("bg-white rounded-md p-4 md:mb-1 flex flex-row", {
+											"bg-opacity-75": !window.location.href.includes(legalOption.url),
+											"bg-opacity-95": window.location.href.includes(legalOption.url),
+										})}
+										to={legalOption.url}
+									>
 										<div>
 											{ legalOption.icon }
 										</div>
