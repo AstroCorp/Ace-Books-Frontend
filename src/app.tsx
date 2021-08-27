@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
-import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Home, Auth, Legal, NoMatch } from './views';
 
 const App = () => (
 	<Suspense fallback="loading">
-		<HashRouter basename="/Ace-Books-Frontend">
+		<BrowserRouter basename="/Ace-Books-Frontend">
 			<Switch>
 				<Route exact path="/" component={Home} />
 
@@ -13,7 +13,6 @@ const App = () => (
 					<Redirect to="/auth/login" />
 				</Route>
 
-				
 				<Route exact path="/legal/:option(faqs|terms-of-service|privacy-notice|cookies-notice)" component={Legal} />
 				<Route exact path="/legal/:option?">
 					<Redirect to="/legal/faqs" />
@@ -21,7 +20,7 @@ const App = () => (
 
 				<Route path="*" component={NoMatch} />
 			</Switch>
-		</HashRouter>
+		</BrowserRouter>
 	</Suspense>
 );
 
