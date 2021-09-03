@@ -16,6 +16,32 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
         props.history.replace('/auth/' + option);
     }, [option, props.history]);
 
+    const handleClick = () => {
+        switch (option) {
+            case 'login':
+                login();
+                break;
+            case 'register':
+                register();
+                break;
+            case 'recovery':
+                recovery();
+                break;
+        }
+    }
+
+    const login = () => {
+        //
+    }
+
+    const register = () => {
+        //
+    }
+
+    const recovery = () => {
+        //
+    }
+
     return (
         <div className="min-h-screen bg-books flex flex-col justify-center">
             <div className="m-16 sm:m-6 sm:mx-auto sm:w-full sm:max-w-md">
@@ -143,7 +169,11 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
 
                     {
                         option === 'recovery' && (
-                            <button type="button" className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <button 
+                                onClick={handleClick} 
+                                type="button" 
+                                className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
                                 { t('recoveryPassword.next') }
                             </button>
                         )
