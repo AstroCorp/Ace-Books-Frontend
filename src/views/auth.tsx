@@ -4,6 +4,9 @@ import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import { AuthRouteParams } from '../types';
 import { CloseIcon } from '../images/icons';
 import { Footer } from '../components';
@@ -11,34 +14,54 @@ import { Footer } from '../components';
 const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
     const [ t ] = useTranslation('auth');
     const [ option, setOption ] = useState<string>(props.match.params.option || 'login');
+    const [ schema, setSchema ] = useState<yup.AnyObjectSchema>(yup.object().shape({}));
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+        resolver: yupResolver(schema),
+    });
 
     useEffect(() => {
         props.history.replace('/auth/' + option);
-    }, [option, props.history]);
 
-    const handleClick = () => {
+        reset(); // Limpiamos el form
+
+        const newSchema: any = {
+            email: yup.string().required().email(),
+        };
+
+        if (option === 'login' || option === 'register') {
+            newSchema.password = yup.string().required().min(6).max(25);
+        }
+
+        if (option === 'register') {
+            newSchema.confirmPassword = yup.string().required().oneOf([yup.ref('password')]);
+        }
+
+        setSchema(yup.object().shape(newSchema));
+    }, [option, props.history, reset]);
+
+    const onSubmit = (data: any) => {
         switch (option) {
             case 'login':
-                login();
+                login(data);
                 break;
             case 'register':
-                register();
+                signup(data);
                 break;
             case 'recovery':
-                recovery();
+                recovery(data);
                 break;
         }
     }
 
-    const login = () => {
+    const login = (data: any) => {
         //
     }
 
-    const register = () => {
+    const signup = (data: any) => {
         //
     }
 
-    const recovery = () => {
+    const recovery = (data: any) => {
         //
     }
 
@@ -53,21 +76,23 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                     {
                         option !== 'recovery' && (
                             <>
-                            <button
-                                onClick={() => setOption('login')}
-                                className={classNames("z-10 w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tl-md focus:outline-none", {
-                                    "shadow-inner-full bg-opacity-85": option !== 'login',
-                                })}>
-                                { t('logIn.title') }
-                            </button>
-                            
-                            <button
-                                onClick={() => setOption('register')}
-                                className={classNames("z-10 w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tr-md focus:outline-none", {
-                                    "shadow-inner-full bg-opacity-85": option !== 'register',
-                                })}>
-                                { t('signIn.title') }
-                            </button>
+                                <button
+                                    onClick={() => setOption('login')}
+                                    className={classNames("z-10 w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tl-md focus:outline-none", {
+                                        "shadow-inner-full bg-opacity-85": option !== 'login',
+                                    })}
+                                >
+                                    { t('logIn.title') }
+                                </button>
+                                
+                                <button
+                                    onClick={() => setOption('register')}
+                                    className={classNames("z-10 w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tr-md focus:outline-none", {
+                                        "shadow-inner-full bg-opacity-85": option !== 'register',
+                                    })}
+                                >
+                                    { t('signIn.title') }
+                                </button>
                             </>
                         )
                     }
@@ -93,9 +118,12 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                     </div>
                 </div>
                     
-                <div className={classNames("px-6 py-8 lg:px-8 bg-white rounded-b-md", {
-                    'rounded-t-md': option === 'recovery',
-                })}>
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className={classNames("px-6 py-8 lg:px-8 bg-white rounded-b-md", {
+                        'rounded-t-md': option === 'recovery',
+                    })}
+                >
                     {
                         option === 'recovery' && (
                             <h1 className="text-2xl text-gray-500 mb-4">{ t('recoveryPassword.title') }</h1>
@@ -104,7 +132,19 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
 
                     <label className="block text-sm font-medium text-gray-700">{ t('logIn.email') }</label>
                     <div className="mt-1">
-                        <input type="email" className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                        <input 
+                            type="email" 
+                            className={classNames('shadow-sm block w-full sm:text-sm border-gray-300 rounded-md', {
+                                'focus:ring-blue-500 focus:border-blue-500': !errors.email,
+                                'focus:ring-red-500 focus:border-red-500': errors.email,
+                            })}
+                            { ...register('email') }
+                        />
+                        {
+                            errors.email && (
+                                <div className="text-sm text-red-500 pt-1">{ t('errors.email') }</div>
+                            )
+                        }
                     </div>
                     
                     {
@@ -112,7 +152,19 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                             <>
                                 <label className="block text-sm font-medium text-gray-700 mt-4">{ t('logIn.password') }</label>
                                 <div className="mt-1">
-                                    <input type="password" className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                    <input 
+                                        type="password"
+                                        className={classNames('shadow-sm block w-full sm:text-sm border-gray-300 rounded-md', {
+                                            'focus:ring-blue-500 focus:border-blue-500': !errors.password,
+                                            'focus:ring-red-500 focus:border-red-500': errors.password,
+                                        })}
+                                        { ...register('password') }
+                                    />
+                                    {
+                                        errors.password && (
+                                            <div className="text-sm text-red-500 pt-1">{ t('errors.password') }</div>
+                                        )
+                                    }
                                 </div>
                             </>
                         )
@@ -123,10 +175,22 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                             <>
                                 <label className="block text-sm font-medium text-gray-700 mt-4">{ t('signIn.confirmPassword') }</label>
                                 <div className="mt-1">
-                                    <input type="password" className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                    <input
+                                        type="password"
+                                        className={classNames('shadow-sm block w-full sm:text-sm border-gray-300 rounded-md', {
+                                            'focus:ring-blue-500 focus:border-blue-500': !errors.confirmPassword,
+                                            'focus:ring-red-500 focus:border-red-500': errors.confirmPassword
+                                        })}
+                                        { ...register('confirmPassword') }
+                                    />
+                                    {
+                                        errors.confirmPassword && (
+                                            <div className="text-sm text-red-500 pt-1">{ t('errors.confirmPassword') }</div>
+                                        )
+                                    }
                                 </div>
 
-                                <button type="button" className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                <button type="submit" className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     { t('signIn.title') }
                                 </button>
                                 
@@ -160,7 +224,7 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                                     </div>
                                 </div>
                                 
-                                <button type="button" className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                <button type="submit" className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     { t('logIn.title') }
                                 </button>
                             </>
@@ -169,16 +233,15 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
 
                     {
                         option === 'recovery' && (
-                            <button 
-                                onClick={handleClick} 
-                                type="button" 
+                            <button
+                                type="submit" 
                                 className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                             >
                                 { t('recoveryPassword.next') }
                             </button>
                         )
                     }
-                </div>
+                </form>
             </div>
 
             <Footer />
