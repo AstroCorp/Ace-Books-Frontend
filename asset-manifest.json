@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Ace-Books-Frontend/static/css/main.41830374.chunk.css",
-    "main.js": "/Ace-Books-Frontend/static/js/main.a98addd6.chunk.js",
-    "main.js.map": "/Ace-Books-Frontend/static/js/main.a98addd6.chunk.js.map",
+    "main.css": "/Ace-Books-Frontend/static/css/main.0ecf7ac7.chunk.css",
+    "main.js": "/Ace-Books-Frontend/static/js/main.a613fa49.chunk.js",
+    "main.js.map": "/Ace-Books-Frontend/static/js/main.a613fa49.chunk.js.map",
     "runtime-main.js": "/Ace-Books-Frontend/static/js/runtime-main.909068d7.js",
     "runtime-main.js.map": "/Ace-Books-Frontend/static/js/runtime-main.909068d7.js.map",
-    "static/js/2.25399529.chunk.js": "/Ace-Books-Frontend/static/js/2.25399529.chunk.js",
-    "static/js/2.25399529.chunk.js.map": "/Ace-Books-Frontend/static/js/2.25399529.chunk.js.map",
+    "static/js/2.af272660.chunk.js": "/Ace-Books-Frontend/static/js/2.af272660.chunk.js",
+    "static/js/2.af272660.chunk.js.map": "/Ace-Books-Frontend/static/js/2.af272660.chunk.js.map",
     "index.html": "/Ace-Books-Frontend/index.html",
-    "static/css/main.41830374.chunk.css.map": "/Ace-Books-Frontend/static/css/main.41830374.chunk.css.map",
-    "static/js/2.25399529.chunk.js.LICENSE.txt": "/Ace-Books-Frontend/static/js/2.25399529.chunk.js.LICENSE.txt",
+    "static/css/main.0ecf7ac7.chunk.css.map": "/Ace-Books-Frontend/static/css/main.0ecf7ac7.chunk.css.map",
+    "static/js/2.af272660.chunk.js.LICENSE.txt": "/Ace-Books-Frontend/static/js/2.af272660.chunk.js.LICENSE.txt",
     "static/media/index.css": "/Ace-Books-Frontend/static/media/bg_index.350c15de.jpg",
     "static/media/getFetch.cjs": "/Ace-Books-Frontend/static/media/getFetch.582d29c4.cjs"
   },
   "entrypoints": [
     "static/js/runtime-main.909068d7.js",
-    "static/js/2.25399529.chunk.js",
-    "static/css/main.41830374.chunk.css",
-    "static/js/main.a98addd6.chunk.js"
+    "static/js/2.af272660.chunk.js",
+    "static/css/main.0ecf7ac7.chunk.css",
+    "static/js/main.a613fa49.chunk.js"
   ]
 }
