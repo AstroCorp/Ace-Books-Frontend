@@ -9,8 +9,9 @@ export const history = createBrowserHistory();
 
 const configureStore = (preloadedState?: any) => {
 	const client = axios.create({
-		baseURL: 'https://api.github.com/users/AstroCorp/repos',
+		baseURL: 'https://ace-books-backend.herokuapp.com/api/',
 		responseType: 'json',
+    	withCredentials: true,
 	});
 	
 	const windowRedux: any = window;

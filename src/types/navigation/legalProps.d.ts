@@ -1,3 +1,5 @@
+import { RouteComponentProps } from 'react-router';
+
 enum LegalOption {
     'faqs' = 'faqs',
     'terms-of-service' = 'terms-of-service',
@@ -8,4 +10,8 @@ type LegalRouteParams = {
     option: LegalOption;
 }
 
-export default LegalRouteParams;
+interface LegalProps extends RouteComponentProps<LegalRouteParams> {
+    //
+}
+
+export default LegalProps;

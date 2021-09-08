@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import classNames from 'classnames';
-import { LegalRouteParams } from '../types';
+import { LegalProps } from '../types';
 import { FaqsIcon, PrivacyIcon, TermsIcon, CookiesIcon } from '../images/icons';
 import { Footer, OfflineHeader } from '../components';
 
-const Legal = (props: RouteComponentProps<LegalRouteParams>) => {
+const Legal = (props: LegalProps) => {
 	const [ t ] = useTranslation('legal');
     const [ option, setOption ] = useState<string>(props.match.params.option || 'faqs');
 	const content: string[] = t('options.' + option.split('-')[0] + '.content', { returnObjects: true });

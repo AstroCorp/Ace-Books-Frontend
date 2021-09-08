@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import classNames from "classnames";
-import { RouteComponentProps } from 'react-router';
+import classNames from 'classnames';
+import { bindActionCreators, Dispatch } from 'redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { AuthRouteParams } from '../types';
+import { login } from '../store/actions/authActions';
+import { AuthProps } from '../types';
 import { CloseIcon } from '../images/icons';
 import { Footer } from '../components';
 
-const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
+const Auth = (props: AuthProps) => {
     const [ t ] = useTranslation('auth');
     const [ option, setOption ] = useState<string>(props.match.params.option || 'login');
     const [ schema, setSchema ] = useState<yup.AnyObjectSchema>(yup.object().shape({}));
@@ -42,7 +44,7 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
     const onSubmit = (data: any) => {
         switch (option) {
             case 'login':
-                login(data);
+                props.login(data.email, data.password);
                 break;
             case 'register':
                 signup(data);
@@ -51,10 +53,6 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                 recovery(data);
                 break;
         }
-    }
-
-    const login = (data: any) => {
-        //
     }
 
     const signup = (data: any) => {
@@ -209,22 +207,13 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
                     {
                         option === 'login' && (
                             <>
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between mt-4">
-                                    <div className="flex items-center">
-                                        <input id="remember_me" type="checkbox" className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
-                                        <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
-                                            { t('logIn.remember') }
-                                        </label>
-                                    </div>
-
-                                    <div className="text-sm mt-2 sm:mt-0">
-                                        <button onClick={() => setOption('recovery')} className="font-medium text-blue-600 hover:text-blue-500">
-                                            { t('logIn.forgotPassword') }
-                                        </button>
-                                    </div>
+                                <div className="flex items-center justify-start my-4">
+                                    <button onClick={() => setOption('recovery')} className="text-sm font-medium text-blue-600 hover:text-blue-500">
+                                        { t('logIn.forgotPassword') }
+                                    </button>
                                 </div>
                                 
-                                <button type="submit" className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                <button type="submit" className="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     { t('logIn.title') }
                                 </button>
                             </>
@@ -249,4 +238,13 @@ const Auth = (props: RouteComponentProps<AuthRouteParams>) => {
     );
 }
 
-export default Auth;
+const mapStateToProps = ({ authReducer }: any) => ({
+	error: authReducer.error,
+    loading: authReducer.loading,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
+    login,
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
