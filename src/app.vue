@@ -1,5 +1,6 @@
 <template>
-	<div>
-		<h1 class="text-2xl font-bold">Ace Books</h1>
-	</div>
+	<NuxtLayout>
+		<NuxtLoadingIndicator />
+		<NuxtPage />
+	</NuxtLayout>
 </template>
