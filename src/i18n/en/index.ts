@@ -1,4 +1,5 @@
 import cookies from './cookies.json';
+import error from './error.json';
 import faqs from './faqs.json';
 import footer from './footer.json';
 import header from './header.json';
@@ -9,6 +10,7 @@ import terms from './terms.json';
 
 const en = {
 	cookies,
+	error,
 	faqs,
 	footer,
 	header,

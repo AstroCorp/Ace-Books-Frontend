@@ -9,8 +9,14 @@ export default {
 		"./src/error.vue",
 	],
 	theme: {
-		extend: {},
+		extend: {
+			boxShadow: {
+                'inner-full': 'inset 0 0 30px rgb(34 34 34 / 25%)',
+            },
+		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/forms'),
+	],
 }
 
