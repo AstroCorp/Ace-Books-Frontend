@@ -23,7 +23,7 @@ export default defineNuxtConfig({
 			},
 		},
 	},
-	modules: ["nuxt-icons", "@nuxtjs/i18n", "@nuxtjs/mdc"],
+	modules: ["nuxt-icons", "@nuxtjs/i18n", "@nuxtjs/mdc", "@nuxt/image"],
 	i18n: {
 		vueI18n: './src/i18n/i18n.config.ts',
 		locales: ['en', 'es'],

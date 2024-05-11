@@ -12,13 +12,13 @@ defineProps<Props>();
 			:body="body"
 			:data="data"
 			:components="{
-				p: h('p', { class: 'mb-4' }, h('slot')),
-				h1: h('h1', { class: 'mb-4 text-3xl font-bold' }, h('slot')),
-				h2: h('h2', { class: 'mb-4 text-2xl font-bold' }, h('slot')),
-				h3: h('h3', { class: 'mb-4 text-xl font-bold' }, h('slot')),
-				h4: h('h4', { class: 'mb-4 text-lg font-bold' }, h('slot')),
-				h5: h('h5', { class: 'mb-4 text-base font-bold' }, h('slot')),
-				h6: h('h6', { class: 'mb-4 text-sm font-bold' }, h('slot')),
+				p: h('p', { class: 'pb-2' }, h('slot')),
+				h1: h('h1', { class: 'pb-2 text-3xl font-semibold' }, h('slot')),
+				h2: h('h2', { class: 'pb-2 pt-4 text-2xl font-semibold' }, h('slot')),
+				h3: h('h3', { class: 'pb-2 text-xl font-semibold' }, h('slot')),
+				h4: h('h4', { class: 'pb-2 text-lg font-semibold' }, h('slot')),
+				h5: h('h5', { class: 'pb-2 text-base font-semibold' }, h('slot')),
+				h6: h('h6', { class: 'pb-2 text-sm font-semibold' }, h('slot')),
 				ul: h('ul', { class: 'list-outside list-disc' }, h('slot')),
 				ol: h('ol', { class: 'list-outside list-decimal' }, h('slot')),
 				li: h('li', { class: 'ml-5' }, h('slot')),

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineI18nRoute({
 	paths: {
-		en: '/legal/faqs',
-		es: '/legal/preguntas-frecuentes',
+		en: '/legal/privacy-notice',
+		es: '/legal/aviso-de-privacidad',
 	},
 });
 
@@ -18,7 +18,7 @@ const i18Markdown = useI18nMarkdown();
 				<LegalMenu />
 
 				<div class="bg-white bg-opacity-85 p-6 w-full rounded-md">
-					<RenderMarkdown :value="i18Markdown('faqs.line_', 12)" />
+					<RenderMarkdown :value="i18Markdown('privacy.line_', 72)" />
 				</div>
 			</div>
 		</div>

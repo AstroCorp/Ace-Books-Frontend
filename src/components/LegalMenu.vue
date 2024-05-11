@@ -1,20 +1,23 @@
 <script setup lang="ts">
+const route = useRoute();
+const localePath = useLocalePath();
+
 const options = ref([
 	{
 		icon: 'faqs',
-		url: '/legal/faqs',
+		url: localePath('/legal/faqs'),
 	},
 	{
 		icon: 'terms',
-		url: '/legal/terms-of-service',
+		url: localePath('/legal/terms-and-conditions'),
 	},
 	{
 		icon: 'privacy',
-		url: '/legal/privacy-notice',
+		url: localePath('/legal/privacy-notice'),
 	},
 	{
 		icon: 'cookies',
-		url: '/legal/cookies-notice',
+		url: localePath('/legal/cookies-notice'),
 	},
 ]);
 </script>
@@ -24,15 +27,15 @@ const options = ref([
 		<ul class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4 mb-4 md:mb-0 sticky top-5">
 			<NuxtLinkLocale
 				v-for="(option, key) in options"
-				class="bg-white rounded-md p-4 md:mb-1 flex flex-row"
+				class="rounded-md p-4 md:mb-1 flex flex-row"
 				:class="{
-					'bg-opacity-80': false,
-					'bg-opacity-90': true,
+					'bg-slate-100 bg-opacity-70': route.path !== option.url,
+					'bg-white bg-opacity-85': route.path === option.url,
 				}"
 				:to="option.url"
 			>
-				<div class="w-10 h-10">
-					<nuxt-icon :name="option.icon" class="flex w-full h-full text-blue-600" />
+				<div class="flex flex-1 justify-center items-center">
+					<nuxt-icon :name="option.icon" class="flex h-10 text-blue-600 opacity-90" />
 				</div>
 				<div class="ml-4">
 					<div class="font-semibold">{{ $t(`legal.title_${key + 1}`) }}</div>

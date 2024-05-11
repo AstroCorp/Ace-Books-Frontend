@@ -19,8 +19,10 @@
 		"postinstall": "nuxt prepare"
 	},
 	"dependencies": {
+		"@nuxt/image": "^1.7.0",
 		"@nuxtjs/i18n": "^8.3.1",
 		"@nuxtjs/mdc": "^0.7.0",
+		"@vueuse/core": "^10.9.0",
 		"nuxt": "^3.11.2",
 		"nuxt-icons": "^3.2.1",
 		"vue": "^3.4.27",
