@@ -27,12 +27,12 @@ defineI18nRoute({
 				</button>
 
 				<div class="w-full flex justify-end ml-14 absolute z-0">
-					<Link
+					<NuxtLinkLocale
 						to="/"
-						class="p-2 rounded-md hover:bg-white hover:bg-opacity-20 transition duration-300 ease-in-out cursor-pointer"
+						class="p-2 rounded-md hover:bg-white hover:bg-opacity-85 transition duration-300 ease-in-out cursor-pointer"
 					>
-						Close
-					</Link>
+						<nuxt-icon name="close" class="flex w-8 h-8 text-white" />
+					</NuxtLinkLocale>
 				</div>
 			</div>
 
