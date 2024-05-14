@@ -1,0 +1,8 @@
+{
+	"login": "Iniciar sesión",
+	"register": "Registrarme",
+	"email": "Email",
+	"password": "Contraseña",
+	"error": "El email o la contraseña son incorrectos",
+	"forgot_password": "Recuperar contraseña"
+}
