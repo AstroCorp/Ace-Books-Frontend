@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-books h-screen flex flex-col">
+	<div class="h-screen flex flex-col">
 		<Header />
 
 		<div class="h-screen flex flex-col justify-center">

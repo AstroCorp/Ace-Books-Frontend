@@ -11,7 +11,7 @@ const handleError = () => clearError({ redirect: '/' })
 </script>
 
 <template>
-  <div class="bg-books h-screen flex flex-col">
+  <div class="flex flex-col min-h-screen">
 		<header class="md:bg-opacity-0 md:h-auto">
 			<nav class="flex items-center p-4 flex-wrap">
 				<button

@@ -21,7 +21,7 @@ const applyNavStyle = computed(() => {
 	<header
 		class="md:bg-opacity-0 md:h-auto"
 		:class="{
-			'absolute bg-white bg-opacity-90 h-full w-full': applyNavStyle,
+			'fixed bg-white bg-opacity-90 h-full w-full z-10': applyNavStyle,
 		}"
 	>
 		<nav class="flex items-center p-4 flex-wrap">
@@ -43,7 +43,13 @@ const applyNavStyle = computed(() => {
 				}"
 				@click="toggleNav"
 			>
-				<nuxt-icon name="menu" class="w-8 h-8" />
+				<nuxt-icon
+					:name="navActive ? 'close' : 'menu'"
+					class="flex w-8 h-8"
+					:class="{
+						'text-gray-700 hover:text-darkblue-500': applyNavStyle,
+					}"
+				/>
 			</button>
 
 			<div

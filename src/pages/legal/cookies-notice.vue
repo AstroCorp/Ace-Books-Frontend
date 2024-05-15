@@ -10,7 +10,7 @@ const i18Markdown = useI18nMarkdown();
 </script>
 
 <template>
-	<div class="bg-books min-h-screen flex flex-col justify-between">
+	<div class="flex flex-col justify-between min-h-screen">
 		<Header />
 
 		<div class="flex-1 flex-col justify-center mt-6 mx-6">

@@ -8,28 +8,28 @@ defineI18nRoute({
 </script>
 
 <template>
-	<div class="bg-books h-screen flex flex-col justify-center">
+	<div class="flex flex-col justify-center min-h-screen">
 		<div class="m-6 sm:mx-auto sm:w-full sm:max-w-md">
 			<NuxtLinkLocale
 				to="/"
-				class="block mb-6 text-shadow text-center text-4xl cursor-pointer text-white md:text-white"
+				class="flex justify-center mb-4 text-shadow text-center text-4xl cursor-pointer text-white"
 			>
 				Ace Books
 			</NuxtLinkLocale>
 
 			<div class="flex flex-row relative">
 				<NuxtLinkLocale
-					class="z-10 w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tl-md focus:outline-none text-center"
+					class="flex justify-center items-center z-10 w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tl-md focus:outline-none text-center"
 					to="/login"
 				>
-					{{ $t('login.login') }}
+					<div>{{ $t('register.login') }}</div>
 				</NuxtLinkLocale>
 
 				<NuxtLinkLocale
-					class="z-10 w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tr-md focus:outline-none text-center shadow-inner-full bg-opacity-85"
+					class="flex justify-center items-center z-10 w-1/2 text-gray-700 bg-white text-xl font-semibold px-6 py-4 rounded-tr-md focus:outline-none text-center shadow-inner-full bg-opacity-85"
 					to="/register"
 				>
-					{{ $t('login.register') }}
+					<div>{{ $t('register.register') }}</div>
 				</NuxtLinkLocale>
 
 				<div class="w-full hidden sm:flex justify-end sm:ml-14 absolute z-0">
