@@ -1,4 +1,6 @@
 {
+	"title": "Iniciar sesión",
+	"description": "Introduce tu email y contraseña para iniciar sesión",
 	"login": "Iniciar sesión",
 	"register": "Registrarme",
 	"email": "Email",

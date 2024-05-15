@@ -1,4 +1,7 @@
 <script setup lang="ts">
+const { t } = useI18n();
+const i18Markdown = useI18nMarkdown();
+
 defineI18nRoute({
 	paths: {
 		en: '/legal/terms-and-conditions',
@@ -6,7 +9,15 @@ defineI18nRoute({
 	},
 });
 
-const i18Markdown = useI18nMarkdown();
+useHead({
+	title: t('home.title') + ' - ' + t('terms.title'),
+	meta: [
+		{
+			name: 'description',
+			content: t('terms.description'),
+		},
+	],
+});
 </script>
 
 <template>

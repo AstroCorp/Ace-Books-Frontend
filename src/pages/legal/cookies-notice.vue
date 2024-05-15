@@ -1,4 +1,7 @@
 <script setup lang="ts">
+const { t } = useI18n();
+const i18Markdown = useI18nMarkdown();
+
 defineI18nRoute({
 	paths: {
 		en: '/legal/cookies-notice',
@@ -6,7 +9,15 @@ defineI18nRoute({
 	},
 });
 
-const i18Markdown = useI18nMarkdown();
+useHead({
+	title: t('home.title') + ' - ' + t('cookies.title'),
+	meta: [
+		{
+			name: 'description',
+			content: t('cookies.description'),
+		},
+	],
+});
 </script>
 
 <template>

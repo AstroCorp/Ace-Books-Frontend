@@ -1,9 +1,21 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 defineI18nRoute({
 	paths: {
 		en: '/login',
 		es: '/iniciar-sesion',
 	},
+});
+
+useHead({
+	title: t('home.title') + ' - ' + t('login.title'),
+	meta: [
+		{
+			name: 'description',
+			content: t('login.description'),
+		},
+	],
 });
 </script>
 

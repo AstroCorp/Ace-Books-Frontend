@@ -1,13 +1,25 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app';
 
+const { t } = useI18n();
+
 interface Props {
 	error: NuxtError;
 }
 
 defineProps<Props>();
 
-const handleError = () => clearError({ redirect: '/' })
+const handleError = () => clearError({ redirect: '/' });
+
+useHead({
+	title: t('home.title') + ' - ' + t('error.title'),
+	meta: [
+		{
+			name: 'description',
+			content: t('error.description'),
+		},
+	],
+});
 </script>
 
 <template>

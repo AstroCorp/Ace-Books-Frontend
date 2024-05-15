@@ -1,9 +1,21 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 defineI18nRoute({
 	paths: {
 		en: '/register',
 		es: '/registrarse',
 	},
+});
+
+useHead({
+	title: t('home.title') + ' - ' + t('register.title'),
+	meta: [
+		{
+			name: 'description',
+			content: t('register.description'),
+		},
+	],
 });
 </script>
 
