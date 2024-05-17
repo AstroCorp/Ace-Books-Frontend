@@ -34,7 +34,7 @@ const options = ref([
 				}"
 				:to="option.url"
 			>
-				<div class="flex flex-1 justify-center items-center">
+				<div class="flex justify-center items-center">
 					<nuxt-icon :name="option.icon" class="flex h-10 text-blue-600 opacity-90" />
 				</div>
 				<div class="ml-4">
