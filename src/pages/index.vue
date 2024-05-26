@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
+defineRouteRules({
+	prerender: true
+});
+
 useHead({
 	title: t('home.title'),
 	meta: [

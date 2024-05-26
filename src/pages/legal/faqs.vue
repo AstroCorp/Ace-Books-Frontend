@@ -2,6 +2,10 @@
 const { t } = useI18n();
 const i18Markdown = useI18nMarkdown();
 
+defineRouteRules({
+	prerender: true
+});
+
 defineI18nRoute({
 	paths: {
 		en: '/legal/faqs',
