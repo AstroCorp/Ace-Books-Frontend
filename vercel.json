@@ -1,12 +1,9 @@
 {
-	"buildCommand": "yarn build",
-	"outputDirectory": ".output",
 	"version": 2,
 	"builds": [
 		{
-			"src": ".output/server/index.mjs",
-			"use": "@vercel/node"
+			"src": "nuxt.config.js",
+			"use": "@nuxtjs/vercel-builder"
 		}
 	]
 }
-
