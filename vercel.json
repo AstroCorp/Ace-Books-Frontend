@@ -1,6 +1,4 @@
 {
-	"build": {
-		"command": "yarn build",
-		"outputDirectory": ".output"
-	}
+	"buildCommand": "yarn build",
+	"outputDirectory": ".output"
 }
