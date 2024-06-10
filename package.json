@@ -13,6 +13,7 @@
 		"docker:remove": "yarn remove",
 		"postdocker:remove": "docker exec -it ace-books-frontend-app-1 yarn install",
 		"build": "nuxt build",
+		"postbuild": "node .output/server/index.mjs",
 		"dev": "rm -rf /tmp/nitro && nuxt dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
