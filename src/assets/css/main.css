@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nuxt-icon svg {
+	margin-bottom: 0;
+	width: auto !important;
+	height: auto !important;
+}
+
+.bg-books {
+	background-image: url('/bg.jpeg');
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.text-shadow {
+	text-shadow: 0px 2px 5px rgb(0, 0, 0, 0.75);
+}
+
+#__nuxt {
+	@apply antialiased min-h-screen bg-books;
+}

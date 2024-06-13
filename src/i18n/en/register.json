@@ -1,0 +1,17 @@
+{
+	"title": "Register",
+	"description_en": "Register to start reading wherever you are.",
+	"login": "Login",
+	"register": "Register",
+	"email": "Email",
+	"email_error": "This email is not valid.",
+	"password": "Password",
+	"password_error": "This password is not valid.",
+	"password_validation_1": "Minimum 8 characters",
+	"password_validation_2": "One uppercase",
+	"password_validation_3": "One lowercase",
+	"password_validation_4": "One number",
+	"password_validation_5": "One special character",
+	"repeat_password": "Repeat password",
+	"repeat_password_error": "Passwords do not match."
+}

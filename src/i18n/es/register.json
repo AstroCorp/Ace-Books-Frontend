@@ -1,0 +1,17 @@
+{
+	"title": "Registro",
+	"description": "Regístrate para poder empezar a leer sea dónde sea.",
+	"login": "Iniciar sesión",
+	"register": "Registrarme",
+	"email": "Email",
+	"email_error": "El email no es válido.",
+	"password": "Contraseña",
+	"password_error": "Esta contraseña no es válida.",
+	"password_validation_1": "Mínimo 8 caracteres",
+	"password_validation_2": "Una mayúscula",
+	"password_validation_3": "Una minúscula",
+	"password_validation_4": "Un número",
+	"password_validation_5": "Un carácter especial",
+	"repeat_password": "Repetir contraseña",
+	"repeat_password_error": "Las contraseñas no coinciden."
+}

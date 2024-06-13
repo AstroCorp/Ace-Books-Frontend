@@ -1,69 +1,38 @@
 {
-  "name": "ace-books-frontend",
-  "version": "1.0.0",
-  "private": false,
-  "homepage": "https://astrocorp.github.io/Ace-Books-Frontend",
-  "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "clean": "rm -rf dist/ && rm -rf node_modules/ && rm yarn.lock && yarn cache clean && yarn install"
-  },
-  "dependencies": {
-    "@hookform/resolvers": "^2.8.0",
-    "axios": "^0.21.1",
-    "classnames": "^2.3.1",
-    "connected-react-router": "^6.9.1",
-    "i18next": "^20.6.0",
-    "i18next-browser-languagedetector": "^6.1.2",
-    "i18next-http-backend": "^1.3.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-hook-form": "^7.15.1",
-    "react-i18next": "^11.11.4",
-    "react-markdown": "^7.0.1",
-    "react-redux": "^7.2.4",
-    "react-router": "^5.2.1",
-    "react-router-dom": "^5.2.1",
-    "redux": "^4.1.1",
-    "redux-axios-middleware": "^4.0.1",
-    "remark-gfm": "^2.0.0",
-    "yup": "^0.32.9"
-  },
-  "devDependencies": {
-    "@craco/craco": "^6.2.0",
-    "@tailwindcss/forms": "^0.3.3",
-    "@tailwindcss/postcss7-compat": "^2.2.9",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/classnames": "^2.3.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.10",
-    "@types/react": "^17.0.19",
-    "@types/react-dom": "^17.0.9",
-    "@types/react-redux": "^7.1.18",
-    "@types/react-router-dom": "^5.1.8",
-    "@types/webpack-env": "^1.16.2",
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.36",
-    "react-scripts": "4.0.3",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.2.9",
-    "typescript": "^4.4.2"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "ace-books-frontend",
+	"version": "1.0.0",
+	"description": "",
+	"author": "Astro_Corp",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"docker": "docker exec -it ace-books-frontend-app-1",
+		"docker:install": "yarn install && docker exec -it ace-books-frontend-app-1 yarn install",
+		"docker:add": "yarn add",
+		"postdocker:add": "docker exec -it ace-books-frontend-app-1 yarn install",
+		"docker:remove": "yarn remove",
+		"postdocker:remove": "docker exec -it ace-books-frontend-app-1 yarn install",
+		"build": "nuxt build",
+		"dev": "rm -rf /tmp/nitro && nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"dependencies": {
+		"@nuxt/image": "^1.7.0",
+		"@nuxtjs/i18n": "^8.3.1",
+		"@nuxtjs/mdc": "^0.8.0",
+		"@vueuse/core": "^10.11.0",
+		"nuxt": "^3.12.1",
+		"nuxt-icons": "^3.2.1",
+		"vue": "^3.4.27",
+		"vue-router": "^4.3.3",
+		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"@tailwindcss/forms": "^0.5.7",
+		"autoprefixer": "^10.4.19",
+		"postcss": "^8.4.38",
+		"tailwindcss": "^3.4.4"
+	}
 }
