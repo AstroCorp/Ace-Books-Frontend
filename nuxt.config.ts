@@ -9,7 +9,7 @@ export default defineNuxtConfig({
 		},
 	},
 	devtools: {
-		enabled: true,
+		enabled: import.meta.env.NODE_ENV === "development",
 	},
 	experimental: {
 		inlineRouteRules: true,
