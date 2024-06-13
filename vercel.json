@@ -1,0 +1,6 @@
+{
+	"buildCommand": "yarn build",
+	"framework": "nuxtjs",
+	"installCommand": "yarn install",
+	"outputDirectory": ".output"
+}
