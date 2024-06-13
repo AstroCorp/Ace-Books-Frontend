@@ -12,10 +12,11 @@ const useI18nMarkdown = createSharedComposable(() => {
 
 		return translations.reduce((accumulator: string, currentValue: string) => {
 			// Si es parte de una tabla solo se agrega un salto de línea, si no, se agregan dos para
-			// que se genere un <p> independiente.
-			const lineBreak = currentValue[currentValue.length - 1] === '|'  ? '\n' : '\n\n';
+			// que se genere un <p> independiente. Para evitar problemas con i18n usamos %7C en lugar de |
+			const lineBreak = currentValue.startsWith('%7C') && currentValue.endsWith('%7C') ? '\n' : '\n\n';
+			const text = accumulator + lineBreak + currentValue;
 
-			return accumulator + lineBreak + currentValue;
+			return text.replaceAll('%7C', '|');
 		});
 	};
 });

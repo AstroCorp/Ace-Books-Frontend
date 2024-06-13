@@ -10,9 +10,9 @@
     "line_7": "Abajo se incluye una lista de los distintos tipos de cookies que podemos usar en Ace Books.",
     "line_8": "Utilizamos cookies de sesión, que duran hasta que cierras el navegador, y cookies persistentes, que duran hasta que las eliminas del navegador o hasta que lleguen al final de su vida útil.",
     "line_9": "## EJEMPLOS DE COOKIES",
-    "line_10": "| Id. de cookie | Finalidad |",
-    "line_11": "| ------------- | ------------- |",
-    "line_12": "| auth-token | Autenticación y autorización |",
-    "line_13": "| api_token | Seguridad |",
-    "line_14": "| language | Preferencias de usuario |"
+    "line_10": "%7C Id. de cookie %7C Finalidad %7C",
+    "line_11": "%7C ------------- %7C ------------- %7C",
+    "line_12": "%7C auth-token %7C Autenticación y autorización %7C",
+    "line_13": "%7C api_token %7C Seguridad %7C",
+    "line_14": "%7C language %7C Preferencias de usuario %7C"
 }
