@@ -76,9 +76,12 @@ useHead({
 				</div>
 
 				<div class="flex items-center justify-start my-4">
-					<button class="text-sm font-medium text-blue-600 hover:text-blue-500">
+					<NuxtLinkLocale
+						to="/reset"
+						class="text-sm font-medium text-blue-600 hover:text-blue-500"
+					>
 						{{ $t('login.forgot_password') }}
-					</button>
+					</NuxtLinkLocale>
 				</div>
 
 				<button type="submit" class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">

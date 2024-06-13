@@ -8,6 +8,7 @@ import legal from './legal.json';
 import login from './login.json';
 import privacy from './privacy.json';
 import register from './register.json';
+import reset from './reset.json';
 import terms from './terms.json';
 
 const es = {
@@ -21,6 +22,7 @@ const es = {
 	login,
 	privacy,
 	register,
+	reset,
 	terms,
 };
 
