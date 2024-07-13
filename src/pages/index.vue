@@ -5,7 +5,7 @@ const { t } = useI18n();
 const { y: topScroll } = useScroll(document);
 
 defineRouteRules({
-	prerender: true
+	prerender: true,
 });
 
 useHead({

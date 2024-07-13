@@ -13,22 +13,32 @@ const currentLocale = computed({
 
 <template>
 	<footer class="text-white">
-		<div class="bg-green-900 px-2 py-8">
-			<div class="mx-auto md:w-3/4 flex flex-row">
+		<div class="bg-green-900 px-2 py-8 text-center md:text-left">
+			<div class="mx-auto md:w-3/4 flex flex-col md:flex-row">
 				<div>
-					<h3 class="text-lg font-semibold text-gray-100">{{ t('footer.legal') }}</h3>
+					<h3 class="text-lg font-semibold text-gray-100 mb-2">{{ t('footer.legal') }}</h3>
 					<ul class="text-gray-300">
-						<li>{{ t('footer.cookies') }}</li>
-						<li>{{ t('footer.privacy') }}</li>
-						<li>{{ t('footer.terms') }}</li>
+						<li class="mb-2">
+							<NuxtLinkLocale to="/legal/cookies-noticie">{{ t('footer.cookies') }}</NuxtLinkLocale>
+						</li>
+						<li class="mb-2">
+							<NuxtLinkLocale to="/legal/privacy-notice">{{ t('footer.privacy') }}</NuxtLinkLocale>
+						</li>
+						<li>
+							<NuxtLinkLocale to="/legal/terms-and-conditions">{{ t('footer.terms') }}</NuxtLinkLocale>
+						</li>
 					</ul>
 				</div>
 
-				<div class="ml-8">
-					<h3 class="text-lg font-semibold text-gray-100">{{ t('footer.support') }}</h3>
+				<div class="mt-10 md:mt-0 md:ml-24">
+					<h3 class="text-lg font-semibold text-gray-100 mb-2">{{ t('footer.support') }}</h3>
 					<ul class="text-gray-300">
-						<li>{{ t('footer.faqs') }}</li>
-						<li>{{ t('footer.contact') }}</li>
+						<li class="mb-2">
+							<NuxtLinkLocale to="/legal/faqs">{{ t('footer.faqs') }}</NuxtLinkLocale>
+						</li>
+						<li>
+							<NuxtLinkLocale to="">{{ t('footer.contact') }}</NuxtLinkLocale>
+						</li>
 					</ul>
 				</div>
 			</div>

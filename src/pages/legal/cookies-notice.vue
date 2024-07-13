@@ -3,7 +3,7 @@ const { t } = useI18n();
 const i18Markdown = useI18nMarkdown();
 
 defineRouteRules({
-	prerender: true
+	prerender: true,
 });
 
 defineI18nRoute({

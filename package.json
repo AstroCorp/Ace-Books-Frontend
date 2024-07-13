@@ -21,10 +21,10 @@
 	"dependencies": {
 		"@nuxt/image": "^1.7.0",
 		"@nuxtjs/i18n": "^8.3.1",
-		"@nuxtjs/mdc": "^0.8.2",
+		"@nuxtjs/mdc": "^0.8.3",
 		"@vueuse/components": "^10.11.0",
 		"@vueuse/core": "^10.11.0",
-		"nuxt": "^3.12.2",
+		"nuxt": "^3.12.3",
 		"nuxt-icons": "^3.2.1",
 		"vue": "^3.4.31",
 		"vue-router": "^4.4.0",
