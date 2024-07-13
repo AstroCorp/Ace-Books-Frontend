@@ -1,9 +1,7 @@
 <script setup lang="ts">
-interface Props {
+defineProps<{
 	isValid: boolean;
-}
-
-defineProps<Props>();
+}>();
 </script>
 
 <template>

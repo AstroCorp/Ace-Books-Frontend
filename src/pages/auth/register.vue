@@ -24,7 +24,7 @@ useHead({
 		<div class="flex flex-col m-6 sm:mx-auto sm:w-full sm:max-w-md">
 			<NuxtLinkLocale
 				to="/"
-				class="flex justify-center my-4 text-shadow text-center text-4xl cursor-pointer text-white"
+				class="flex justify-center my-4 text-shadow shadow-black/75 text-center text-4xl cursor-pointer text-white"
 			>
 				Ace Books
 			</NuxtLinkLocale>

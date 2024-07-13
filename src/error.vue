@@ -28,7 +28,7 @@ useHead({
 			<nav class="flex items-center p-4 flex-wrap">
 				<button
 					@click="handleError"
-					class="p-2 mr-4 inline-flex items-center text-white md:text-white text-4xl cursor-pointer text-shadow"
+					class="p-2 mr-4 inline-flex items-center text-white md:text-white text-4xl cursor-pointer text-shadow shadow-black/75"
 				>
 					Ace Books
 				</button>

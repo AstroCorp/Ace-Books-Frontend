@@ -24,9 +24,9 @@ const applyNavStyle = computed(() => {
 		}"
 	>
 		<header
-			class="sm:bg-opacity-0 sm:h-auto"
+			class="fixed w-full sm:bg-opacity-0 sm:h-auto z-20"
 			:class="{
-				'fixed bg-white bg-opacity-90 h-full w-full z-20': applyNavStyle,
+				'bg-white bg-opacity-90 h-full': applyNavStyle,
 			}"
 		>
 			<nav class="flex items-center p-4 flex-wrap">
@@ -35,7 +35,7 @@ const applyNavStyle = computed(() => {
 					class="p-2 mr-4 inline-flex items-center text-4xl cursor-pointer"
 					:class="{
 						'text-gray-700 hover:text-darkblue-500': applyNavStyle,
-						'text-white text-shadow': !applyNavStyle,
+						'text-white text-shadow shadow-black/75': !applyNavStyle,
 					}"
 				>
 					Ace Books
@@ -67,32 +67,11 @@ const applyNavStyle = computed(() => {
 							'text-center mt-8': applyNavStyle,
 						}"
 					>
-						<li
-							class="sm:inline-flex sm:w-auto w-full items-center justify-center sm:mx-6"
-							:class="{
-								'mt-5 mb-8 sm:my-0 text-gray-700 hover:text-darkblue-500': applyNavStyle,
-							}"
-						>
-							<NuxtLinkLocale
-								class="sm:text-white p-2 hover:underline"
-								:class="{
-									'text-gray-700 hover:text-darkblue-500': applyNavStyle,
-								}"
-								:to="route.path.includes('legal') ? '/' : '/legal/faqs'"
-							>
-								{{ $t(route.path.includes('legal') ? 'header.home' : 'header.faqs') }}
-							</NuxtLinkLocale>
-						</li>
-
 						<li class="sm:inline-flex sm:w-auto w-full items-center justify-center">
-							<NuxtLinkLocale
-								class="sm:text-white sm:border-white p-2 border-2 rounded-md bg-white bg-opacity-0 hover:bg-opacity-20 transition duration-300 ease-in-out"
-								:class="{
-									'text-gray-700 border-gray-700': applyNavStyle,
-								}"
-								to="/login"
-							>
-								{{ $t('header.sign_in') }}
+							<NuxtLinkLocale to="/login">
+								<MainButton class="p-2">
+									{{ $t('header.sign_in') }}
+								</MainButton>
 							</NuxtLinkLocale>
 						</li>
 					</ul>

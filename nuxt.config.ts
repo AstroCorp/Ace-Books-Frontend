@@ -27,6 +27,12 @@ export default defineNuxtConfig({
 			},
 		},
 	},
+	components: [
+		{
+			path: '~/components',
+			pathPrefix: false,
+		},
+	],
 	modules: ["nuxt-icons", "@nuxtjs/i18n", "@nuxtjs/mdc", "@nuxt/image"],
 	i18n: {
 		vueI18n: './src/i18n/i18n.config.ts',
