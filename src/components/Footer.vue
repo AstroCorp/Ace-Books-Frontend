@@ -14,13 +14,13 @@ const currentLocale = computed({
 
 <template>
 	<footer class="text-white">
-		<div class="bg-green-900 px-2 py-8 text-center md:text-left">
+		<div class="bg-green-900/95 px-2 py-8 text-center md:text-left">
 			<div class="mx-auto md:w-3/4 flex flex-col md:flex-row">
 				<div>
 					<h3 class="text-lg font-semibold text-white mb-2">{{ t('footer.legal') }}</h3>
 					<ul class="text-gray-300/95">
 						<li class="mb-2 hover:text-white">
-							<NuxtLinkLocale to="/legal/cookies-noticie">{{ t('footer.cookies') }}</NuxtLinkLocale>
+							<NuxtLinkLocale to="/legal/cookies-notice">{{ t('footer.cookies') }}</NuxtLinkLocale>
 						</li>
 						<li class="mb-2 hover:text-white">
 							<NuxtLinkLocale to="/legal/privacy-notice">{{ t('footer.privacy') }}</NuxtLinkLocale>
