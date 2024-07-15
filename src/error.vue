@@ -37,7 +37,7 @@ useHead({
 
 		<div class="h-screen flex flex-col justify-center">
 			<article class="flex flex-col items-center text-center">
-				<h1 class="text-9xl text-white text-opacity-60 mb-6">{{ error.statusCode }}</h1>
+				<h1 class="text-9xl text-white text-opacity-60 mb-6 text-shadow shadow-black/40">{{ error.statusCode }}</h1>
 
 				<MainButton
 					@click="handleError"
