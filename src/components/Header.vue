@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
+import { useBreakpoints, breakpointsTailwind, useScroll, useWindowSize } from '@vueuse/core';
 
-const route = useRoute();
+const { y: topScroll } = useScroll(document);
+const { height: windowHeight } = useWindowSize();
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isResponsiveMenu = breakpoints.smaller('sm');
 
@@ -15,6 +16,10 @@ const toggleNav = () => {
 const applyNavStyle = computed(() => {
 	return navActive.value && isResponsiveMenu.value;
 });
+
+const applyNavBackground = computed(() => {
+	return topScroll.value > windowHeight.value * 0.3;
+});
 </script>
 
 <template>
@@ -24,19 +29,16 @@ const applyNavStyle = computed(() => {
 		}"
 	>
 		<header
-			class="fixed w-full sm:bg-opacity-0 sm:h-auto z-20"
+			class="fixed w-full sm:h-auto z-20 transition-all bg-green-900 bg-opacity-0 duration-200"
 			:class="{
-				'bg-white bg-opacity-90 h-full': applyNavStyle,
+				'h-full': applyNavStyle,
+				'bg-opacity-75 backdrop-blur-sm': applyNavBackground || applyNavStyle,
 			}"
 		>
 			<nav class="flex items-center p-4 flex-wrap">
 				<NuxtLinkLocale
 					to="/"
-					class="p-2 mr-4 inline-flex items-center text-4xl cursor-pointer"
-					:class="{
-						'text-gray-700 hover:text-darkblue-500': applyNavStyle,
-						'text-white text-shadow shadow-black/75': !applyNavStyle,
-					}"
+					class="p-2 mr-4 inline-flex items-center text-4xl cursor-pointer text-white text-shadow shadow-black/70"
 				>
 					Ace Books
 				</NuxtLinkLocale>
@@ -47,11 +49,7 @@ const applyNavStyle = computed(() => {
 				>
 					<nuxt-icon
 						:name="navActive ? 'close' : 'menu'"
-						class="flex w-8 h-8"
-						:class="{
-							'text-gray-700 hover:text-darkblue-500': applyNavStyle,
-							'text-white': !applyNavStyle,
-						}"
+						class="flex w-8 h-8 text-white"
 					/>
 				</button>
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { locale, locales, setLocaleCookie } = useI18n();
 const { t } = useI18n();
+const config = useRuntimeConfig();
 
 const currentLocale = computed({
 	get: () => locale.value,
@@ -37,7 +38,7 @@ const currentLocale = computed({
 							<NuxtLinkLocale to="/legal/faqs">{{ t('footer.faqs') }}</NuxtLinkLocale>
 						</li>
 						<li>
-							<NuxtLinkLocale to="">{{ t('footer.contact') }}</NuxtLinkLocale>
+							<a :href="`mailto:${$config.public.mailUsername}`">{{ t('footer.contact') }}</a>
 						</li>
 					</ul>
 				</div>

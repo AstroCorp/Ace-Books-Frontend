@@ -11,8 +11,8 @@ const isOpen = ref(false);
 const dropdown = ref<HTMLElement | null>(null);
 const dropdownMenu = ref<HTMLElement | null>(null);
 
-const { x: dropdownX, y: dropdownY } = useElementBounding(dropdown);
-const { height: dropdownMenuHeight } = useElementBounding(dropdownMenu);
+const { x: dropdownX, y: dropdownY, width: dropdownWidth } = useElementBounding(dropdown);
+const { height: dropdownMenuHeight, width: dropdownMenuWidth } = useElementBounding(dropdownMenu);
 const { x: windowX, y: windowY } = useWindowScroll();
 
 const top = computed(() => {
@@ -25,7 +25,7 @@ const top = computed(() => {
 const left = computed(() => {
 	if (!isOpen.value) return 0;
 
-	return dropdownX.value + windowX.value;
+	return dropdownX.value + windowX.value - ((dropdownMenuWidth.value - dropdownWidth.value) / 2);
 });
 
 const toggleDropdown = () => {

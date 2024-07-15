@@ -19,6 +19,16 @@ export default defineNuxtConfig({
 			link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
 		},
 	},
+	runtimeConfig: {
+		// Private keys are only available on the server
+		nodeEnv: process.env.NODE_ENV,
+		backendUrl: process.env.BACKEND_URL,
+
+		// Public keys that are exposed to the client
+		public: {
+			mailUsername: process.env.MAIL_USERNAME,
+		},
+	},
 	vite: {
 		server: {
 			watch: {
