@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { useBreakpoints, breakpointsTailwind, useScroll, useWindowSize } from '@vueuse/core';
+import { useBreakpoints, breakpointsTailwind, useScroll, useElementSize } from '@vueuse/core';
 
+const body = ref<HTMLElement | null>(null);
+const { height: windowHeight } = useElementSize(body);
 const { y: topScroll } = useScroll(document);
-const { height: windowHeight } = useWindowSize();
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isResponsiveMenu = breakpoints.smaller('sm');
 
@@ -18,7 +18,11 @@ const applyNavStyle = computed(() => {
 });
 
 const applyNavBackground = computed(() => {
-	return topScroll.value > windowHeight.value * 0.3;
+	return topScroll.value > windowHeight.value * 0.15;
+});
+
+onBeforeMount(() => {
+	body.value = document.body;
 });
 </script>
 
