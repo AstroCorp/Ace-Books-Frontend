@@ -43,7 +43,7 @@ useHead({
 					@click="handleError"
 					class="text-white px-4 py-3 border-2 rounded-md uppercase bg-white bg-opacity-0 hover:bg-opacity-20 transition duration-300 ease-in-out"
 				>
-					{{ $t('error.button') }}
+					{{ t('error.button') }}
 				</MainButton>
 			</article>
 

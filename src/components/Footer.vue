@@ -38,7 +38,7 @@ const currentLocale = computed({
 							<NuxtLinkLocale to="/legal/faqs">{{ t('footer.faqs') }}</NuxtLinkLocale>
 						</li>
 						<li class="hover:text-white">
-							<a :href="`mailto:${$config.public.mailUsername}`">{{ t('footer.contact') }}</a>
+							<a :href="`mailto:${config.public.mailUsername}`">{{ t('footer.contact') }}</a>
 						</li>
 					</ul>
 				</div>
@@ -47,7 +47,7 @@ const currentLocale = computed({
 
 		<div class="bg-black px-2 py-4">
 			<div class="mx-auto md:w-3/4 flex flex-col-reverse md:flex-row items-center">
-				<div class="w-full md:w-4/5 mt-4 md:mt-0 text-center md:text-left">Copyright &copy; {{ new Date().getFullYear() }} Ace Books. {{ $t('footer.copyright') }}</div>
+				<div class="w-full md:w-4/5 mt-4 md:mt-0 text-center md:text-left">Copyright &copy; {{ new Date().getFullYear() }} Ace Books. {{ t('footer.copyright') }}</div>
 
 				<div class="w-full md:w-1/5 flex flex-row justify-center md:justify-end">
 					<Dropdown v-model="currentLocale" :items="locales.map(localeObj => ({ text: localeObj.name || localeObj.code, value: localeObj.code }))">

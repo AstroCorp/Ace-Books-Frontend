@@ -27,12 +27,12 @@ useHead({
 			<div class="h-8 w-full pt-12"></div>
 
 			<article class="text-white w-full p-4 mx-auto md:w-2/3 xl:w-1/2 xl:ml-32">
-				<h1 class="text-4xl font-semibold text-shadow shadow-black/75">{{ $t('home.h1') }}</h1>
-				<p class="text-sm mt-2 mb-6 text-shadow shadow-black/75">{{ $t('home.p') }}</p>
+				<h1 class="text-4xl font-semibold text-shadow shadow-black/75">{{ t('home.h1') }}</h1>
+				<p class="text-sm mt-2 mb-6 text-shadow shadow-black/75">{{ t('home.p') }}</p>
 
 				<NuxtLinkLocale to="/register">
 					<MainButton class="px-4 py-3 uppercase">
-						{{ $t('home.button') }}
+						{{ t('home.button') }}
 					</MainButton>
 				</NuxtLinkLocale>
 

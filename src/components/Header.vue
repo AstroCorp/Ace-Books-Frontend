@@ -2,10 +2,12 @@
 import { useBreakpoints, breakpointsTailwind, useScroll, useElementSize } from '@vueuse/core';
 
 const body = ref<HTMLElement | null>(null);
+
 const { height: windowHeight } = useElementSize(body);
 const { y: topScroll } = useScroll(document);
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isResponsiveMenu = breakpoints.smaller('sm');
+const { t } = useI18n();
 
 const navActive = ref(false);
 
@@ -72,7 +74,7 @@ onBeforeMount(() => {
 						<li class="sm:inline-flex sm:w-auto w-full items-center justify-center">
 							<NuxtLinkLocale to="/login">
 								<MainButton class="p-2">
-									{{ $t('header.sign_in') }}
+									{{ t('header.sign_in') }}
 								</MainButton>
 							</NuxtLinkLocale>
 						</li>

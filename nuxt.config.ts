@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	compatibilityDate: '2024-07-20',
 	srcDir: 'src/',
 	css: ['~/assets/css/main.css'],
 	postcss: {
@@ -22,6 +23,7 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		// Private keys are only available on the server
 		nodeEnv: process.env.NODE_ENV,
+		nuxtSessionPassword: process.env.NUXT_SESSION_PASSWORD,
 		backendUrl: process.env.BACKEND_URL,
 
 		// Public keys that are exposed to the client
@@ -43,7 +45,13 @@ export default defineNuxtConfig({
 			pathPrefix: false,
 		},
 	],
-	modules: ["nuxt-icons", "@nuxtjs/i18n", "@nuxtjs/mdc", "@nuxt/image"],
+	modules: [
+        "nuxt-icons",
+        "@nuxtjs/i18n",
+        "@nuxtjs/mdc",
+        "@nuxt/image",
+        "nuxt-auth-utils"
+    ],
 	i18n: {
 		vueI18n: './src/i18n/i18n.config.ts',
 		locales: [

@@ -2,5 +2,5 @@
 	"title": "Reset password",
 	"description": "Enter your email address and we will send you a link to reset your password",
 	"email": "Email",
-	"next": "Next"
+	"reset": "Reset password"
 }

@@ -2,5 +2,5 @@
 	"title": "Restaurar contraseña",
 	"description": "Introduce tu email y te enviaremos un enlace para restaurar tu contraseña",
 	"email": "Email",
-	"next": "Siguiente"
+	"reset": "Restaurar contraseña"
 }

@@ -6,5 +6,7 @@
 	"email": "Email",
 	"password": "Contraseña",
 	"error": "El email o la contraseña son incorrectos",
-	"forgot_password": "Recuperar contraseña"
+	"forgot_password": "Recuperar contraseña",
+	"question_1": "¿No tienes una cuenta?",
+	"question_2": "¿Olvidaste tu contraseña?"
 }
