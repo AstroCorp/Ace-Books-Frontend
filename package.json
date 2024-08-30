@@ -13,28 +13,28 @@
 		"docker:remove": "yarn remove",
 		"postdocker:remove": "docker exec -it ace-books-frontend-app-1 yarn install",
 		"build": "nuxt build",
-		"dev": "rm -rf /tmp/nitro && nuxt dev",
+		"dev": "rm -rf /tmp/nitro && nuxt dev --inspect",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare"
 	},
 	"dependencies": {
-		"@nuxt/image": "^1.7.0",
-		"@nuxtjs/i18n": "^8.3.1",
+		"@nuxt/image": "^1.8.0",
+		"@nuxtjs/i18n": "^8.5.1",
 		"@nuxtjs/mdc": "^0.8.3",
-		"@vueuse/components": "^10.11.0",
-		"@vueuse/core": "^10.11.0",
-		"nuxt": "^3.12.4",
-		"nuxt-auth-utils": "^0.2.0",
+		"@vueuse/components": "^11.0.3",
+		"@vueuse/core": "^11.0.3",
+		"nuxt": "^3.13.0",
+		"nuxt-auth-utils": "^0.3.5",
 		"nuxt-icons": "^3.2.1",
-		"vue": "^3.4.32",
-		"vue-router": "^4.4.0",
+		"vue": "^3.4.38",
+		"vue-router": "^4.4.3",
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
-		"@tailwindcss/forms": "^0.5.7",
-		"autoprefixer": "^10.4.19",
-		"postcss": "^8.4.39",
-		"tailwindcss": "^3.4.6"
+		"@tailwindcss/forms": "^0.5.8",
+		"autoprefixer": "^10.4.20",
+		"postcss": "^8.4.41",
+		"tailwindcss": "^3.4.10"
 	}
 }

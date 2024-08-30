@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
+const config = useRuntimeConfig();
 
 defineI18nRoute({
 	paths: {
@@ -17,6 +18,32 @@ useHead({
 		},
 	],
 });
+
+const loginForm = ref({
+	email: '',
+	password: '',
+});
+const showLoginError = ref(false);
+
+const submitForm = async () => {
+	showLoginError.value = false;
+
+	try {
+		await $fetch(config.public.frontendUrl + '/api/auth/login', {
+			method: 'POST',
+			body: loginForm.value,
+		});
+	} catch (error) {
+		showLoginError.value = true;
+		return;
+	}
+
+	// Refrescamos la sesión del usuario
+	const { fetch } = useUserSession();
+  	await fetch();
+
+	await navigateTo("/library");
+};
 </script>
 
 <template>
@@ -27,7 +54,7 @@ useHead({
 			</div>
 
 			<div class="flex flex-row items-center lg:px-8 w-full min-h-svh sm:w-1/2 md:w-2/5 xl:w-2/6 bg-white">
-				<form class="w-full px-6 py-4">
+				<form class="w-full px-6 py-4" @submit.prevent="submitForm">
 					<NuxtLinkLocale to="/">
 						<nuxt-icon name="logo" class="flex w-1/3 mx-auto mb-4 xl:mb-5" />
 					</NuxtLinkLocale>
@@ -35,6 +62,7 @@ useHead({
 					<label class="block text-sm font-medium text-gray-700">{{ t('login.email') }}</label>
 					<div class="mt-1 mb-4">
 						<input
+							v-model="loginForm.email"
 							type="email"
 							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
 						/>
@@ -43,11 +71,12 @@ useHead({
 					<label class="block text-sm font-medium text-gray-700">{{ t('login.password') }}</label>
 					<div class="mt-1 mb-4">
 						<input
+							v-model="loginForm.password"
 							type="password"
 							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
 						/>
 
-						<div class="text-sm text-red-500 pt-1">{{ t('login.error') }}</div>
+						<div v-if="showLoginError" class="text-sm text-red-500 pt-1">{{ t('login.error') }}</div>
 					</div>
 
 					<button type="submit" class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">

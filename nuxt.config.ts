@@ -10,7 +10,7 @@ export default defineNuxtConfig({
 		},
 	},
 	devtools: {
-		enabled: import.meta.env.NODE_ENV === "development",
+		enabled: process.env.NODE_ENV === "development",
 	},
 	experimental: {
 		inlineRouteRules: true,
@@ -24,10 +24,11 @@ export default defineNuxtConfig({
 		// Private keys are only available on the server
 		nodeEnv: process.env.NODE_ENV,
 		nuxtSessionPassword: process.env.NUXT_SESSION_PASSWORD,
-		backendUrl: process.env.BACKEND_URL,
 
 		// Public keys that are exposed to the client
 		public: {
+			backendUrl: process.env.BACKEND_URL,
+			frontendUrl: process.env.FRONTEND_URL,
 			mailUsername: process.env.MAIL_USERNAME,
 		},
 	},
@@ -46,11 +47,11 @@ export default defineNuxtConfig({
 		},
 	],
 	modules: [
-        "nuxt-icons",
         "@nuxtjs/i18n",
+		"@nuxt/image",
         "@nuxtjs/mdc",
-        "@nuxt/image",
-        "nuxt-auth-utils"
+        "nuxt-auth-utils",
+		"nuxt-icons",
     ],
 	i18n: {
 		vueI18n: './src/i18n/i18n.config.ts',

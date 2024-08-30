@@ -4,6 +4,7 @@ import faqs from './faqs.json';
 import footer from './footer.json';
 import header from './header.json';
 import home from './home.json';
+import library from './library.json';
 import login from './login.json';
 import privacy from './privacy.json';
 import register from './register.json';
@@ -17,6 +18,7 @@ const es = {
 	footer,
 	header,
 	home,
+	library,
 	login,
 	privacy,
 	register,
