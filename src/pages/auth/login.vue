@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { t } = useI18n();
+const { t, locale } = useI18n();
+const localeRoute = useLocaleRoute();
 const config = useRuntimeConfig();
 
 defineI18nRoute({
@@ -17,6 +18,11 @@ useHead({
 			content: t('login.description'),
 		},
 	],
+});
+
+const libraryRoute = computed(() => {
+  const route = localeRoute('library', locale.value);
+  return route != null ? route.path : '/';
 });
 
 const loginForm = ref({
@@ -42,7 +48,7 @@ const submitForm = async () => {
 	const { fetch } = useUserSession();
   	await fetch();
 
-	await navigateTo("/library");
+	await navigateTo(libraryRoute.value);
 };
 </script>
 
