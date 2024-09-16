@@ -17,4 +17,4 @@ declare module '#auth-utils' {
 	interface UserSession extends LoginData {}
 }
 
-export interface LoginResponse extends LoginData {}
+export interface LoginAndRefreshResponse extends LoginData {}

@@ -2,6 +2,7 @@
 const { t, locale } = useI18n();
 const localeRoute = useLocaleRoute();
 const config = useRuntimeConfig();
+const { fetch } = useUserSession();
 
 defineI18nRoute({
 	paths: {
@@ -20,18 +21,15 @@ useHead({
 	],
 });
 
-const libraryRoute = computed(() => {
-  const route = localeRoute('library', locale.value);
-  return route != null ? route.path : '/';
-});
-
 const loginForm = ref({
 	email: '',
 	password: '',
 });
 const showLoginError = ref(false);
 
-const submitForm = async () => {
+const submitForm = async (event: Event) => {
+	event.preventDefault();
+
 	showLoginError.value = false;
 
 	try {
@@ -44,11 +42,12 @@ const submitForm = async () => {
 		return;
 	}
 
-	// Refrescamos la sesión del usuario
-	const { fetch } = useUserSession();
-  	await fetch();
+	await fetch();
 
-	await navigateTo(libraryRoute.value);
+	const libraryRoute = localeRoute('library', locale.value);
+	const libraryPath = libraryRoute != null ? libraryRoute.path : '/';
+
+	await navigateTo(libraryPath);
 };
 </script>
 
@@ -60,7 +59,7 @@ const submitForm = async () => {
 			</div>
 
 			<div class="flex flex-row items-center lg:px-8 w-full min-h-svh sm:w-1/2 md:w-2/5 xl:w-2/6 bg-white">
-				<form class="w-full px-6 py-4" @submit.prevent="submitForm">
+				<form class="w-full px-6 py-4" @submit="submitForm">
 					<NuxtLinkLocale to="/">
 						<nuxt-icon name="logo" class="flex w-1/3 mx-auto mb-4 xl:mb-5" />
 					</NuxtLinkLocale>

@@ -1,10 +1,10 @@
-import { LoginResponse } from "~/types/auth";
+import { LoginAndRefreshResponse } from "~/types/auth";
 
 export default defineEventHandler(async (event) => {
 	const config = useRuntimeConfig();
 	const body = await readBody(event);
 
-	const response = await $fetch<LoginResponse>(config.public.backendUrl + '/auth/login', {
+	const response = await $fetch<LoginAndRefreshResponse>(config.public.backendUrl + '/auth/login', {
 		method: 'POST',
 		body: JSON.stringify({
 			email: body.email,
@@ -21,5 +21,11 @@ export default defineEventHandler(async (event) => {
 		},
 		access_token: response.access_token,
 		refresh_token: response.refresh_token,
+	}, {
+		maxAge: Number(config.nuxtSessionTime),
 	});
+
+	return {
+		success: true,
+	};
 });

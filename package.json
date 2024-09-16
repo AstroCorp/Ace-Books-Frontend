@@ -20,21 +20,21 @@
 	},
 	"dependencies": {
 		"@nuxt/image": "^1.8.0",
-		"@nuxtjs/i18n": "^8.5.1",
-		"@nuxtjs/mdc": "^0.8.3",
+		"@nuxtjs/i18n": "^8.5.3",
+		"@nuxtjs/mdc": "^0.9.0",
 		"@vueuse/components": "^11.0.3",
 		"@vueuse/core": "^11.0.3",
-		"nuxt": "^3.13.0",
-		"nuxt-auth-utils": "^0.3.5",
+		"nuxt": "^3.13.1",
+		"nuxt-auth-utils": "^0.3.8",
 		"nuxt-icons": "^3.2.1",
-		"vue": "^3.4.38",
-		"vue-router": "^4.4.3",
+		"vue": "^3.5.5",
+		"vue-router": "^4.4.5",
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
-		"@tailwindcss/forms": "^0.5.8",
+		"@tailwindcss/forms": "^0.5.9",
 		"autoprefixer": "^10.4.20",
-		"postcss": "^8.4.41",
-		"tailwindcss": "^3.4.10"
+		"postcss": "^8.4.47",
+		"tailwindcss": "^3.4.11"
 	}
 }
