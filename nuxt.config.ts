@@ -10,7 +10,7 @@ export default defineNuxtConfig({
 		},
 	},
 	devtools: {
-		enabled: process.env.NODE_ENV === "development",
+		enabled: process.env.NUXT_ENV === "development",
 	},
 	experimental: {
 		inlineRouteRules: true,
@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 	},
 	runtimeConfig: {
 		// Private keys are only available on the server
-		nodeEnv: process.env.NODE_ENV,
+		nuxtEnv: process.env.NUXT_ENV,
 		nuxtSessionName: process.env.NUXT_SESSION_NAME,
 		nuxtSessionPassword: process.env.NUXT_SESSION_PASSWORD,
 		nuxtSessionTime: process.env.NUXT_SESSION_TIME,
