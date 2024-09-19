@@ -10,7 +10,7 @@ defineI18nRoute({
 });
 
 definePageMeta({
-	middleware: ["auth"],
+	middleware: ["enabled-with-session"],
 });
 
 useHead({

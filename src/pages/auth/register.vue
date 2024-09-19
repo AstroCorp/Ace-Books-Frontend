@@ -1,11 +1,20 @@
 <script setup lang="ts">
-const { t } = useI18n();
+import type { SessionSuccessResponse, RegisterErrorResponse } from '~/types/auth';
+
+const { t, locale } = useI18n();
+const localeRoute = useLocaleRoute();
+const config = useRuntimeConfig();
+const { fetch } = useUserSession();
 
 defineI18nRoute({
 	paths: {
 		en: '/register',
 		es: '/registrarse',
 	},
+});
+
+definePageMeta({
+	middleware: ["disabled-with-session"],
 });
 
 useHead({
@@ -17,6 +26,51 @@ useHead({
 		},
 	],
 });
+
+const registerForm = ref({
+	email: '',
+	password: '',
+	repeatPassword: '',
+});
+
+const emailErrors = ref<string[]>([]);
+const passwordErrors = ref<string[]>([]);
+
+const passwordMinLength = computed(() => registerForm.value.password.length >= 8);
+const passwordMaxLength = computed(() => registerForm.value.password.length <= 32);
+const passwordHasUppercase = computed(() => /[A-Z]/.test(registerForm.value.password));
+const passwordHasLowercase = computed(() => /[a-z]/.test(registerForm.value.password));
+const passwordHasNumber = computed(() => /\d/.test(registerForm.value.password));
+const passwordHasSpecialCharacter = computed(() => /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(registerForm.value.password));
+
+const samePassword = computed(() => registerForm.value.password === registerForm.value.repeatPassword);
+
+const submitForm = async (event: Event) => {
+	event.preventDefault();
+
+	emailErrors.value = [];
+	passwordErrors.value = [];
+
+	const response = await $fetch<SessionSuccessResponse | RegisterErrorResponse>(config.public.frontendUrl + '/api/auth/register', {
+		method: 'POST',
+		body: registerForm.value,
+		ignoreResponseError: true,
+	});
+
+	if ('data' in response && response.data.statusCode === 400) {
+		emailErrors.value = response.data.message.filter((message) => message.includes('email'));
+		passwordErrors.value = response.data.message.filter((message) => !message.includes('email'));
+
+		return;
+	}
+
+	await fetch();
+
+	const libraryRoute = localeRoute('library', locale.value);
+	const libraryPath = libraryRoute != null ? libraryRoute.path : '/';
+
+	await navigateTo(libraryPath);
+};
 </script>
 
 <template>
@@ -27,7 +81,7 @@ useHead({
 			</div>
 
 			<div class="flex flex-row items-center lg:px-8 w-full min-h-svh sm:w-1/2 md:w-2/5 xl:w-2/6 bg-white">
-				<form class="w-full px-6 py-4">
+				<form class="w-full px-6 py-4" @submit="submitForm">
 					<NuxtLinkLocale to="/">
 						<nuxt-icon name="logo" class="flex w-1/3 mx-auto mb-4 xl:mb-5" />
 					</NuxtLinkLocale>
@@ -35,36 +89,44 @@ useHead({
 					<label class="block text-sm font-medium text-gray-700">{{ t('register.email') }}</label>
 					<div class="mt-1 mb-4">
 						<input
+							v-model="registerForm.email"
 							type="email"
 							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
+							required
 						/>
 
-						<div class="text-sm text-red-500 pt-1">{{ t('register.email_error') }}</div>
+						<div v-if="emailErrors.length > 0" class="text-sm text-red-500 pt-1">{{ t('register.email_error') }}</div>
 					</div>
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('register.password') }}</label>
 					<div class="mt-1 mb-4">
 						<input
+							v-model="registerForm.password"
 							type="password"
 							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
+							required
 						/>
 
-						<FormValidationRule :isValid="true">{{ t('register.password_error') }}</FormValidationRule>
-						<FormValidationRule :isValid="true">{{ t('register.password_validation_1') }}</FormValidationRule>
-						<FormValidationRule :isValid="true">{{ t('register.password_validation_2') }}</FormValidationRule>
-						<FormValidationRule :isValid="false">{{ t('register.password_validation_3') }}</FormValidationRule>
-						<FormValidationRule :isValid="false">{{ t('register.password_validation_4') }}</FormValidationRule>
-						<FormValidationRule :isValid="false">{{ t('register.password_validation_5') }}</FormValidationRule>
+						<div v-if="passwordErrors.length > 0" class="text-sm text-red-500 py-1">{{ t('register.password_error') }}</div>
+
+						<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordMinLength">{{ t('register.password_validation_1') }}</FormValidationRule>
+						<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordMaxLength">{{ t('register.password_validation_2') }}</FormValidationRule>
+						<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordHasUppercase">{{ t('register.password_validation_3') }}</FormValidationRule>
+						<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordHasLowercase">{{ t('register.password_validation_4') }}</FormValidationRule>
+						<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordHasNumber">{{ t('register.password_validation_5') }}</FormValidationRule>
+						<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordHasSpecialCharacter">{{ t('register.password_validation_6') }}</FormValidationRule>
 					</div>
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('register.repeat_password') }}</label>
 					<div class="mt-1 mb-4">
 						<input
+							v-model="registerForm.repeatPassword"
 							type="password"
 							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
+							required
 						/>
 
-						<div class="text-sm text-red-500 pt-1">{{ t('register.repeat_password_error') }}</div>
+						<div v-if="!samePassword" class="text-sm text-red-500 pt-1">{{ t('register.repeat_password_error') }}</div>
 					</div>
 
 					<i18n-t keypath="register.warning" tag="p" class="text-xs mb-3">

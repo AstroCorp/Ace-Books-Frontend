@@ -8,6 +8,10 @@ defineI18nRoute({
 	},
 });
 
+definePageMeta({
+	middleware: ["disabled-with-session"],
+});
+
 useHead({
 	title: t('home.title') + ' - ' + t('reset.title'),
 	meta: [

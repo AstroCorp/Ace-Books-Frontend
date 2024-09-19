@@ -1,6 +1,4 @@
 export default defineNuxtRouteMiddleware(async (middleware) => {
-	const nuxtApp = useNuxtApp();
-	const localeRoute = useLocaleRoute();
 	const { loggedIn, fetch, session, clear } = useUserSession();
 	const { extractTokenData } = useJwt();
 
@@ -24,13 +22,5 @@ export default defineNuxtRouteMiddleware(async (middleware) => {
 		if (tokensNeedRefresh) {
 			await fetch();
 		}
-	}
-
-	// Si el usuario no está logueado, lo redirige al login
-	if (!loggedIn.value) {
-		const loginRoute = localeRoute('login', nuxtApp.$i18n.locale);
-		const loginPath = loginRoute != null ? loginRoute.path : '/';
-
-		return navigateTo(loginPath);
 	}
 });
