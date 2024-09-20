@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { LoginErrorResponse, SessionSuccessResponse } from '~/types/auth';
+
 const { t, locale } = useI18n();
 const localeRoute = useLocaleRoute();
 const config = useRuntimeConfig();
@@ -31,18 +33,32 @@ const loginForm = ref({
 });
 const showLoginError = ref(false);
 
+const readyForSubmit = computed(() => {
+	return loginForm.value.email.length > 0 && loginForm.value.password.length > 0;
+});
+
 const submitForm = async (event: Event) => {
 	event.preventDefault();
 
+	if (!readyForSubmit.value) return;
+
 	showLoginError.value = false;
 
-	try {
-		await $fetch(config.public.frontendUrl + '/api/auth/login', {
-			method: 'POST',
-			body: loginForm.value,
-		});
-	} catch (error) {
+	const response = await $fetch<SessionSuccessResponse | LoginErrorResponse>(config.public.frontendUrl + '/api/auth/login', {
+		method: 'POST',
+		body: loginForm.value,
+		ignoreResponseError: true,
+	});
+
+	if ('data' in response && response.data.statusCode === 401) {
 		showLoginError.value = true;
+		return;
+	}
+
+	if ('data' in response && response.data.statusCode !== 200) {
+		useNuxtApp().$toast.error(t('login.toast_error'), {
+			position: useNuxtApp().$toast.POSITION.TOP_CENTER,
+		});
 		return;
 	}
 
@@ -64,8 +80,8 @@ const submitForm = async (event: Event) => {
 
 			<div class="flex flex-row items-center lg:px-8 w-full min-h-svh sm:w-1/2 md:w-2/5 xl:w-2/6 bg-white">
 				<form class="w-full px-6 py-4" @submit="submitForm">
-					<NuxtLinkLocale to="/">
-						<nuxt-icon name="logo" class="flex w-1/3 mx-auto mb-4 xl:mb-5" />
+					<NuxtLinkLocale to="/" class="flex w-1/3 mx-auto mb-4 xl:mb-5">
+						<nuxt-icon name="logo" class="w-full" />
 					</NuxtLinkLocale>
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('login.email') }}</label>
@@ -73,7 +89,7 @@ const submitForm = async (event: Event) => {
 						<input
 							v-model="loginForm.email"
 							type="email"
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
+							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 						/>
 					</div>
 
@@ -82,13 +98,17 @@ const submitForm = async (event: Event) => {
 						<input
 							v-model="loginForm.password"
 							type="password"
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
+							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 						/>
 
 						<div v-if="showLoginError" class="text-sm text-red-500 pt-1">{{ t('login.error') }}</div>
 					</div>
 
-					<button type="submit" class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+					<button
+						type="submit"
+						class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 enabled:hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-60 disabled:cursor-default"
+						:disabled="!readyForSubmit"
+					>
 						{{ t('login.login') }}
 					</button>
 
@@ -97,7 +117,7 @@ const submitForm = async (event: Event) => {
 
 						<NuxtLinkLocale
 							to="/register"
-							class="text-sm font-medium text-blue-600 hover:text-blue-500"
+							class="text-sm font-medium text-green-600 hover:text-green-500"
 						>
 							{{ t('login.register') }}
 						</NuxtLinkLocale>
@@ -108,7 +128,7 @@ const submitForm = async (event: Event) => {
 
 						<NuxtLinkLocale
 							to="/reset"
-							class="text-sm font-medium text-blue-600 hover:text-blue-500"
+							class="text-sm font-medium text-green-600 hover:text-green-500"
 						>
 							{{ t('login.forgot_password') }}
 						</NuxtLinkLocale>

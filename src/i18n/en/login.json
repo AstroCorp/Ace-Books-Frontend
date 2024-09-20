@@ -6,6 +6,7 @@
 	"email": "Email",
 	"password": "Password",
 	"error": "The email or password are incorrect",
+	"toast_error": "An error has occurred. Please try again later.",
 	"forgot_password": "Forgot password",
 	"question_1": "Don’t you have an account?",
 	"question_2": "Forgot your password?"

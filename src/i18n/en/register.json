@@ -15,6 +15,7 @@
 	"password_validation_6": "One special character",
 	"repeat_password": "Repeat password",
 	"repeat_password_error": "Passwords do not match.",
+	"toast_error": "An error has occurred. Please try again later.",
 	"question": "Already have an account?",
 	"warning": "By continuing, you agree to Ace Books {terms-of-use} and {privacy-policy}.",
 	"terms-of-use": "Terms of Use",

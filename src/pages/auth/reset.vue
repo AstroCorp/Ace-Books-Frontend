@@ -32,19 +32,19 @@ useHead({
 
 			<div class="flex flex-row items-center lg:px-8 w-full min-h-svh sm:w-1/2 md:w-2/5 xl:w-2/6 bg-white">
 				<form class="w-full px-6 py-4">
-					<NuxtLinkLocale to="/">
-						<nuxt-icon name="logo" class="flex w-1/3 mx-auto mb-4 xl:mb-5" />
+					<NuxtLinkLocale to="/" class="flex w-1/3 mx-auto mb-4 xl:mb-5">
+						<nuxt-icon name="logo" class="w-full" />
 					</NuxtLinkLocale>
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('reset.email') }}</label>
 					<div class="mt-1 mb-4">
 						<input
 							type="email"
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
+							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 						/>
 					</div>
 
-					<button type="submit" class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+					<button type="submit" class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
 						{{ t('reset.reset') }}
 					</button>
 				</form>

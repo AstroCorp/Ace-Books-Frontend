@@ -35,7 +35,7 @@ useHead({
 		</div>
 
 		<div class="mx-auto my-10 w-3/4 lg:w-2/3">
-			<RenderMarkdown :value="i18Markdown('cookies.line_', 12)" />
+			<RenderMarkdown :value="i18Markdown('cookies.line_', 11)" />
 		</div>
 
 		<Footer />

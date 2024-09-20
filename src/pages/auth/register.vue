@@ -45,8 +45,20 @@ const passwordHasSpecialCharacter = computed(() => /[!@#$%^&*()_+\-=\[\]{};':"\\
 
 const samePassword = computed(() => registerForm.value.password === registerForm.value.repeatPassword);
 
+const readyForSubmit = computed(() => {
+	return passwordMinLength.value
+		&& passwordMaxLength.value
+		&& passwordHasUppercase.value
+		&& passwordHasLowercase.value
+		&& passwordHasNumber.value
+		&& passwordHasSpecialCharacter.value
+		&& samePassword.value;
+});
+
 const submitForm = async (event: Event) => {
 	event.preventDefault();
+
+	if (!readyForSubmit.value) return;
 
 	emailErrors.value = [];
 	passwordErrors.value = [];
@@ -61,6 +73,13 @@ const submitForm = async (event: Event) => {
 		emailErrors.value = response.data.message.filter((message) => message.includes('email'));
 		passwordErrors.value = response.data.message.filter((message) => !message.includes('email'));
 
+		return;
+	}
+
+	if ('data' in response && response.data.statusCode !== 200) {
+		useNuxtApp().$toast.error(t('register.toast_error'), {
+			position: useNuxtApp().$toast.POSITION.TOP_CENTER,
+		});
 		return;
 	}
 
@@ -82,8 +101,8 @@ const submitForm = async (event: Event) => {
 
 			<div class="flex flex-row items-center lg:px-8 w-full min-h-svh sm:w-1/2 md:w-2/5 xl:w-2/6 bg-white">
 				<form class="w-full px-6 py-4" @submit="submitForm">
-					<NuxtLinkLocale to="/">
-						<nuxt-icon name="logo" class="flex w-1/3 mx-auto mb-4 xl:mb-5" />
+					<NuxtLinkLocale to="/" class="flex w-1/3 mx-auto mb-4 xl:mb-5">
+						<nuxt-icon name="logo" class="w-full" />
 					</NuxtLinkLocale>
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('register.email') }}</label>
@@ -91,7 +110,7 @@ const submitForm = async (event: Event) => {
 						<input
 							v-model="registerForm.email"
 							type="email"
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
+							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 							required
 						/>
 
@@ -103,7 +122,7 @@ const submitForm = async (event: Event) => {
 						<input
 							v-model="registerForm.password"
 							type="password"
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
+							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 							required
 						/>
 
@@ -122,7 +141,7 @@ const submitForm = async (event: Event) => {
 						<input
 							v-model="registerForm.repeatPassword"
 							type="password"
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md"
+							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 							required
 						/>
 
@@ -133,7 +152,7 @@ const submitForm = async (event: Event) => {
 						<template #terms-of-use>
 							<NuxtLinkLocale
 								to="/legal/terms-and-conditions"
-								class="font-medium text-blue-600 hover:text-blue-500"
+								class="font-medium text-green-600 hover:text-green-500"
 							>
 								{{ t('register.terms-of-use') }}
 							</NuxtLinkLocale>
@@ -142,14 +161,18 @@ const submitForm = async (event: Event) => {
 						<template #privacy-policy>
 							<NuxtLinkLocale
 								to="/legal/privacy-notice"
-								class="font-medium text-blue-600 hover:text-blue-500"
+								class="font-medium text-green-600 hover:text-green-500"
 							>
 								{{ t('register.privacy-policy') }}
 							</NuxtLinkLocale>
 						</template>
 					</i18n-t>
 
-					<button type="submit" class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+					<button
+						type="submit"
+						class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 enabled:hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-60 disabled:cursor-default"
+						:disabled="!readyForSubmit"
+					>
 						{{ t('register.register') }}
 					</button>
 
@@ -158,7 +181,7 @@ const submitForm = async (event: Event) => {
 
 						<NuxtLinkLocale
 							to="/login"
-							class="text-sm font-medium text-blue-600 hover:text-blue-500"
+							class="text-sm font-medium text-green-600 hover:text-green-500"
 						>
 							{{ t('register.login') }}
 						</NuxtLinkLocale>

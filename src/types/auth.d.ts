@@ -19,17 +19,27 @@ declare module '#auth-utils' {
 
 export interface SessionResponse extends LoginData {}
 
-export interface RegisterErrorResponse {
-	data: {
-		message: string[];
-		error: string;
-		statusCode: number;
-	};
+interface BaseErrorResponse {
 	message: string;
 	stack: string;
 	statusCode: number;
 	statusMessage: string;
 	url: string;
+}
+
+export interface RegisterErrorResponse extends BaseErrorResponse {
+	data: {
+		message: string[];
+		error: string;
+		statusCode: number;
+	};
+}
+
+export interface LoginErrorResponse extends BaseErrorResponse {
+	data: {
+		message: string;
+		statusCode: number;
+	};
 }
 
 export interface SessionSuccessResponse {
