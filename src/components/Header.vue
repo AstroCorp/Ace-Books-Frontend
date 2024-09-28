@@ -44,7 +44,7 @@ onBeforeMount(() => {
 			<nav class="flex items-center p-4 flex-wrap">
 				<NuxtLinkLocale
 					to="/"
-					class="p-2 mr-4 inline-flex items-center text-4xl cursor-pointer text-white text-shadow shadow-black/70"
+					class="mr-4 inline-flex items-center logo cursor-pointer text-white text-shadow shadow-black/70"
 				>
 					Ace Books
 				</NuxtLinkLocale>

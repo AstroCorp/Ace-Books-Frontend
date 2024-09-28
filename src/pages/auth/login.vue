@@ -80,8 +80,9 @@ const submitForm = async (event: Event) => {
 
 			<div class="flex flex-row items-center lg:px-8 w-full min-h-svh sm:w-1/2 md:w-2/5 xl:w-2/6 bg-white">
 				<form class="w-full px-6 py-4" @submit="submitForm">
-					<NuxtLinkLocale to="/" class="flex w-1/3 mx-auto mb-4 xl:mb-5">
-						<nuxt-icon name="logo" class="w-full" />
+					<NuxtLinkLocale to="/" class="flex flex-col items-center mb-4 xl:mb-5">
+						<nuxt-icon name="logo" class="w-1/3" />
+						<p class="mt-3 logo">Ace Books</p>
 					</NuxtLinkLocale>
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('login.email') }}</label>

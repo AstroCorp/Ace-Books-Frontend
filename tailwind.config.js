@@ -12,6 +12,15 @@ export default {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				'Rubik': ['Rubik', 'sans-serif'],
+				'Wittgenstein': ['Wittgenstein', 'serif'],
+			},
+			fontSize: {
+				'logo': ['2.5rem', {
+					lineHeight: '1',
+				}],
+			},
 			textShadow: {
 				DEFAULT: '0 2px 5px var(--tw-shadow-color)',
 			},
