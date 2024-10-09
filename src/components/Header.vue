@@ -35,7 +35,7 @@ onBeforeMount(() => {
 		}"
 	>
 		<header
-			class="fixed w-full sm:h-auto z-20 transition-all bg-green-900 bg-opacity-0 duration-200"
+			class="fixed w-full sm:h-auto z-20 transition-all bg-acebooks-green-950 bg-opacity-0 duration-200"
 			:class="{
 				'h-full': applyNavStyle,
 				'bg-opacity-75 backdrop-blur-sm': applyNavBackground || applyNavStyle,
@@ -73,9 +73,9 @@ onBeforeMount(() => {
 					>
 						<li class="sm:inline-flex sm:w-auto w-full items-center justify-center">
 							<NuxtLinkLocale to="/login">
-								<MainButton class="p-2">
+								<Button class="p-2" variant="primary">
 									{{ t('header.sign_in') }}
-								</MainButton>
+								</Button>
 							</NuxtLinkLocale>
 						</li>
 					</ul>

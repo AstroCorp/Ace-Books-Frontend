@@ -28,7 +28,7 @@ useHead({
 	<div class="flex flex-col justify-between min-h-screen">
 		<Header />
 
-		<div class="relative px-4 pt-14 h-64 flex flex-col items-center justify-center bg-green-900/95 text-white">
+		<div class="relative px-4 pt-14 h-64 flex flex-col items-center justify-center bg-acebooks-green-900 text-white">
 			<h1 class="text-2xl">{{ t('cookies.title') }}</h1>
 			<div class="border my-2 border-white/40 w-1/6"></div>
 			<time class="trext-lg">{{ t('cookies.date') }}</time>

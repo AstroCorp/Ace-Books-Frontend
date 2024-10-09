@@ -39,12 +39,13 @@ useHead({
 			<article class="flex flex-col items-center text-center">
 				<h1 class="text-9xl text-white text-opacity-60 mb-6 text-shadow shadow-black/40">{{ error.statusCode }}</h1>
 
-				<MainButton
+				<Button
+					variant="primary"
 					@click="handleError"
 					class="text-white px-4 py-3 border-2 rounded-md uppercase bg-white bg-opacity-0 hover:bg-opacity-20 transition duration-300 ease-in-out"
 				>
 					{{ t('error.button') }}
-				</MainButton>
+				</Button>
 			</article>
 
 			<NuxtImg src="/images/bg.webp" placeholder preload loading="lazy" class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />

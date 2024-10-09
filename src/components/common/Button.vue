@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
 	class: string;
+	variant: 'primary' | 'secondary';
 }>();
 </script>
 

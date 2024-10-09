@@ -31,9 +31,9 @@ useHead({
 				<p class="text-sm mt-2 mb-6 text-shadow shadow-black/75">{{ t('home.p') }}</p>
 
 				<NuxtLinkLocale to="/register">
-					<MainButton class="px-4 py-3 uppercase">
+					<Button class="px-4 py-3 uppercase" variant="primary">
 						{{ t('home.button') }}
-					</MainButton>
+					</Button>
 				</NuxtLinkLocale>
 
 				<NuxtImg src="/images/bg.webp" placeholder preload loading="lazy" class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />
@@ -61,22 +61,45 @@ useHead({
 			</div>
 		</div>
 
-		<div id="content" class="flex flex-col bg-gray-100">
-			<div class="bg-gray-100 p-16 flex flex-col md:flex-row justify-center items-center">
-				<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="w-96 lg:w-auto h-48 lg:h-64 rounded aspect-[25/14]" />
+		<div id="content" class="flex flex-col px-6 md:px-0 md:w-2/3 md:mx-auto">
+			<div class="text-center my-16">
+				<h2 class="text-3xl font-semibold tracking-wider mb-3 uppercase">Sobre nosotros</h2>
+				<p class="font-thin leading-7">Ace Books es un lector online que te permite llevar tu biblioteca personal a la nube. Puedes subir tus propios libros y organizarlos a tu gusto. Desde la forma en que organizas tu biblioteca hasta la experiencia de lectura. Accede a tus libros desde cualquier dispositivo, en cualquier momento, y retoma la lectura justo donde la dejaste.</p>
+			</div>
 
-				<div class="w-96 min-w-96 pt-10 md:p-10">
-					<h2 class="text-2xl font-semibold mb-2">Tu propia biblioteca</h2>
-					<p>Almacena, ordena y disfruta de todos tus libros como quieras, trabajamos para que tengas la mejor experiencia posible.</p>
+			<div class="flex flex-col lg:flex-row justify-center">
+				<div class="lg:w-1/3">
+					<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded w-full h-full object-cover" />
+				</div>
+
+				<div class="my-16 lg:my-0 lg:px-4 xl:px-6 lg:w-1/3">
+					<NuxtImg src="/images/info_2.webp" placeholder preload loading="lazy" class="rounded w-full  h-full object-cover" />
+				</div>
+
+				<div class="lg:w-1/3">
+					<NuxtImg src="/images/info_3.webp" placeholder preload loading="lazy" class="rounded w-full  h-full object-cover" />
 				</div>
 			</div>
 
-			<div class="bg-gray-200 p-16 flex flex-col md:flex-row-reverse justify-center items-center">
-				<NuxtImg src="/images/info_2.webp" placeholder preload loading="lazy" class="w-96 lg:w-auto h-48 lg:h-64 rounded aspect-[25/14]" />
+			<div class="flex flex-col xl:flex-row my-16">
+				<div class="xl:w-1/2 text-right">
+					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">Tu propia biblioteca</h3>
+					<p class="leading-7">Cuando tu colección crece más que tu espacio, Ace Books amplía tus horizontes. Sube tus libros, organízalos como quieras y accede desde cualquier dispositivo. Tu colección vive en la nube, siempre disponible para ti. Personaliza tu experiencia de lectura y retoma tus historias justo donde las dejaste. Con Ace Books, tú decides cómo y cuándo disfrutar de tus libros, sin límites ni restricciones.</p>
+				</div>
 
-				<div class="w-96 min-w-96 pt-10 md:p-10">
-					<h2 class="text-2xl font-semibold mb-2">Siempre disponible</h2>
-					<p>Puedes acceder a tu biblioteca para disfrutar de tus libros desde cualquier dispositivo, ya sea un ordenador, tablet o smartphone.</p>
+				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-acebooks-green-200"></div>
+
+				<div class="xl:w-1/2">
+					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">Un sin fin de opciones</h3>
+					<ul class="list-inside list-disc leading-7">
+						<li>Admitimos una gran variedad de formatos.</li>
+						<li>Organiza tus libros como desees.</li>
+						<li>Accede desde cualquier dispositivo.</li>
+						<li>Personaliza tu experiencia de lectura.</li>
+						<li>Retoma tus historias justo donde las dejaste.</li>
+						<li>Anota todo lo que necesites.</li>
+						<li>¡Y mucho más!</li>
+					</ul>
 				</div>
 			</div>
 		</div>
