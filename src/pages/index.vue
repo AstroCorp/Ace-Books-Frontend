@@ -63,8 +63,8 @@ useHead({
 
 		<div id="content" class="flex flex-col px-6 md:px-0 md:w-2/3 md:mx-auto scroll-mt-20">
 			<div class="text-center my-16">
-				<h2 class="text-3xl font-semibold tracking-wider mb-3 uppercase">Sobre nosotros</h2>
-				<p class="font-thin leading-7">Ace Books es un lector online que te permite llevar tu biblioteca personal a la nube. Puedes subir tus propios libros y organizarlos a tu gusto. Desde la forma en que organizas tu biblioteca hasta la experiencia de lectura. Accede a tus libros desde cualquier dispositivo, en cualquier momento, y retoma la lectura justo donde la dejaste.</p>
+				<h2 class="text-3xl font-semibold tracking-wider mb-3 uppercase">{{ t('home.section_1_title') }}</h2>
+				<p class="font-thin leading-7">{{ t('home.section_1_content') }}</p>
 			</div>
 
 			<div class="flex flex-col lg:flex-row justify-center">
@@ -83,22 +83,16 @@ useHead({
 
 			<div class="flex flex-col xl:flex-row my-16">
 				<div class="xl:w-1/2 text-right">
-					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">Tu propia biblioteca</h3>
-					<p class="leading-7">Cuando tu colección crece más que tu espacio, Ace Books amplía tus horizontes. Sube tus libros, organízalos como quieras y accede desde cualquier dispositivo. Tu colección vive en la nube, siempre disponible para ti. Personaliza tu experiencia de lectura y retoma tus historias justo donde las dejaste. Con Ace Books, tú decides cómo y cuándo disfrutar de tus libros, sin límites ni restricciones.</p>
+					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">{{ t('home.section_2_title') }}</h3>
+					<p class="font-thin leading-7">{{ t('home.section_2_content') }}</p>
 				</div>
 
 				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-acebooks-green-300"></div>
 
 				<div class="xl:w-1/2">
-					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">Un sin fin de opciones</h3>
-					<ul class="list-inside list-disc leading-7">
-						<li>Admitimos una gran variedad de formatos.</li>
-						<li>Organiza tus libros como desees.</li>
-						<li>Accede desde cualquier dispositivo.</li>
-						<li>Personaliza tu experiencia de lectura.</li>
-						<li>Retoma tus historias justo donde las dejaste.</li>
-						<li>Anota todo lo que necesites.</li>
-						<li>¡Y mucho más!</li>
+					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">{{ t('home.section_3_title') }}</h3>
+					<ul class="list-inside list-disc font-thin leading-7">
+						<li v-for="index in 7">{{ t('home.section_3_content_' + index) }}</li>
 					</ul>
 				</div>
 			</div>

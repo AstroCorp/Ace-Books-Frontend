@@ -3,5 +3,17 @@
 	"description": "Página de inicio de Ace Books",
 	"h1": "Tus libros siempre contigo.",
 	"p": "Retoma tu lectura en cualquier dispositivo.",
-	"button": "Comenzar a leer"
+	"button": "Comenzar a leer",
+	"section_1_title": "Sobre nosotros",
+	"section_1_content": "Ace Books es un lector online que te permite llevar tu biblioteca personal a la nube. Puedes subir tus propios libros y organizarlos a tu gusto. Desde la forma en que organizas tu biblioteca hasta la experiencia de lectura. Accede a tus libros desde cualquier dispositivo, en cualquier momento, y retoma la lectura justo donde la dejaste.",
+	"section_2_title": "Tu propia biblioteca",
+	"section_2_content": "Cuando tu colección crece más que tu espacio, Ace Books amplía tus horizontes. Sube tus libros, organízalos como quieras y accede desde cualquier dispositivo. Tu colección vive en la nube, siempre disponible para ti. Personaliza tu experiencia de lectura y retoma tus historias justo donde las dejaste. Con Ace Books, tú decides cómo y cuándo disfrutar de tus libros, sin límites ni restricciones.",
+	"section_3_title": "Un sin fin de opciones",
+	"section_3_content_1": "Admitimos una gran variedad de formatos.",
+	"section_3_content_2": "Organiza tus libros como desees.",
+	"section_3_content_3": "Accede desde cualquier dispositivo.",
+	"section_3_content_4": "Personaliza tu experiencia de lectura.",
+	"section_3_content_5": "Retoma tus historias justo donde las dejaste.",
+	"section_3_content_6": "Anota todo lo que necesites.",
+	"section_3_content_7": "¡Y mucho más!"
 }
