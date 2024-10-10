@@ -48,6 +48,28 @@ useHead({
 					<button type="submit" class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
 						{{ t('reset.reset') }}
 					</button>
+
+					<div class="mt-1.5">
+						<span class="text-sm mr-1">{{ t('reset.question_1') }}</span>
+
+						<NuxtLinkLocale
+							to="/login"
+							class="text-sm font-medium text-green-600 hover:text-green-500"
+						>
+							{{ t('reset.login') }}
+						</NuxtLinkLocale>
+					</div>
+
+					<div class="flex items-center justify-start mt-1.5">
+						<span class="text-sm mr-1">{{ t('reset.question_2') }}</span>
+
+						<NuxtLinkLocale
+							to="/register"
+							class="text-sm font-medium text-green-600 hover:text-green-500"
+						>
+							{{ t('reset.register') }}
+						</NuxtLinkLocale>
+					</div>
 				</form>
 			</div>
 		</div>

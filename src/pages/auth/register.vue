@@ -153,6 +153,7 @@ const submitForm = async (event: Event) => {
 						<template #terms-of-use>
 							<NuxtLinkLocale
 								to="/legal/terms-and-conditions"
+								target="_blank"
 								class="font-medium text-green-600 hover:text-green-500"
 							>
 								{{ t('register.terms-of-use') }}
@@ -162,6 +163,7 @@ const submitForm = async (event: Event) => {
 						<template #privacy-policy>
 							<NuxtLinkLocale
 								to="/legal/privacy-notice"
+								target="_blank"
 								class="font-medium text-green-600 hover:text-green-500"
 							>
 								{{ t('register.privacy-policy') }}
