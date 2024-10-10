@@ -72,7 +72,7 @@ useHead({
 					<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded w-full h-full object-cover" />
 				</div>
 
-				<div class="my-16 lg:my-0 lg:px-4 xl:px-6 lg:w-1/3">
+				<div class="my-16 lg:my-0 lg:mx-4 xl:mx-6 lg:w-1/3">
 					<NuxtImg src="/images/info_2.webp" placeholder preload loading="lazy" class="rounded w-full  h-full object-cover" />
 				</div>
 
