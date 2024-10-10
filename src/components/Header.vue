@@ -29,58 +29,60 @@ onBeforeMount(() => {
 </script>
 
 <template>
-	<div
+	<header
+		class="fixed w-full h-20 z-20 transition-all bg-acebooks-green-700 bg-opacity-0 duration-200"
 		:class="{
-			'min-h-[5.5rem]': applyNavStyle,
+			'h-full': applyNavStyle,
+			'bg-opacity-75 backdrop-blur-sm': applyNavBackground || applyNavStyle,
 		}"
 	>
-		<header
-			class="fixed w-full sm:h-auto z-20 transition-all bg-acebooks-green-700 bg-opacity-0 duration-200"
-			:class="{
-				'h-full': applyNavStyle,
-				'bg-opacity-75 backdrop-blur-sm': applyNavBackground || applyNavStyle,
-			}"
-		>
-			<nav class="flex items-center p-4 flex-wrap">
+		<nav class="flex flex-col">
+			<div class="flex p-4 h-20 justify-between items-center">
 				<NuxtLinkLocale
 					to="/"
-					class="mr-4 inline-flex items-center logo cursor-pointer text-white text-shadow shadow-black/70"
+					class="logo cursor-pointer text-white text-shadow shadow-black/70"
 				>
 					Ace Books
 				</NuxtLinkLocale>
 
 				<button
-					class="inline-flex sm:hidden ml-auto cursor-pointer"
+					class="sm:hidden cursor-pointer w-6 h-6"
 					@click="toggleNav"
 				>
 					<nuxt-icon
 						:name="navActive ? 'close' : 'menu'"
-						class="flex w-8 h-8 text-white"
+						class="flex w-full h-full text-white"
 					/>
 				</button>
 
-				<div
-					class="relative w-full sm:inline-flex sm:flex-grow sm:w-auto"
+				<NuxtLinkLocale class="hidden sm:block" to="/login">
+					<Button class="p-2" variant="primary">
+						{{ t('header.sign_in') }}
+					</Button>
+				</NuxtLinkLocale>
+			</div>
+
+			<div
+				class="relative w-full sm:hidden"
+				:class="{
+					'hidden': !applyNavStyle,
+				}"
+			>
+				<ul
+					class="sm:inline-flex sm:flex-row sm:ml-auto sm:w-auto w-full sm:items-center items-start flex flex-col sm:h-auto sm:text-right sm:mt-0"
 					:class="{
-						'hidden': !applyNavStyle,
+						'text-center mt-8': applyNavStyle,
 					}"
 				>
-					<ul
-						class="sm:inline-flex sm:flex-row sm:ml-auto sm:w-auto w-full sm:items-center items-start flex flex-col sm:h-auto sm:text-right sm:mt-0"
-						:class="{
-							'text-center mt-8': applyNavStyle,
-						}"
-					>
-						<li class="sm:inline-flex sm:w-auto w-full items-center justify-center">
-							<NuxtLinkLocale to="/login">
-								<Button class="p-2" variant="primary">
-									{{ t('header.sign_in') }}
-								</Button>
-							</NuxtLinkLocale>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
-	</div>
+					<li class="sm:inline-flex sm:w-auto w-full items-center justify-center">
+						<NuxtLinkLocale to="/login">
+							<Button class="p-2" variant="primary">
+								{{ t('header.sign_in') }}
+							</Button>
+						</NuxtLinkLocale>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 </template>

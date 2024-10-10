@@ -61,7 +61,7 @@ useHead({
 			</div>
 		</div>
 
-		<div id="content" class="flex flex-col px-6 md:px-0 md:w-2/3 md:mx-auto">
+		<div id="content" class="flex flex-col px-6 md:px-0 md:w-2/3 md:mx-auto scroll-mt-20">
 			<div class="text-center my-16">
 				<h2 class="text-3xl font-semibold tracking-wider mb-3 uppercase">Sobre nosotros</h2>
 				<p class="font-thin leading-7">Ace Books es un lector online que te permite llevar tu biblioteca personal a la nube. Puedes subir tus propios libros y organizarlos a tu gusto. Desde la forma en que organizas tu biblioteca hasta la experiencia de lectura. Accede a tus libros desde cualquier dispositivo, en cualquier momento, y retoma la lectura justo donde la dejaste.</p>
