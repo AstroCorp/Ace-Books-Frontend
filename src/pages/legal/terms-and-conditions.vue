@@ -3,7 +3,7 @@ const { t } = useI18n();
 const i18Markdown = useI18nMarkdown();
 
 defineRouteRules({
-	prerender: true
+	prerender: true,
 });
 
 defineI18nRoute({
@@ -28,14 +28,14 @@ useHead({
 	<div class="flex flex-col justify-between min-h-screen">
 		<Header />
 
-		<div class="flex-1 flex-col justify-center mt-6 mx-6">
-			<div class="w-full lg:w-3/4 xl:w-2/3 p-4 mx-auto flex flex-col md:flex-row">
-				<LegalMenu />
+		<div class="relative px-4 pt-14 h-64 flex flex-col items-center justify-center bg-acebooks-green-700 text-white">
+			<h1 class="text-2xl">{{ t('terms.title') }}</h1>
+			<div class="border my-2 border-white/40 w-1/6"></div>
+			<time class="trext-lg">{{ t('terms.date') }}</time>
+		</div>
 
-				<div class="bg-white bg-opacity-85 p-6 w-full rounded-md">
-					<RenderMarkdown :value="i18Markdown('terms.line_', 27)" />
-				</div>
-			</div>
+		<div class="mx-auto my-10 w-3/4 lg:w-2/3">
+			<RenderMarkdown :value="i18Markdown('terms.line_', 25)" />
 		</div>
 
 		<Footer />

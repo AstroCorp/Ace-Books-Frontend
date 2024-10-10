@@ -1,17 +1,16 @@
 {
 	"title": "Frequently Asked Questions",
 	"description": "Frequently Asked Questions of Ace Books",
-	"line_1": "# Frequently Asked Questions",
-	"line_2": "#### May 2024",
-	"line_3": "### HOW CAN I SHARE MY DOCUMENTS?",
-	"line_4": "Currently, we do not allow sharing documents, this is due to possible undue uses of the platform, such as distributing copyright content.",
-	"line_5": "### HOW CAN I REGISTER?",
-	"line_6": "In order to register on our website, you have to click on “Sign in”, option that you will find in the upper right corner.There you will find an option to register.",
-	"line_7": "### CAN I CHANGE MY PASSWORD? IF SO, HOW?",
-	"line_8": "If you have forgotten the password you can recover it on the same log form, if not, from the dropdown menu that appears when you click on your avatar you will find an option to edit your profile, there you can modify your password.",
-	"line_9": "### HOW DO I MODIFY MY EMAIL ADDRESS?",
-	"line_10": "Currently by security issues we do not allow modifying your email.",
-	"line_11": "### HOW CAN I DELETE MY ACCOUNT?",
-	"line_12": "To delete your Ace Books account you will have to click on your avatar, a menu will be displayed on which you will find an option to modify your profile, at the end of the page you will find a button to delete your account."
+	"date": "May 2024",
+	"line_1": "### HOW CAN I SHARE MY DOCUMENTS?",
+	"line_2": "Currently, we do not allow sharing documents, this is due to possible undue uses of the platform, such as distributing copyright content.",
+	"line_3": "### HOW CAN I REGISTER?",
+	"line_4": "In order to register on our website, you have to click on “Sign in”, option that you will find in the upper right corner.There you will find an option to register.",
+	"line_5": "### CAN I CHANGE MY PASSWORD? IF SO, HOW?",
+	"line_6": "If you have forgotten the password you can recover it on the same log form, if not, from the dropdown menu that appears when you click on your avatar you will find an option to edit your profile, there you can modify your password.",
+	"line_7": "### HOW DO I MODIFY MY EMAIL ADDRESS?",
+	"line_8": "Currently by security issues we do not allow modifying your email.",
+	"line_9": "### HOW CAN I DELETE MY ACCOUNT?",
+	"line_10": "To delete your Ace Books account you will have to click on your avatar, a menu will be displayed on which you will find an option to modify your profile, at the end of the page you will find a button to delete your account."
 }
 

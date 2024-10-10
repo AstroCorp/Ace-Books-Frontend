@@ -1,10 +1,13 @@
 {
-	"title": "Login",
+	"title": "Log in",
 	"description": "Please enter your email and password to login",
-	"login": "Login",
-	"register": "Register",
+	"login": "Log in",
+	"register": "Sign up",
 	"email": "Email",
 	"password": "Password",
 	"error": "The email or password are incorrect",
-	"forgot_password": "Forgot password"
+	"toast_error": "An error has occurred. Please try again later.",
+	"forgot_password": "Forgot password",
+	"question_1": "Don’t you have an account?",
+	"question_2": "Forgot your password?"
 }

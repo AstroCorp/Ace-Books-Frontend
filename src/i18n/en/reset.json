@@ -2,5 +2,9 @@
 	"title": "Reset password",
 	"description": "Enter your email address and we will send you a link to reset your password",
 	"email": "Email",
-	"next": "Next"
+	"reset": "Reset password",
+	"login": "Log in",
+	"register": "Sign up",
+	"question_1": "Remember your password?",
+	"question_2": "Don’t you have an account?"
 }

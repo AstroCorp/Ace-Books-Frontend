@@ -3,5 +3,17 @@
 	"description": "Home page od Ace Books",
 	"h1": "Your books always with you.",
 	"p": "Resume your reading on any device.",
-	"button": "Start reading"
+	"button": "Start reading",
+	"section_1_title": "About us",
+	"section_1_content": "Ace Books is an online reader that allows you to take your personal library to the cloud. You can upload your own books and organize them to your preferences. From the way you organize your library to the reading experience. Access your books from any device, at any time, and pick up right where you left off.",
+	"section_2_title": "Your own library",
+	"section_2_content": "When your collection outgrows your space, Ace Books expands your horizons. Upload your books, organize them the way you want and access them from any device. Your collection lives in the cloud, always available to you. Personalize your reading experience and continue your stories right where you left off. With Ace Books, you decide how and when to enjoy your books, without limits or restrictions.",
+	"section_3_title": "Endless options",
+	"section_3_content_1": "We support a wide variety of formats.",
+	"section_3_content_2": "Organize your books as you wish.",
+	"section_3_content_3": "Access from any device.",
+	"section_3_content_4": "Customize your reading experience.",
+	"section_3_content_5": "Continue your stories right where you left off.",
+	"section_3_content_6": "Write down everything you need to.",
+	"section_3_content_7": "And more!"
 }

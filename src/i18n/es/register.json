@@ -8,10 +8,16 @@
 	"password": "Contraseña",
 	"password_error": "Esta contraseña no es válida.",
 	"password_validation_1": "Mínimo 8 caracteres",
-	"password_validation_2": "Una mayúscula",
-	"password_validation_3": "Una minúscula",
-	"password_validation_4": "Un número",
-	"password_validation_5": "Un carácter especial",
+	"password_validation_2": "Máximo 32 caracteres",
+	"password_validation_3": "Una mayúscula",
+	"password_validation_4": "Una minúscula",
+	"password_validation_5": "Un número",
+	"password_validation_6": "Un carácter especial",
 	"repeat_password": "Repetir contraseña",
-	"repeat_password_error": "Las contraseñas no coinciden."
+	"repeat_password_error": "Las contraseñas no coinciden.",
+	"toast_error": "Ha ocurrido un error. Por favor, inténtelo más tarde.",
+	"question": "¿Ya tienes una cuenta?",
+	"warning": "Al continuar, acepta los {terms-of-use} y la {privacy-policy} de Ace Books.",
+	"terms-of-use": "Términos de uso",
+	"privacy-policy": "Política de privacidad"
 }

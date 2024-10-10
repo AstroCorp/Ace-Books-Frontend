@@ -1,9 +1,7 @@
 <script setup lang="ts">
-interface Props {
+defineProps<{
 	value: string;
-}
-
-defineProps<Props>();
+}>();
 </script>
 
 <template>
@@ -32,7 +30,7 @@ defineProps<Props>();
 				tr: h('tr', {}, h('slot')),
 				th: h('th', { class: 'py-2 px-3' }, h('slot')),
 				td: h('td', { class: 'py-2 px-3 border-t border-gray-300' }, h('slot')),
-				a: h('a', { class: 'text-blue-600 underline' }, h('slot')),
+				a: h('a', { class: 'text-blue-600 underline', target: '_blank' }, h('slot')),
 				img: h('img', { class: 'w-full' }),
 				em: h('em', {}, h('slot')),
 				strong: h('strong', {}, h('slot')),
