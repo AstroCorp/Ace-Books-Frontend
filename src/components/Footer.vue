@@ -13,31 +13,31 @@ const currentLocale = computed({
 </script>
 
 <template>
-	<footer class="bg-acebooks-green-800 text-white">
+	<footer class="bg-acebooks-green-700 text-white">
 		<div class="px-2 py-8 text-center md:text-left">
 			<div class="mx-auto md:w-3/4 flex flex-col md:flex-row">
 				<div>
-					<h3 class="text-lg font-semibold mb-2">{{ t('footer.legal') }}</h3>
-					<ul>
-						<li class="mb-2 hover:text-acebooks-green-500">
+					<h3 class="text-xl font-medium mb-2">{{ t('footer.legal') }}</h3>
+					<ul class="font-light">
+						<li class="mb-2 hover:text-acebooks-green-400">
 							<NuxtLinkLocale to="/legal/cookies-notice">{{ t('footer.cookies') }}</NuxtLinkLocale>
 						</li>
-						<li class="mb-2 hover:text-acebooks-green-500">
+						<li class="mb-2 hover:text-acebooks-green-400">
 							<NuxtLinkLocale to="/legal/privacy-notice">{{ t('footer.privacy') }}</NuxtLinkLocale>
 						</li>
-						<li class="hover:text-acebooks-green-500">
+						<li class="hover:text-acebooks-green-400">
 							<NuxtLinkLocale to="/legal/terms-and-conditions">{{ t('footer.terms') }}</NuxtLinkLocale>
 						</li>
 					</ul>
 				</div>
 
 				<div class="mt-10 md:mt-0 md:ml-24">
-					<h3 class="text-lg font-semibold  mb-2">{{ t('footer.support') }}</h3>
-					<ul>
-						<li class="mb-2 hover:text-acebooks-green-500">
+					<h3 class="text-xl font-medium  mb-2">{{ t('footer.support') }}</h3>
+					<ul class="font-light">
+						<li class="mb-2 hover:text-acebooks-green-400">
 							<NuxtLinkLocale to="/legal/faqs">{{ t('footer.faqs') }}</NuxtLinkLocale>
 						</li>
-						<li class="hover:text-acebooks-green-500">
+						<li class="hover:text-acebooks-green-400">
 							<a :href="`mailto:${config.public.mailUsername}`">{{ t('footer.contact') }}</a>
 						</li>
 					</ul>

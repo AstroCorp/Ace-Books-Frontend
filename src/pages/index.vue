@@ -87,7 +87,7 @@ useHead({
 					<p class="leading-7">Cuando tu colección crece más que tu espacio, Ace Books amplía tus horizontes. Sube tus libros, organízalos como quieras y accede desde cualquier dispositivo. Tu colección vive en la nube, siempre disponible para ti. Personaliza tu experiencia de lectura y retoma tus historias justo donde las dejaste. Con Ace Books, tú decides cómo y cuándo disfrutar de tus libros, sin límites ni restricciones.</p>
 				</div>
 
-				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-acebooks-green-200"></div>
+				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-acebooks-green-300"></div>
 
 				<div class="xl:w-1/2">
 					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">Un sin fin de opciones</h3>

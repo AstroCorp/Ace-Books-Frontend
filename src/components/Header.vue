@@ -35,7 +35,7 @@ onBeforeMount(() => {
 		}"
 	>
 		<header
-			class="fixed w-full sm:h-auto z-20 transition-all bg-acebooks-green-950 bg-opacity-0 duration-200"
+			class="fixed w-full sm:h-auto z-20 transition-all bg-acebooks-green-700 bg-opacity-0 duration-200"
 			:class="{
 				'h-full': applyNavStyle,
 				'bg-opacity-75 backdrop-blur-sm': applyNavBackground || applyNavStyle,
