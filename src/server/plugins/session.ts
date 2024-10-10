@@ -1,5 +1,5 @@
 import useJwt from "~/composables/useJwt";
-import { LoginAndRefreshResponse } from "~/types/auth";
+import type { SessionResponse } from "~/types/auth";
 
 export default defineNitroPlugin(() => {
 	const config = useRuntimeConfig();
@@ -27,7 +27,7 @@ export default defineNitroPlugin(() => {
 		// Si solo el token de acceso está expirado y el de refresco no, refrescamos los tokens
 		if (tokensNeedRefresh) {
 			try {
-				const response = await $fetch<LoginAndRefreshResponse>(config.public.backendUrl + '/auth/refresh', {
+				const response = await $fetch<SessionResponse>(config.public.backendUrl + '/auth/refresh', {
 					method: 'GET',
 					headers: {
 						Authorization: 'Bearer ' + session.refresh_token,
