@@ -2,5 +2,11 @@
 	"buildCommand": "yarn build",
 	"framework": "nuxtjs",
 	"installCommand": "yarn install",
-	"outputDirectory": ".output"
+	"outputDirectory": ".output",
+	"rewrites": [
+		{
+			"source": "/(.*)",
+			"destination": "/"
+		}
+	]
 }
