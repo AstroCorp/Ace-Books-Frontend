@@ -80,4 +80,7 @@ export default defineNuxtConfig({
 			alwaysRedirect: true,
 		},
 	},
+	image: {
+		provider: 'ipx',
+	},
 });
