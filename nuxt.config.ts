@@ -82,5 +82,6 @@ export default defineNuxtConfig({
 	},
 	image: {
 		provider: 'ipx',
+		domains: [process.env.FRONTEND_URL || 'http://localhost:3000'],
 	},
 });
