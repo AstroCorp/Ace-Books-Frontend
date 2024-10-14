@@ -20,6 +20,9 @@ export default defineNuxtConfig({
 			link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
 		},
 	},
+	nitro: {
+		preset: 'vercel',
+	},
 	runtimeConfig: {
 		// Private keys are only available on the server
 		nuxtEnv: process.env.NUXT_ENV,
