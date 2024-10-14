@@ -17,7 +17,7 @@ export default defineNuxtConfig({
 	},
 	app: {
 		head: {
-			link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+			link: [{ rel: 'icon', type: 'image/png', href: process.env.NUXT_ENV === "development" ? '/favicon_dev.png' : '/favicon.png' }],
 		},
 	},
 	// Github Actions no reconoce correctamente que se hará un deploy a Vercel
