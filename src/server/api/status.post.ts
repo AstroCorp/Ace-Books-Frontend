@@ -1,6 +1,6 @@
 export default defineEventHandler(() => {
 	return {
-		method: 'GET',
+		method: 'POST',
 		success: true,
 	};
 });
