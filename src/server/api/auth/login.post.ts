@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
 	const config = useRuntimeConfig();
 	const body = await readBody(event);
 
-	console.log(config.public.backendUrl + '/auth/login');
+	console.log('login fetch: ' + config.public.backendUrl + '/auth/login');
 
 	const response = await $fetch<SessionResponse>(config.public.backendUrl + '/auth/login', {
 		method: 'POST',
