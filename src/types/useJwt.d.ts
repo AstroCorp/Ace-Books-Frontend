@@ -1,12 +1,7 @@
 export interface Payload {
-	user_id: number;
-	iat: number;
-	exp: number;
-}
-
-export interface SignPayload {
-	user_id: number;
-	type: string;
+	userId: number;
+    isAdmin: boolean;
+    isVerified: boolean;
 	iat: number;
 	exp: number;
 }

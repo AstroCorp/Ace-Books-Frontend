@@ -1,7 +1,6 @@
-import { createSharedComposable } from "@vueuse/core";
-import type { Payload, SignPayload } from "~/types/useJwt";
+import type { Payload } from "~/types/useJwt";
 
-const useJwt = createSharedComposable(() => {
+const useJwt = () => {
 	const extractJwtPayload = (token: string) => {
 		const [ header, payload, signature ] = token.split('.');
 		const payloadData = JSON.parse(atob(payload));
@@ -13,14 +12,9 @@ const useJwt = createSharedComposable(() => {
 		return extractJwtPayload(token);
 	}
 
-	const extractSignData = (token: string): SignPayload => {
-		return extractJwtPayload(token);
-	}
-
 	return {
 		extractTokenData,
-		extractSignData,
 	};
-});
+};
 
 export default useJwt;
