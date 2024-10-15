@@ -94,6 +94,6 @@ export default defineNuxtConfig({
 	// Para servir nosotros las imágenes y no depender de una API de vercel
 	image: {
 		provider: 'ipx',
-		domains: [process.env.FRONTEND_URL || 'http://localhost:3000'],
+		domains: [(process.env.NUXT_ENV === "development" ? process.env.FRONTEND_URL : process.env.VERCEL_URL) || 'http://localhost:3000'],
 	},
 });
