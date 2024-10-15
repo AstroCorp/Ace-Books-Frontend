@@ -41,7 +41,7 @@ export default defineNuxtConfig({
 		// Public keys, se exponen en el cliente
 		public: {
 			backendUrl: process.env.BACKEND_URL,
-			frontendUrl: process.env.FRONTEND_URL,
+			frontendUrl: process.env.NUXT_ENV === "development" ? process.env.FRONTEND_URL : process.env.VERCEL_URL,
 			mailUsername: process.env.MAIL_USERNAME,
 		},
 
