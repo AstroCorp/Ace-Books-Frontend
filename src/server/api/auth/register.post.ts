@@ -14,6 +14,8 @@ export default defineEventHandler(async (event) => {
 		}),
 	});
 
+	console.log('register response: ' + JSON.stringify(response));
+
 	await replaceUserSession(event, {
 		user: {
 			email: response.user.email,
