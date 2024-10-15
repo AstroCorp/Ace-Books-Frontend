@@ -1,8 +1,10 @@
+import useJwt from "~/composables/useJwt";
 import { SessionResponse } from "~/types/auth";
 
 export default defineEventHandler(async (event) => {
 	const config = useRuntimeConfig();
 	const body = await readBody(event);
+	const { extractTokenData } = useJwt();
 
 	const response = await $fetch<SessionResponse>(config.public.backendUrl + '/auth/login', {
 		method: 'POST',
@@ -12,12 +14,13 @@ export default defineEventHandler(async (event) => {
 		}),
 	});
 
+	const tokenData = extractTokenData(response.access_token);
+
 	await replaceUserSession(event, {
 		user: {
-			email: response.user.email,
-			avatar: response.user.avatar,
-			isAdmin: response.user.isAdmin,
-			isVerified: response.user.isVerified,
+			userId: tokenData.userId,
+			isAdmin: tokenData.isAdmin,
+			isVerified: tokenData.isVerified,
 		},
 		access_token: response.access_token,
 		refresh_token: response.refresh_token,

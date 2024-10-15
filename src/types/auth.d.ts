@@ -1,23 +1,21 @@
-interface UserLoginData {
-	email: string;
-	avatar: string;
+interface UserSessionData {
+	userId: number;
 	isAdmin: boolean;
 	isVerified: boolean;
 }
 
-interface LoginData {
-	user: UserLoginData;
+export interface SessionResponse {
 	access_token: string;
 	refresh_token: string;
 }
 
 declare module '#auth-utils' {
-	interface User extends UserLoginData {}
+	interface User extends UserSessionData {}
 
-	interface UserSession extends LoginData {}
+	interface UserSession extends SessionResponse {
+		user: UserSessionData;
+	}
 }
-
-export interface SessionResponse extends LoginData {}
 
 interface BaseErrorResponse {
 	message: string;
