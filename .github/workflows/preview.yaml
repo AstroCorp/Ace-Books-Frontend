@@ -18,10 +18,6 @@ jobs:
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Show Vercel variables from .env
-        run: |
-          echo "Vercel variables in .env:"
-          grep '^VERCEL' .vercel/.env.preview.local
       - name: Fix Vercel Environment Information
         run: grep -vE '^(# Created by Vercel CLI|NX_DAEMON|TURBO_DOWNLOAD_LOCAL_ENABLED|TURBO_REMOTE_ONLY|TURBO_RUN_SUMMARY|VERCEL|VERCEL_ENV|VERCEL_GIT_COMMIT_AUTHOR_LOGIN|VERCEL_GIT_COMMIT_AUTHOR_NAME|VERCEL_GIT_COMMIT_MESSAGE|VERCEL_GIT_COMMIT_REF|VERCEL_GIT_COMMIT_SHA|VERCEL_GIT_PREVIOUS_SHA|VERCEL_GIT_PROVIDER|VERCEL_GIT_PULL_REQUEST_ID|VERCEL_GIT_REPO_ID|VERCEL_GIT_REPO_OWNER|VERCEL_GIT_REPO_SLUG|VERCEL_URL)' .vercel/.env.preview.local > .vercel/.env && rm .vercel/.env.preview.local
       - name: Build Project Artifacts
