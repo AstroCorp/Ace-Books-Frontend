@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
+const config = useRuntimeConfig();
 
 defineI18nRoute({
 	paths: {
@@ -25,10 +26,46 @@ useHead({
 const resetForm = ref({
 	email: '',
 });
+const fetching = ref(false);
 
 const submitForm = async (event: Event) => {
 	event.preventDefault();
-	console.log(resetForm.value.email);
+
+	if (fetching.value) return;
+
+	fetching.value = true;
+
+	const response = await $fetch<any>(config.public.backendUrl + '/emails/reset-password', {
+		method: 'POST',
+		body: resetForm.value,
+		ignoreResponseError: true,
+	});
+
+	if ('statusCode' in response && response.statusCode === 429) {
+		useNuxtApp().$toast.error(t('reset.toast_error_429'), {
+			position: useNuxtApp().$toast.POSITION.TOP_CENTER,
+		});
+
+		fetching.value = false;
+
+		return;
+	}
+
+	if ('statusCode' in response && response.statusCode !== 200) {
+		useNuxtApp().$toast.error(t('reset.toast_error'), {
+			position: useNuxtApp().$toast.POSITION.TOP_CENTER,
+		});
+
+		fetching.value = false;
+
+		return;
+	}
+
+	useNuxtApp().$toast.success(t('reset.toast_success'), {
+		position: useNuxtApp().$toast.POSITION.TOP_CENTER,
+	});
+
+	fetching.value = false;
 }
 </script>
 
@@ -48,17 +85,20 @@ const submitForm = async (event: Event) => {
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('reset.email') }}</label>
 					<div class="mt-1 mb-4">
-						<input
+						<Input
 							v-model="resetForm.email"
 							type="email"
 							required
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 						/>
 					</div>
 
-					<button type="submit" class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-						{{ t('reset.reset') }}
-					</button>
+					<Button
+						type="submit"
+						:disable="fetching"
+					>
+						<Spinner v-if="fetching" />
+						<span v-else>{{ t('reset.reset') }}</span>
+					</Button>
 
 					<div class="mt-1.5">
 						<span class="text-sm mr-1">{{ t('reset.question_1') }}</span>

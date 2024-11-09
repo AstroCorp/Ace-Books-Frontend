@@ -56,6 +56,11 @@ export default defineNuxtConfig({
 				usePolling: true,
 				interval: 100,
 			},
+			hmr: {
+				protocol: "ws",
+				host: "0.0.0.0",
+				port: 24678,
+			},
 		},
 	},
 	components: [

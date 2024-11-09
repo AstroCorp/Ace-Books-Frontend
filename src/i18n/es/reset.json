@@ -6,5 +6,8 @@
 	"login": "Iniciar sesión",
 	"register": "Registrarme",
 	"question_1": "¿Recuerdas tu contraseña?",
-	"question_2": "¿No tienes una cuenta?"
+	"question_2": "¿No tienes una cuenta?",
+	"toast_error_429": "Has realizado demasiados intentos. Prueba de nuevo más tarde",
+	"toast_error": "Ups... Ha ocurrido un error. Prueba de nuevo más tarde",
+	"toast_success": "Email enviado correctamente"
 }
