@@ -31,9 +31,9 @@ useHead({
 				<p class="text-sm mt-2 mb-6 text-shadow shadow-black/75">{{ t('home.p') }}</p>
 
 				<NuxtLinkLocale to="/register">
-					<Button class="px-4 py-3 uppercase" variant="primary">
-						{{ t('home.button') }}
-					</Button>
+					<LandingButton>
+						<div class="px-2 py-1 uppercase">{{ t('home.button') }}</div>
+					</LandingButton>
 				</NuxtLinkLocale>
 
 				<NuxtImg src="/images/bg.webp" placeholder preload loading="lazy" class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />

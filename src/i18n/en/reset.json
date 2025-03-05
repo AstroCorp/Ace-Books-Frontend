@@ -6,5 +6,8 @@
 	"login": "Log in",
 	"register": "Sign up",
 	"question_1": "Remember your password?",
-	"question_2": "Don’t you have an account?"
+	"question_2": "Don’t you have an account?",
+	"toast_error_429": "Too many requests. Try again later",
+	"toast_error": "An error occurred. Try again later",
+	"toast_success": "Email sent successfully"
 }

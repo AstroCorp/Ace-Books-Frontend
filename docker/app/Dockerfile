@@ -14,4 +14,6 @@ RUN yarn install
 
 EXPOSE 3000
 
-CMD ["yarn", "dev"]
+ENV CHOKIDAR_USEPOLLING=true
+
+CMD ["yarn", "dev", "--host", "0.0.0.0"]
