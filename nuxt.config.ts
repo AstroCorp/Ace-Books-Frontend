@@ -69,13 +69,7 @@ export default defineNuxtConfig({
 			pathPrefix: false,
 		},
 	],
-	modules: [
-		"@nuxtjs/i18n",
-		"@nuxt/image",
-		"@nuxtjs/mdc",
-		"nuxt-auth-utils",
-		"nuxt-icons",
-	],
+	modules: ["@nuxtjs/i18n", "@nuxt/image", "@nuxtjs/mdc", "nuxt-auth-utils", "nuxt-icons", '@nuxtjs/seo'],
 	i18n: {
 		vueI18n: './src/i18n/i18n.config.ts',
 		locales: [
