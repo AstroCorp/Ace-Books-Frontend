@@ -9,7 +9,6 @@ services:
       - .env
     volumes:
       - .:/app
-      - node_modules_data:/app/node_modules
     networks:
       - main
 
@@ -27,7 +26,3 @@ services:
 networks:
   main:
     driver: bridge
-
-volumes:
-  node_modules_data:
-    driver: "local"

@@ -1,17 +1,17 @@
-FROM node:20-alpine3.18
+FROM node:22-alpine3.20
 
 RUN apk add --no-cache curl && \
 	apk add --no-cache nano && \
     curl -o- -L https://yarnpkg.com/install.sh | sh
 
-ENV PATH /root/.yarn/bin:$PATH
+ENV PATH=/root/.yarn/bin:$PATH
 
 WORKDIR /app
 
 COPY . .
 
-RUN yarn install
+RUN chmod +x /app/docker/app/entrypoint.sh
 
 EXPOSE 3000
 
-CMD ["yarn", "dev"]
+ENTRYPOINT ["/bin/sh", "/app/docker/app/entrypoint.sh"]
