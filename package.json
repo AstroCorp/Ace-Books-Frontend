@@ -6,12 +6,6 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"docker": "docker exec -it ace-books-frontend-app-1",
-		"docker:install": "yarn install && docker exec -it ace-books-frontend-app-1 yarn install",
-		"docker:add": "yarn add",
-		"postdocker:add": "docker exec -it ace-books-frontend-app-1 yarn install",
-		"docker:remove": "yarn remove",
-		"postdocker:remove": "docker exec -it ace-books-frontend-app-1 yarn install",
 		"build": "nuxt build",
 		"dev": "rm -rf /tmp/nitro && nuxt dev --inspect",
 		"postinstall": "nuxt prepare"
