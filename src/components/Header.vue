@@ -49,9 +49,9 @@ const applyNavBackground = computed(() => {
 				</button>
 
 				<NuxtLinkLocale class="hidden sm:block" to="/login">
-					<Button class="p-2" variant="primary">
+					<LandingButton>
 						{{ t('header.sign_in') }}
-					</Button>
+					</LandingButton>
 				</NuxtLinkLocale>
 			</div>
 
@@ -69,9 +69,9 @@ const applyNavBackground = computed(() => {
 				>
 					<li class="sm:inline-flex sm:w-auto w-full items-center justify-center">
 						<NuxtLinkLocale to="/login">
-							<Button class="p-2" variant="primary">
+							<LandingButton>
 								{{ t('header.sign_in') }}
-							</Button>
+							</LandingButton>
 						</NuxtLinkLocale>
 					</li>
 				</ul>
