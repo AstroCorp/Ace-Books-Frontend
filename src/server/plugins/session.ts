@@ -28,18 +28,21 @@ export default defineNitroPlugin(() => {
 		if (tokensNeedRefresh) {
 			try {
 				const response = await $fetch<SessionResponse>(config.public.backendUrl + '/auth/refresh', {
-					method: 'GET',
+					method: 'POST',
 					headers: {
+						'Content-Type': 'application/json',
+						'Origin': event.headers.get('origin') ?? '',
 						Authorization: 'Bearer ' + session.refresh_token,
 					},
 				});
 
+				const tokenData = extractTokenData(response.access_token);
+
 				await replaceUserSession(event, {
 					user: {
-						email: response.user.email,
-						avatar: response.user.avatar,
-						isAdmin: response.user.isAdmin,
-						isVerified: response.user.isVerified,
+						userId: tokenData.userId,
+						isAdmin: tokenData.isAdmin,
+						isVerified: tokenData.isVerified,
 					},
 					access_token: response.access_token,
 					refresh_token: response.refresh_token,

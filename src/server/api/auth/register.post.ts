@@ -8,6 +8,10 @@ export default defineEventHandler(async (event) => {
 
 	const response = await $fetch<SessionResponse>(config.public.backendUrl + '/auth/register', {
 		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'Origin': event.headers.get('origin') ?? '',
+		},
 		body: JSON.stringify({
 			email: body.email,
 			password: body.password,
