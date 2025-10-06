@@ -27,7 +27,7 @@ export default defineNitroPlugin(() => {
 		// Si solo el token de acceso está expirado y el de refresco no, refrescamos los tokens
 		if (tokensNeedRefresh) {
 			try {
-				const response = await $fetch<SessionResponse>(config.public.backendUrl + '/auth/refresh', {
+				const response = await $fetch<SessionResponse>(config.nuxtBackendUrl + '/auth/refresh', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',

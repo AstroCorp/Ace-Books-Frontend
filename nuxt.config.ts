@@ -38,10 +38,12 @@ export default defineNuxtConfig({
 		nuxtSessionPassword: process.env.NUXT_SESSION_PASSWORD,
 		nuxtSessionTime: process.env.NUXT_SESSION_TIME,
 
+		nuxtBackendUrl: process.env.NUXT_BACKEND_URL || process.env.BACKEND_URL,
+
 		// Public keys, se exponen en el cliente
 		public: {
 			backendUrl: process.env.BACKEND_URL,
-			frontendUrl: process.env.NUXT_ENV === "development" ? process.env.FRONTEND_URL : process.env.VERCEL_URL,
+			frontendUrl: process.env.FRONTEND_URL,
 			mailUsername: process.env.MAIL_USERNAME,
 		},
 

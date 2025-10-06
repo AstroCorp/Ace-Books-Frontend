@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
 	const body = await readBody(event);
 	const { extractTokenData } = useJwt();
 
-	const response = await $fetch<SessionResponse>(config.public.backendUrl + '/auth/register', {
+	const response = await $fetch<SessionResponse>(config.nuxtBackendUrl + '/auth/register', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
