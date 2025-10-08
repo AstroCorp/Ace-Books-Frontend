@@ -1,24 +1,24 @@
 <script setup lang="ts">
 const { t } = useI18n();
-const { session, user, logout } = useAuth();
+const { logout } = useAuth();
 
 defineI18nRoute({
 	paths: {
-		en: '/library',
-		es: '/biblioteca',
+		en: '/verify',
+		es: '/verificar',
 	},
 });
 
 definePageMeta({
-	middleware: ["require-session", "require-email-verified"],
+	middleware: ["require-session"],
 });
 
 useHead({
-	title: t('home.title') + ' - ' + t('library.title'),
+	title: t('home.title') + ' - ' + t('verify.title'),
 	meta: [
 		{
 			name: 'description',
-			content: t('library.description'),
+			content: t('verify.description'),
 		},
 	],
 });
@@ -26,8 +26,7 @@ useHead({
 
 <template>
 	<div class="p-2">
-		<div class="mb-4">{{ session }}</div>
-		<div class="mb-4">{{ user }}</div>
+		<div class="mb-4">Verify</div>
 		<button class="border p-2 cursor-pointer hover:bg-slate-100" @click="logout">Logout</button>
 	</div>
 </template>

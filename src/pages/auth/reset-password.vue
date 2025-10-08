@@ -14,7 +14,7 @@ defineI18nRoute({
 });
 
 definePageMeta({
-	middleware: ["disabled-with-session", "check-reset-password-params"],
+	middleware: ["disabled-with-session", "require-reset-password-params"],
 });
 
 useHead({
