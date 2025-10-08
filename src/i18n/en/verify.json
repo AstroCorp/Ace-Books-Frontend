@@ -1,4 +1,9 @@
 {
 	"title": "Verify Email",
-	"description": "Verify your email to access all Ace Books features."
+	"description": "Verify your email to access all Ace Books features.",
+	"warning_message": "Your account is not verified. Please verify your email.",
+	"resend_button": "Resend Verification Email",
+	"toast_error_429": "Too many requests. Try again later",
+	"toast_error": "An error occurred. Try again later",
+	"toast_success": "Verification email resent. Check your inbox."
 }
