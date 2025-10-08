@@ -1,7 +1,7 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
 	const nuxtApp = useNuxtApp();
 	const localeRoute = useLocaleRoute();
-	const { loggedIn } = useUserSession();
+	const { loggedIn } = useAuth();
 
 	// Si el usuario no está logueado, lo redirige al login
 	if (!loggedIn.value) {

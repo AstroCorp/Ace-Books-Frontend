@@ -4,7 +4,7 @@ import type { SessionSuccessResponse, RegisterErrorResponse } from '~/types/auth
 const { t, locale } = useI18n();
 const localeRoute = useLocaleRoute();
 const config = useRuntimeConfig();
-const { fetch } = useUserSession();
+const { fetch } = useAuth();
 
 defineI18nRoute({
 	paths: {
