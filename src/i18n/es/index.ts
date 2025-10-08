@@ -10,6 +10,7 @@ import privacy from './privacy.json';
 import register from './register.json';
 import reset from './reset.json';
 import terms from './terms.json';
+import verify from './verify.json';
 
 const es = {
 	cookies,
@@ -24,6 +25,7 @@ const es = {
 	register,
 	reset,
 	terms,
+	verify,
 };
 
 export default es;

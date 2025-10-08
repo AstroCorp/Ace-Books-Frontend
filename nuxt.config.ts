@@ -38,10 +38,12 @@ export default defineNuxtConfig({
 		nuxtSessionPassword: process.env.NUXT_SESSION_PASSWORD,
 		nuxtSessionTime: process.env.NUXT_SESSION_TIME,
 
+		nuxtBackendUrl: process.env.NUXT_BACKEND_URL || process.env.BACKEND_URL,
+
 		// Public keys, se exponen en el cliente
 		public: {
 			backendUrl: process.env.BACKEND_URL,
-			frontendUrl: process.env.NUXT_ENV === "development" ? process.env.FRONTEND_URL : process.env.VERCEL_URL,
+			frontendUrl: process.env.FRONTEND_URL,
 			mailUsername: process.env.MAIL_USERNAME,
 		},
 
@@ -56,6 +58,11 @@ export default defineNuxtConfig({
 				usePolling: true,
 				interval: 100,
 			},
+			hmr: {
+				protocol: "ws",
+				host: "0.0.0.0",
+				port: 24678,
+			},
 		},
 	},
 	components: [
@@ -64,13 +71,7 @@ export default defineNuxtConfig({
 			pathPrefix: false,
 		},
 	],
-	modules: [
-		"@nuxtjs/i18n",
-		"@nuxt/image",
-		"@nuxtjs/mdc",
-		"nuxt-auth-utils",
-		"nuxt-icons",
-	],
+	modules: ["@nuxtjs/i18n", "@nuxt/image", "@nuxtjs/mdc", "nuxt-auth-utils", "nuxt-icons", '@nuxtjs/seo'],
 	i18n: {
 		vueI18n: './src/i18n/i18n.config.ts',
 		locales: [

@@ -1,0 +1,10 @@
+{
+	"title": "Verificar correo electrónico",
+	"description": "Verifica tu correo electrónico para acceder a todas las funciones de Ace Books.",
+	"warning_message": "Tu cuenta no está verificada. Por favor, verifica tu correo electrónico.",
+	"success_message": "¡Tu correo electrónico ha sido verificado con éxito! Ahora puedes acceder a todas las funciones de Ace Books.",
+	"resend_button": "Reenviar correo de verificación",
+	"toast_error_429": "Has realizado demasiados intentos. Prueba de nuevo más tarde",
+	"toast_error": "Ups... Ha ocurrido un error. Prueba de nuevo más tarde",
+	"toast_success": "Correo de verificación reenviado. Revisa tu bandeja de entrada."
+}

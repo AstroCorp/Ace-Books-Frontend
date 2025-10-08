@@ -43,3 +43,16 @@ export interface LoginErrorResponse extends BaseErrorResponse {
 export interface SessionSuccessResponse {
 	success: boolean;
 }
+
+export interface ResetPasswordErrorResponse extends BaseErrorResponse {
+	data: {
+		message: string[];
+		error: string;
+		statusCode: number;
+	};
+}
+
+export interface ResetPasswordSuccessResponse {
+	message: string;
+}
+

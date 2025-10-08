@@ -4,7 +4,7 @@ import type { SessionSuccessResponse, RegisterErrorResponse } from '~/types/auth
 const { t, locale } = useI18n();
 const localeRoute = useLocaleRoute();
 const config = useRuntimeConfig();
-const { fetch } = useUserSession();
+const { fetch } = useAuth();
 
 defineI18nRoute({
 	paths: {
@@ -32,7 +32,7 @@ const registerForm = ref({
 	password: '',
 	repeatPassword: '',
 });
-
+const fetching = ref(false);
 const emailErrors = ref<string[]>([]);
 const passwordErrors = ref<string[]>([]);
 
@@ -52,14 +52,16 @@ const readyForSubmit = computed(() => {
 		&& passwordHasLowercase.value
 		&& passwordHasNumber.value
 		&& passwordHasSpecialCharacter.value
-		&& samePassword.value;
+		&& samePassword.value
+		&& registerForm.value.email.length > 0;
 });
 
 const submitForm = async (event: Event) => {
 	event.preventDefault();
 
-	if (!readyForSubmit.value) return;
+	if (!readyForSubmit.value || fetching.value) return;
 
+	fetching.value = true;
 	emailErrors.value = [];
 	passwordErrors.value = [];
 
@@ -72,6 +74,7 @@ const submitForm = async (event: Event) => {
 	if ('data' in response && response.data.statusCode === 400) {
 		emailErrors.value = response.data.message.filter((message) => message.includes('email'));
 		passwordErrors.value = response.data.message.filter((message) => !message.includes('email'));
+		fetching.value = false;
 
 		return;
 	}
@@ -80,6 +83,9 @@ const submitForm = async (event: Event) => {
 		useNuxtApp().$toast.error(t('register.toast_error'), {
 			position: useNuxtApp().$toast.POSITION.TOP_CENTER,
 		});
+
+		fetching.value = false;
+
 		return;
 	}
 
@@ -89,6 +95,8 @@ const submitForm = async (event: Event) => {
 	const libraryPath = libraryRoute != null ? libraryRoute.path : '/';
 
 	await navigateTo(libraryPath);
+
+	fetching.value = false;
 };
 </script>
 
@@ -108,10 +116,9 @@ const submitForm = async (event: Event) => {
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('register.email') }}</label>
 					<div class="mt-1 mb-4">
-						<input
+						<Input
 							v-model="registerForm.email"
 							type="email"
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 							required
 						/>
 
@@ -120,10 +127,9 @@ const submitForm = async (event: Event) => {
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('register.password') }}</label>
 					<div class="mt-1 mb-4">
-						<input
+						<Input
 							v-model="registerForm.password"
 							type="password"
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 							required
 						/>
 
@@ -139,10 +145,9 @@ const submitForm = async (event: Event) => {
 
 					<label class="block text-sm font-medium text-gray-700">{{ t('register.repeat_password') }}</label>
 					<div class="mt-1 mb-4">
-						<input
+						<Input
 							v-model="registerForm.repeatPassword"
 							type="password"
-							class="shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
 							required
 						/>
 
@@ -171,13 +176,12 @@ const submitForm = async (event: Event) => {
 						</template>
 					</i18n-t>
 
-					<button
+					<Button
 						type="submit"
-						class="w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 enabled:hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-60 disabled:cursor-default"
-						:disabled="!readyForSubmit"
+						:disabled="!readyForSubmit || fetching"
 					>
 						{{ t('register.register') }}
-					</button>
+					</Button>
 
 					<div class="mt-1.5">
 						<span class="text-sm mr-1">{{ t('register.question') }}</span>
