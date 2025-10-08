@@ -1,4 +1,4 @@
-export default defineNuxtRouteMiddleware(async (middleware) => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
 	const { loggedIn, fetch, session, clear } = useUserSession();
 	const { extractTokenData } = useJwt();
 

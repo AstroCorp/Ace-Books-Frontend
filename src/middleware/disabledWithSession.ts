@@ -1,4 +1,4 @@
-export default defineNuxtRouteMiddleware(async (middleware) => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
 	const nuxtApp = useNuxtApp();
 	const localeRoute = useLocaleRoute();
 	const { loggedIn } = useUserSession();

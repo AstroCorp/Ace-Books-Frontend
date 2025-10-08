@@ -52,7 +52,8 @@ const readyForSubmit = computed(() => {
 		&& passwordHasLowercase.value
 		&& passwordHasNumber.value
 		&& passwordHasSpecialCharacter.value
-		&& samePassword.value;
+		&& samePassword.value
+		&& registerForm.value.email.length > 0;
 });
 
 const submitForm = async (event: Event) => {
@@ -177,7 +178,7 @@ const submitForm = async (event: Event) => {
 
 					<Button
 						type="submit"
-						:disabled="!readyForSubmit"
+						:disabled="!readyForSubmit || fetching"
 					>
 						{{ t('register.register') }}
 					</Button>

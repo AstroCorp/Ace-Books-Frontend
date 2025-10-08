@@ -114,7 +114,7 @@ const submitForm = async (event: Event) => {
 
 					<Button
 						type="submit"
-						:disabled="!readyForSubmit"
+						:disabled="!readyForSubmit || fetching"
 					>
 						{{ t('login.login') }}
 					</Button>

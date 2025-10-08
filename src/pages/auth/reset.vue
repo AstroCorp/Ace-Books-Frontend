@@ -28,10 +28,14 @@ const resetForm = ref({
 });
 const fetching = ref(false);
 
+const readyForSubmit = computed(() => {
+	return resetForm.value.email.length > 0;
+});
+
 const submitForm = async (event: Event) => {
 	event.preventDefault();
 
-	if (fetching.value) return;
+	if (!readyForSubmit.value || fetching.value) return;
 
 	fetching.value = true;
 
@@ -61,7 +65,7 @@ const submitForm = async (event: Event) => {
 		return;
 	}
 
-	useNuxtApp().$toast.success(t('reset.toast_success'), {
+	useNuxtApp().$toast.success(t('reset.toast_success_1'), {
 		position: useNuxtApp().$toast.POSITION.TOP_CENTER,
 	});
 
@@ -94,7 +98,7 @@ const submitForm = async (event: Event) => {
 
 					<Button
 						type="submit"
-						:disable="fetching"
+						:disable="!readyForSubmit.value || fetching"
 					>
 						<Spinner v-if="fetching" />
 						<span v-else>{{ t('reset.reset') }}</span>
