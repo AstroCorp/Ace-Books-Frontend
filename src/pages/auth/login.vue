@@ -130,7 +130,7 @@ const submitForm = async (event: Event) => {
 						</NuxtLinkLocale>
 					</div>
 
-					<div class="flex items-center justify-start mt-1.5">
+					<div class="mt-1.5">
 						<span class="text-sm mr-1">{{ t('login.question_2') }}</span>
 
 						<NuxtLinkLocale
