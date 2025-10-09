@@ -63,6 +63,9 @@ const submitForm = async (event: Event) => {
 
 	const response = await $fetch<ResetPasswordSuccessResponse | ResetPasswordErrorResponse>(config.public.backendUrl + '/auth/reset-password', {
 		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
 		body: resetForm.value,
 		ignoreResponseError: true,
 	});

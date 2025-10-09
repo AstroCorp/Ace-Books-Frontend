@@ -36,6 +36,7 @@ const resendVerificationEmail = async (event: Event) => {
 	const response = await $fetch<any>(config.public.backendUrl + '/users/send-verify-account-email', {
 		method: 'POST',
 		headers: {
+			'Content-Type': 'application/json',
 			Authorization: `Bearer ${session.value.access_token}`,
 		},
 		ignoreResponseError: true,

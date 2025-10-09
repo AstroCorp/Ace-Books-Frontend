@@ -41,6 +41,9 @@ const submitForm = async (event: Event) => {
 
 	const response = await $fetch<any>(config.public.backendUrl + '/auth/send-reset-password-email', {
 		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
 		body: resetForm.value,
 		ignoreResponseError: true,
 	});

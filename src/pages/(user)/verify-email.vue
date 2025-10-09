@@ -26,12 +26,12 @@ if (import.meta.server) {
 
 	const { error } = await useFetch(`${config.nuxtBackendUrl}/users/verify-account?expires=${expires}&signature=${signature}`, {
 		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
 		body: {
 			email,
 			hash,
-		},
-		headers: {
-			'Content-Type': 'application/json',
 		},
 	});
 
