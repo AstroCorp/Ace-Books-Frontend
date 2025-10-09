@@ -24,7 +24,7 @@ useHead({
 if (import.meta.server) {
 	const { email, hash, expires, signature } = route.query;
 
-	const { error } = await useFetch(`${config.nuxtBackendUrl}/users/verify-account?expires=${expires}&signature=${signature}`, {
+	const { error } = await useFetch(`${config.public.backendUrl}/users/verify-account?expires=${expires}&signature=${signature}`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',

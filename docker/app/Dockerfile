@@ -2,6 +2,7 @@ FROM node:22-alpine3.20
 
 RUN apk add --no-cache curl && \
 	apk add --no-cache nano && \
+	apk add --no-cache socat && \
     curl -o- -L https://yarnpkg.com/install.sh | sh
 
 ENV PATH=/root/.yarn/bin:$PATH
