@@ -30,7 +30,6 @@ export default defineNitroPlugin(() => {
 				const response = await $fetch<SessionResponse>(config.nuxtBackendUrl + '/auth/refresh', {
 					method: 'POST',
 					headers: {
-						'Content-Type': 'application/json',
 						'Origin': event.headers.get('origin') ?? '',
 						Authorization: 'Bearer ' + session.refresh_token,
 					},

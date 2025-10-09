@@ -12,10 +12,10 @@ export default defineEventHandler(async (event) => {
 			'Content-Type': 'application/json',
 			'Origin': event.headers.get('origin') ?? '',
 		},
-		body: JSON.stringify({
+		body: {
 			email: body.email,
 			password: body.password,
-		}),
+		},
 	});
 
 	const tokenData = extractTokenData(response.access_token);
