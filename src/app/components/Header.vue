@@ -23,10 +23,11 @@ const applyNavBackground = computed(() => {
 
 <template>
 	<header
-		class="fixed w-full h-20 z-20 transition-all bg-acebooks-green-700 bg-opacity-0 duration-200"
+		class="fixed w-full h-20 z-20 transition-all duration-200"
 		:class="{
 			'h-full': applyNavStyle,
-			'bg-opacity-75 backdrop-blur-sm': applyNavBackground || applyNavStyle,
+			'bg-acebooks-green-700/0': !applyNavBackground && !applyNavStyle,
+			'bg-acebooks-green-700/75 backdrop-blur-sm': applyNavBackground || applyNavStyle,
 		}"
 	>
 		<nav class="flex flex-col">

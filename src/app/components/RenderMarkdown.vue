@@ -25,7 +25,7 @@ defineProps<{
 				pre: h('pre', { class: 'bg-gray-800 text-white p-4 rounded-md overflow-auto' }, h('slot')),
 				code: h('code', { class: 'bg-gray-800 text-white p-1 rounded-md' }, h('slot')),
 				table: h('table', { class: 'w-full table-fixed rounded-md overflow-hidden text-left mt-3' }, h('slot')),
-				thead: h('thead', { class: 'bg-gray-300 bg-opacity-80 overflow-hidden' }, h('slot')),
+				thead: h('thead', { class: 'bg-gray-300/80 overflow-hidden' }, h('slot')),
 				tbody: h('tbody', { class: 'bg-gray-200 overflow-hidden' }, h('slot')),
 				tr: h('tr', {}, h('slot')),
 				th: h('th', { class: 'py-2 px-3' }, h('slot')),

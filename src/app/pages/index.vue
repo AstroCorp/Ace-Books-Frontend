@@ -47,7 +47,7 @@ useHead({
 					}"
 					href="#content"
 				>
-					<div class="absolute flex h-full w-full justify-center items-center bg-white bg-opacity-70 rounded-full z-10">
+					<div class="absolute flex h-full w-full justify-center items-center bg-white/70 rounded-full z-10">
 						<nuxt-icon name="down" class="text-green-700" />
 					</div>
 
