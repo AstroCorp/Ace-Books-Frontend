@@ -56,7 +56,7 @@ const selectItem = (item: string) => {
 			<OnClickOutside @trigger="closeDropdown">
 				<div
 					ref="dropdownMenu"
-					class="absolute bg-white/50 rounded-md border border-white text-black backdrop-blur-sm shadow-lg z-50 flex flex-col"
+					class="absolute bg-white/50 rounded-md border border-white text-black backdrop-blur-xs shadow-lg z-50 flex flex-col"
 					:class="{
 						'pointer-events-none invisible': !isOpen,
 					}"

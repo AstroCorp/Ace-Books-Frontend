@@ -27,7 +27,7 @@ const applyNavBackground = computed(() => {
 		:class="{
 			'h-full': applyNavStyle,
 			'bg-acebooks-green-700/0': !applyNavBackground && !applyNavStyle,
-			'bg-acebooks-green-700/75 backdrop-blur-sm': applyNavBackground || applyNavStyle,
+			'bg-acebooks-green-700/75 backdrop-blur-xs': applyNavBackground || applyNavStyle,
 		}"
 	>
 		<nav class="flex flex-col">
