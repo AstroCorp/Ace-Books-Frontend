@@ -3,9 +3,9 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 	const { extractTokenData } = useJwt();
 
 	// Si el usuario está logueado, comprueba si los tokens están expirados o necesitan ser renovados
-	if (loggedIn.value && session.value) {
-		const accessTokenData = extractTokenData(session.value.access_token);
-		const refreshTokenData = extractTokenData(session.value.refresh_token);
+	if (loggedIn.value) {
+		const accessTokenData = extractTokenData(session.value!.access_token);
+		const refreshTokenData = extractTokenData(session.value!.refresh_token);
 
 		// Date.now() es en milisegundos y exp en segundos,
 		// por eso se multiplica por 1000
