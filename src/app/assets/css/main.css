@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
 
 @layer base {
 	/* Wittgenstein */
@@ -218,8 +218,61 @@
 	}
 }
 
+@theme {
+	--color-acebooks-green-50: #f4faf3;
+	--color-acebooks-green-100: #e5f4e4;
+	--color-acebooks-green-200: #cbe8ca;
+	--color-acebooks-green-300: #a0d5a0;
+	--color-acebooks-green-400: #72bb72;
+	--color-acebooks-green-500: #4a9d4b;
+	--color-acebooks-green-600: #398039;
+	--color-acebooks-green-700: #2f6630;
+	--color-acebooks-green-800: #2a512b;
+	--color-acebooks-green-900: #244325;
+	--color-acebooks-green-950: #0f2410;
+
+	--color-acebooks-brown-50: #f9f9f1;
+	--color-acebooks-brown-100: #eaecd9;
+	--color-acebooks-brown-200: #d4d8af;
+	--color-acebooks-brown-300: #c1c485;
+	--color-acebooks-brown-400: #babb72;
+	--color-acebooks-brown-500: #aaa456;
+	--color-acebooks-brown-600: #968949;
+	--color-acebooks-brown-700: #7d6c40;
+	--color-acebooks-brown-800: #685838;
+	--color-acebooks-brown-900: #574930;
+	--color-acebooks-brown-950: #302718;
+
+	--font-Rubik: "Rubik", "sans-serif";
+	--font-Wittgenstein: "Wittgenstein", "serif";
+
+	@keyframes pulse-effect {
+		0% {
+			transform: scale(1);
+			opacity: 1;
+		}
+
+		50% {
+			opacity: 0.3;
+		}
+
+		100% {
+			transform: scale(1.5);
+			opacity: 0;
+		}
+	}
+
+	--animate-pulse-v2: pulse-effect 1.2s ease infinite;
+}
+
+@utility text-shadow {
+	text-shadow: 0 2px 5px var(--tw-shadow-color);
+}
+
 .logo {
-	@apply text-logo font-Wittgenstein font-semibold;
+	@apply font-Wittgenstein font-semibold;
+	font-size: 2.5rem;
+	line-height: 1;
 }
 
 .nuxt-icon svg {

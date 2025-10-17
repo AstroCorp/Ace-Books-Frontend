@@ -24,7 +24,7 @@ useHead({
 
 <template>
   <div class="flex flex-col min-h-screen">
-		<header class="fixed md:bg-opacity-0 md:h-auto">
+		<header class="fixed md:h-auto">
 			<nav class="flex items-center p-4 flex-wrap">
 				<button
 					@click="handleError"
@@ -37,7 +37,7 @@ useHead({
 
 		<div class="h-screen flex flex-col justify-center">
 			<article class="flex flex-col items-center text-center">
-				<h1 class="text-9xl text-white text-opacity-60 mb-6 text-shadow shadow-black/40">{{ error.statusCode }}</h1>
+				<h1 class="text-9xl text-white/60 mb-6 text-shadow shadow-black/40">{{ error.statusCode }}</h1>
 
 				<LandingButton @click="handleError">
 					{{ t('error.button') }}

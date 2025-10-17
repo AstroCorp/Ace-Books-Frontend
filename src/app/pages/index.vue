@@ -47,7 +47,7 @@ useHead({
 					}"
 					href="#content"
 				>
-					<div class="absolute flex h-full w-full justify-center items-center bg-white bg-opacity-70 rounded-full z-10">
+					<div class="absolute flex h-full w-full justify-center items-center bg-white/70 rounded-full z-10">
 						<nuxt-icon name="down" class="text-green-700" />
 					</div>
 
@@ -69,15 +69,15 @@ useHead({
 
 			<div class="flex flex-col lg:flex-row justify-center">
 				<div class="lg:w-1/3">
-					<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded w-full h-full object-cover" />
+					<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded-sm w-full h-full object-cover" />
 				</div>
 
 				<div class="my-16 lg:my-0 lg:mx-4 xl:mx-6 lg:w-1/3">
-					<NuxtImg src="/images/info_2.webp" placeholder preload loading="lazy" class="rounded w-full  h-full object-cover" />
+					<NuxtImg src="/images/info_2.webp" placeholder preload loading="lazy" class="rounded-sm w-full  h-full object-cover" />
 				</div>
 
 				<div class="lg:w-1/3">
-					<NuxtImg src="/images/info_3.webp" placeholder preload loading="lazy" class="rounded w-full  h-full object-cover" />
+					<NuxtImg src="/images/info_3.webp" placeholder preload loading="lazy" class="rounded-sm w-full  h-full object-cover" />
 				</div>
 			</div>
 
