@@ -1,8 +1,8 @@
 @import "tailwindcss";
+
 @plugin "@tailwindcss/forms";
 
 @layer base {
-
 	/* Wittgenstein */
 	@font-face {
 		font-family: 'Wittgenstein';
