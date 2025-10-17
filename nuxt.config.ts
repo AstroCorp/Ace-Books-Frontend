@@ -1,12 +1,25 @@
+import tailwindcss from "@tailwindcss/vite";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	compatibilityDate: '2024-07-20',
-	srcDir: 'src/',
-	css: ['~/assets/css/main.css'],
-	postcss: {
-		plugins: {
-			tailwindcss: {},
-			autoprefixer: {},
+	compatibilityDate: "2025-10-17",
+	srcDir: "src/app/",
+	dir: {
+		public: "src/public"
+	},
+	css: ["~/assets/css/main.css"],
+	vite: {
+		plugins: [tailwindcss()],
+		server: {
+			watch: {
+				usePolling: true,
+				interval: 100,
+			},
+			hmr: {
+				protocol: "ws",
+				host: "0.0.0.0",
+				port: 24678,
+			},
 		},
 	},
 	devtools: {
@@ -19,9 +32,12 @@ export default defineNuxtConfig({
 		head: {
 			link: [
 				{
-					rel: 'icon',
-					type: 'image/png',
-					href: process.env.NUXT_ENV === "development" ? '/favicon_dev.png' : '/favicon.png',
+					rel: "icon",
+					type: "image/png",
+					href:
+						process.env.NUXT_ENV === "development"
+							? "/favicon_dev.png"
+							: "/favicon.png",
 				},
 			],
 		},
@@ -29,7 +45,7 @@ export default defineNuxtConfig({
 	// Github Actions no reconoce correctamente que se hará un deploy a Vercel
 	// por lo que se debe especificar el preset de Vercel
 	nitro: {
-		preset: 'vercel',
+		preset: "vercel",
 	},
 	runtimeConfig: {
 		// Private keys, se exponen en el servidor
@@ -47,52 +63,50 @@ export default defineNuxtConfig({
 
 		session: {
 			name: process.env.NUXT_SESSION_NAME,
-			password: process.env.NUXT_SESSION_PASSWORD,
-		},
-	},
-	vite: {
-		server: {
-			watch: {
-				usePolling: true,
-				interval: 100,
-			},
-			hmr: {
-				protocol: "ws",
-				host: "0.0.0.0",
-				port: 24678,
-			},
+			password: process.env.NUXT_SESSION_PASSWORD || "",
 		},
 	},
 	components: [
 		{
-			path: '~/components',
+			path: "~/components",
 			pathPrefix: false,
 		},
 	],
-	modules: ["@nuxtjs/i18n", "@nuxt/image", "@nuxtjs/mdc", "nuxt-auth-utils", "nuxt-icons", '@nuxtjs/seo'],
+	modules: [
+		"@nuxtjs/i18n",
+		"@nuxt/image",
+		"@nuxtjs/mdc",
+		"nuxt-auth-utils",
+		"nuxt-icons",
+		"@nuxtjs/seo",
+	],
 	i18n: {
-		vueI18n: './src/i18n/i18n.config.ts',
+		vueI18n: "~/i18n/i18n.config.ts",
 		locales: [
 			{
-				code: 'en',
-				name: 'English',
+				code: "en",
+				name: "English",
 			},
 			{
-				code: 'es',
-				name: 'Español',
+				code: "es",
+				name: "Español",
 			},
 		],
-		defaultLocale: 'en',
+		defaultLocale: "en",
 		detectBrowserLanguage: {
 			useCookie: true,
-			cookieKey: 'language',
-			redirectOn: 'root',
+			cookieKey: "language",
+			redirectOn: "root",
 			alwaysRedirect: true,
 		},
 	},
 	// Para servir nosotros las imágenes y no depender de una API de vercel
 	image: {
-		provider: 'ipx',
-		domains: [(process.env.NUXT_ENV === "development" ? process.env.FRONTEND_URL : process.env.VERCEL_URL) || 'http://localhost:3000'],
+		provider: "ipx",
+		domains: [
+			(process.env.NUXT_ENV === "development"
+				? process.env.FRONTEND_URL
+				: process.env.VERCEL_URL) || "http://localhost:3000",
+		],
 	},
 });

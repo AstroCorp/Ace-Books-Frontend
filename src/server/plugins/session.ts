@@ -1,4 +1,4 @@
-import useJwt from "~/composables/useJwt";
+import useJwt from "~/app/composables/useJwt";
 import type { SessionResponse } from "~/types/auth";
 
 export default defineNitroPlugin(() => {
