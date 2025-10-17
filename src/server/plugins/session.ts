@@ -1,4 +1,4 @@
-import useJwt from "~/app/composables/useJwt";
+import useJwt from "~/composables/useJwt";
 import type { SessionResponse } from "~/types/auth";
 
 export default defineNitroPlugin(() => {
@@ -8,6 +8,8 @@ export default defineNitroPlugin(() => {
 	// Se ejecuta al comprobar la sesión al usar SSR desde el composable (/api/_auth/session)
 	// o al usar useUserSession().fetch()
 	sessionHooks.hook('fetch', async (session, event) => {
+		if (!session.access_token || session.refresh_token) return;
+
 		const accessTokenData = extractTokenData(session.access_token);
 		const refreshTokenData = extractTokenData(session.refresh_token);
 

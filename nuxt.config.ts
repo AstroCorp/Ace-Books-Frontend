@@ -3,7 +3,8 @@ import tailwindcss from "@tailwindcss/vite";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	compatibilityDate: "2025-10-17",
-	srcDir: "src/app/",
+	srcDir: "src/app",
+	serverDir: "src/server",
 	dir: {
 		public: "src/public"
 	},
