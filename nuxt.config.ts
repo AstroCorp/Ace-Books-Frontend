@@ -77,9 +77,10 @@ export default defineNuxtConfig({
 		"@nuxtjs/i18n",
 		"@nuxt/image",
 		"@nuxtjs/mdc",
+		"@nuxtjs/seo",
+		'@nuxt/ui',
 		"nuxt-auth-utils",
 		"nuxt-icons",
-		"@nuxtjs/seo",
 	],
 	i18n: {
 		vueI18n: "~/i18n/i18n.config.ts",
