@@ -103,7 +103,7 @@ const submitForm = async (event: Event) => {
 						type="submit"
 						:disable="!readyForSubmit.value || fetching"
 					>
-						<Spinner v-if="fetching" />
+						<Spinner v-if="fetching" :color="100" />
 						<span v-else>{{ t('reset.reset') }}</span>
 					</Button>
 

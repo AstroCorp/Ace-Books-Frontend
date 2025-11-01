@@ -41,7 +41,6 @@ const closeDropdown = (ev: any) => {
 };
 
 const selectItem = (item: string) => {
-	console.log(item);
 	model.value = item;
 	isOpen.value = false;
 };

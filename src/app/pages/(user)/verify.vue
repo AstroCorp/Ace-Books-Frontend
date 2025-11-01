@@ -91,7 +91,7 @@ const resendVerificationEmail = async (event: Event) => {
 						type="submit"
 						:disabled="fetching"
 					>
-						<Spinner v-if="fetching" />
+						<Spinner v-if="fetching" :color="100" />
 						<span v-else>{{ t('verify.resend_button') }}</span>
 					</Button>
 				</form>

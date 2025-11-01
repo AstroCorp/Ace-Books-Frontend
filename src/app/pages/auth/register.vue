@@ -4,7 +4,7 @@ import type { SessionSuccessResponse, RegisterErrorResponse } from '~/types/auth
 const { t, locale } = useI18n();
 const localeRoute = useLocaleRoute();
 const config = useRuntimeConfig();
-const { fetch } = useAuth();
+const { fetchSession } = useAuth();
 
 defineI18nRoute({
 	paths: {
@@ -89,7 +89,7 @@ const submitForm = async (event: Event) => {
 		return;
 	}
 
-	await fetch();
+	await fetchSession();
 
 	const libraryRoute = localeRoute('library', locale.value);
 	const libraryPath = libraryRoute != null ? libraryRoute.path : '/';

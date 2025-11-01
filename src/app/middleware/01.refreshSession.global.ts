@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
-	const { loggedIn, fetch, session, clear } = useAuth();
+	const { loggedIn, fetchSession, session, clearSession } = useAuth();
 	const { extractTokenData } = useJwt();
 
 	// Si el usuario está logueado, comprueba si los tokens están expirados o necesitan ser renovados
@@ -16,11 +16,11 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 		const tokensNeedRefresh = accessTokenIsExpired && !refreshTokenIsExpired;
 
 		if (tokensAreExpired) {
-			await clear();
+			await clearSession();
 		}
 
 		if (tokensNeedRefresh) {
-			await fetch();
+			await fetchSession();
 		}
 	}
 });
