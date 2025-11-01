@@ -70,8 +70,6 @@ const submitForm = async (event: Event) => {
 		ignoreResponseError: true,
 	});
 
-	console.log(response)
-
 	if ('data' in response && response.data.statusCode === 400) {
 		passwordErrors.value = response.data.message.filter((message) => !message.includes('email') && !message.includes('token'));
 		fetching.value = false;
@@ -165,7 +163,7 @@ const submitForm = async (event: Event) => {
 						type="submit"
 						:disable="!readyForSubmit.value || fetching"
 					>
-						<Spinner v-if="fetching" />
+						<Spinner v-if="fetching" :color="100" />
 						<span v-else>{{ t('reset.change') }}</span>
 					</Button>
 

@@ -8,12 +8,20 @@ export const useAuth = createSharedComposable(() => {
 		await navigateTo('/');
 	}
 
+	const fetchSession = async () => {
+		await fetch();
+	};
+
+	const clearSession = async () => {
+		await clear();
+	}
+
 	return {
 		loggedIn,
 		session,
 		user,
-		fetch,
-		clear,
+		fetchSession,
+		clearSession,
 		logout,
 	};
 });
