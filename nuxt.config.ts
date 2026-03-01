@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 	srcDir: "src/app",
 	serverDir: "src/server",
 	dir: {
-		public: "src/public"
+		public: "src/public",
 	},
 	css: ["~/assets/css/main.css"],
 	vite: {
@@ -74,14 +74,24 @@ export default defineNuxtConfig({
 		},
 	],
 	modules: [
+		"@nuxt/icon",
 		"@nuxtjs/i18n",
 		"@nuxt/image",
 		"@nuxtjs/mdc",
 		"@nuxtjs/seo",
-		'@nuxt/ui',
+		"@nuxt/ui",
 		"nuxt-auth-utils",
-		"nuxt-icons",
 	],
+	icon: {
+		customCollections: [
+			{
+				prefix: "acebooks",
+				dir: "./src/app/assets/icons",
+				// if you want to include all the icons in nested directories:
+				// recursive: true,
+			},
+		],
+	},
 	i18n: {
 		vueI18n: "~/i18n/i18n.config.ts",
 		locales: [

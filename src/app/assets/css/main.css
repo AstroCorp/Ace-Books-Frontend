@@ -276,7 +276,9 @@
 	line-height: 1;
 }
 
-.nuxt-icon svg {
+.svg-icon svg,
+.icon svg,
+.iconify svg {
 	margin-bottom: 0;
 	width: auto !important;
 	height: auto !important;
