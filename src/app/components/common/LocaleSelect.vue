@@ -5,7 +5,12 @@ const { locale, locales, setLocale } = useI18n();
 
 const localeOptions = computed(() => {
 	const availableCodes = new Set<string>(locales.value.map(localeItem => localeItem.code));
-	return [en, es].filter(localeItem => availableCodes.has(localeItem.code));
+	return [en, es]
+		.filter(localeItem => availableCodes.has(localeItem.code))
+		.map(localeItem => ({
+			value: localeItem.code,
+			label: localeItem.name,
+		}));
 });
 
 const onUpdateLocale = async (value: string) => {
@@ -15,20 +20,12 @@ const onUpdateLocale = async (value: string) => {
 </script>
 
 <template>
-	<ULocaleSelect
+	<Dropdown
 		:model-value="locale"
-		:locales="localeOptions"
-		:search-input="false"
-		variant="none"
-		class="w-32 border border-white/80 rounded-md"
-		:ui="{
-			value: 'truncate',
-			base: 'px-3 py-2',
-			trailingIcon: 'text-white/80',
-			content: 'w-36 bg-acebooks-green-950/75 backdrop-blur-xs text-white rounded-md ring-0',
-			viewport: 'w-full',
-			item: 'w-full px-4 py-2 cursor-pointer hover:bg-white/10 rounded-md'
-		}"
+		:options="localeOptions"
+		trigger-class="w-32 border border-white/80 rounded-md px-3 py-2 text-sm text-white flex items-center justify-between gap-2"
+		content-class="w-36 bg-acebooks-green-950/75 backdrop-blur-xs text-white rounded-md ring-0"
+		item-class="w-full px-4 py-2 text-sm cursor-pointer hover:bg-white/10 rounded-md"
 		@update:model-value="onUpdateLocale"
 	/>
 </template>
