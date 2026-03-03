@@ -23,9 +23,7 @@ const onUpdateLocale = async (value: string) => {
 	<Dropdown
 		:model-value="locale"
 		:options="localeOptions"
-		trigger-class="w-32 border border-white/80 rounded-md px-3 py-2 text-sm text-white flex items-center justify-between gap-2"
-		content-class="w-36 bg-acebooks-green-950/75 backdrop-blur-xs text-white rounded-md ring-0"
-		item-class="w-full px-4 py-2 text-sm cursor-pointer hover:bg-white/10 rounded-md"
+		variation="outline"
 		@update:model-value="onUpdateLocale"
 	/>
 </template>

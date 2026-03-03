@@ -39,7 +39,7 @@ useHead({
 			<article class="flex flex-col items-center text-center">
 				<h1 class="text-9xl text-white/60 mb-6 text-shadow shadow-black/40">{{ error.statusCode }}</h1>
 
-				<Button preset="landing" @click="handleError">
+				<Button preset="outline" @click="handleError">
 					{{ t('error.button') }}
 				</Button>
 			</article>

@@ -9,15 +9,11 @@ interface DropdownOption {
 const {
 	modelValue,
 	options,
-	triggerClass = 'appearance-none bg-transparent w-32 border border-white/80 rounded-md px-3 py-2 text-white flex items-center justify-between gap-2',
-	contentClass = 'w-36 bg-acebooks-green-950/75 backdrop-blur-xs text-white rounded-md ring-0',
-	itemClass = 'w-full px-4 py-2 cursor-pointer hover:bg-white/10 rounded-md',
+	variation = 'outline',
 } = defineProps<{
 	modelValue: string;
 	options: DropdownOption[];
-	triggerClass?: string;
-	contentClass?: string;
-	itemClass?: string;
+	variation?: 'outline' | 'solid';
 }>();
 
 const emit = defineEmits<{
@@ -28,10 +24,9 @@ const selectedOptionLabel = computed(() => {
 	return options.find(option => option.value === modelValue)?.label ?? modelValue;
 });
 
-const items = computed<DropdownMenuItem[]>(() => {
+const items = computed((): DropdownMenuItem[] => {
 	return options.map(option => ({
 		label: option.label,
-		class: itemClass,
 		onSelect: () => emit('update:modelValue', option.value),
 	}));
 });
@@ -41,20 +36,29 @@ const items = computed<DropdownMenuItem[]>(() => {
 	<UDropdownMenu
 		:items="items"
 		:ui="{
-			content: contentClass,
+			content: variation === 'solid'
+				? 'w-36 bg-white text-acebooks-green-950 rounded-md ring-0'
+				: 'w-36 bg-acebooks-green-950/75 backdrop-blur-xs text-white rounded-md ring-0',
 			viewport: 'w-full',
-			item: 'w-full'
+			item: variation === 'solid'
+				? 'w-full px-4 py-2 text-sm cursor-pointer hover:bg-acebooks-green-100 rounded-md'
+				: 'w-full px-4 py-2 text-sm cursor-pointer hover:bg-white/10 rounded-md'
 		}"
 	>
-		<button
+		<Button
 			type="button"
-			:class="triggerClass"
+			:preset="variation"
+			class="appearance-none rounded-md text-sm flex items-center justify-between gap-2"
+			:class="{
+				'w-32 px-3! py-2! border! border-white/80!': variation === 'outline',
+				'w-auto!': variation === 'solid'
+			}"
 		>
 			<span class="truncate">{{ selectedOptionLabel }}</span>
 			<UIcon
 				name="i-lucide-chevron-down"
 				class="shrink-0 text-white/80"
 			/>
-		</button>
+		</Button>
 	</UDropdownMenu>
 </template>

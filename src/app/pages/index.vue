@@ -31,7 +31,7 @@ useHead({
 				<p class="text-sm mt-2 mb-6 text-shadow shadow-black/75">{{ t('home.p') }}</p>
 
 				<NuxtLinkLocale to="/register">
-					<Button preset="landing">
+					<Button preset="outline">
 						<div class="px-2 py-1 uppercase">{{ t('home.button') }}</div>
 					</Button>
 				</NuxtLinkLocale>
