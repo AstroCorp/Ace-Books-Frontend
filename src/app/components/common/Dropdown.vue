@@ -40,9 +40,7 @@ const items = computed((): DropdownMenuItem[] => {
 				? 'w-36 bg-white text-acebooks-green-950 rounded-md ring-0'
 				: 'w-36 bg-acebooks-green-950/75 backdrop-blur-xs text-white rounded-md ring-0',
 			viewport: 'w-full',
-			item: variation === 'solid'
-				? 'w-full px-4 py-2 text-sm cursor-pointer hover:bg-acebooks-green-100 rounded-md'
-				: 'w-full px-4 py-2 text-sm cursor-pointer hover:bg-white/10 rounded-md'
+			item: 'w-full px-4 py-2 text-sm cursor-pointer hover:bg-acebooks-green-800/80 rounded-md'
 		}"
 	>
 		<Button
@@ -50,8 +48,8 @@ const items = computed((): DropdownMenuItem[] => {
 			:preset="variation"
 			class="appearance-none rounded-md text-sm flex items-center justify-between gap-2"
 			:class="{
-				'w-32 px-3! py-2! border! border-white/80!': variation === 'outline',
-				'w-auto!': variation === 'solid'
+				'w-32 px-3 py-2 border border-white/80 hover:bg-acebooks-green-50/10': variation === 'outline',
+				'w-auto': variation === 'solid'
 			}"
 		>
 			<span class="truncate">{{ selectedOptionLabel }}</span>

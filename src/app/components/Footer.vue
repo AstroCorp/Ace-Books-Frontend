@@ -36,7 +36,7 @@ const config = useRuntimeConfig();
 			</div>
 		</div>
 
-		<div class="bg-acebooks-green-950 px-2 py-4">
+		<div class="bg-acebooks-green-950/80 px-2 py-4">
 			<div class="mx-auto md:w-3/4 flex flex-col-reverse md:flex-row items-center">
 				<div class="w-full md:w-4/5 mt-4 md:mt-0 text-center md:text-left">
 					Copyright &copy; {{ new Date().getFullYear() }} Ace Books. {{ t('footer.copyright') }}
