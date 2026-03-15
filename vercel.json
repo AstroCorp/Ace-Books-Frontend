@@ -1,7 +1,7 @@
 {
 	"$schema": "https://openapi.vercel.sh/vercel.json",
-	"buildCommand": "yarn build",
+	"buildCommand": "pnpm run build",
 	"framework": "nuxtjs",
-	"installCommand": "yarn install",
+	"installCommand": "pnpm install",
 	"outputDirectory": ".output"
 }
