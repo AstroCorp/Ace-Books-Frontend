@@ -48,7 +48,7 @@ useHead({
 					href="#content"
 				>
 					<div class="absolute flex h-full w-full justify-center items-center bg-white/70 rounded-full z-10">
-						<SvgIcon name="down" mode="svg" class="text-green-700 fill-current" />
+						<SvgIcon name="i-fluent-chevron-down-32-filled" mode="svg" class="text-green-700 fill-current" />
 					</div>
 
 					<div
@@ -87,7 +87,7 @@ useHead({
 					<p class="font-thin leading-7">{{ t('home.section_2_content') }}</p>
 				</div>
 
-				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-acebooks-green-300"></div>
+				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-green-300"></div>
 
 				<div class="xl:w-1/2">
 					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">{{ t('home.section_3_title') }}</h3>

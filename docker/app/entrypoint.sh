@@ -2,6 +2,6 @@
 
 socat TCP-LISTEN:3001,fork TCP:backend:3001 &
 
-yarn install
+pnpm install
 
-yarn dev
+pnpm run dev

@@ -5,6 +5,7 @@ const { locale, locales, setLocale } = useI18n();
 
 const localeOptions = computed(() => {
 	const availableCodes = new Set<string>(locales.value.map(localeItem => localeItem.code));
+
 	return [en, es]
 		.filter(localeItem => availableCodes.has(localeItem.code))
 		.map(localeItem => ({
@@ -15,8 +16,9 @@ const localeOptions = computed(() => {
 
 const onUpdateLocale = async (value: string) => {
 	const nextLocale = value as typeof locale.value;
+
 	await setLocale(nextLocale);
-};
+}
 </script>
 
 <template>

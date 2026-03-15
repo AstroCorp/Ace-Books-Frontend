@@ -26,8 +26,8 @@ const applyNavBackground = computed(() => {
 		class="fixed w-full h-20 z-20 transition-all duration-200"
 		:class="{
 			'h-full': applyNavStyle,
-			'bg-acebooks-green-700/0': !applyNavBackground && !applyNavStyle,
-			'bg-acebooks-green-700/75 backdrop-blur-xs': applyNavBackground || applyNavStyle,
+			'bg-green-700/0': !applyNavBackground && !applyNavStyle,
+			'bg-green-700/75 backdrop-blur-xs': applyNavBackground || applyNavStyle,
 		}"
 	>
 		<nav class="flex flex-col">
@@ -44,7 +44,7 @@ const applyNavBackground = computed(() => {
 					@click="toggleNav"
 				>
 					<SvgIcon
-						:name="navActive ? 'close' : 'menu'"
+						:name="navActive ? 'i-fluent-dismiss-20-regular' : 'i-fluent-navigation-20-regular'"
 						mode="svg"
 						class="flex w-full h-full text-white fill-current"
 					/>
