@@ -33,5 +33,6 @@
 		"autoprefixer": "^10.4.27",
 		"postcss": "^8.5.8",
 		"tailwindcss": "^4.2.1"
-	}
+	},
+	"packageManager": "pnpm@10.29.3"
 }
