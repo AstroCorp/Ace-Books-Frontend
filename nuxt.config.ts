@@ -83,6 +83,7 @@ export default defineNuxtConfig({
 		"nuxt-auth-utils",
 	],
 	icon: {
+		componentName: "SvgIcon",
 		customCollections: [
 			{
 				prefix: "acebooks",
