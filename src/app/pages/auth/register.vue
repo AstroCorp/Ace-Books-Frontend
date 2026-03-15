@@ -107,30 +107,32 @@ const submitForm = async (event: Event) => {
 				<NuxtImg src="/images/bg.webp" placeholder preload loading="lazy" class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />
 			</div>
 
-			<div class="flex flex-row items-center lg:px-8 w-full min-h-svh sm:w-1/2 md:w-2/5 xl:w-2/6 bg-white">
+			<div class="flex flex-row items-center lg:px-8 w-full min-h-svh sm:w-1/2 md:w-2/5 xl:w-2/6 bg-white dark:bg-black">
 				<form class="w-full px-6 py-4" @submit="submitForm">
 					<NuxtLinkLocale to="/" class="flex flex-col items-center mb-4 xl:mb-5">
-						<SvgIcon name="acebooks:logo" class="w-1/3" />
-						<p class="mt-3 logo">Ace Books</p>
+						<SvgIcon name="acebooks:logo" mode="svg" class="w-1/3 h-full fill-current dark:text-white" />
+						<p class="mt-3 logo dark:text-white">Ace Books</p>
 					</NuxtLinkLocale>
 
-					<label class="block text-sm font-medium text-gray-700">{{ t('register.email') }}</label>
+					<label class="block text-sm font-medium text-gray-700 dark:text-white">{{ t('register.email') }}</label>
 					<div class="mt-1 mb-4">
 						<Input
 							v-model="registerForm.email"
 							type="email"
 							required
+							class="dark:text-black"
 						/>
 
 						<div v-if="emailErrors.length > 0" class="text-sm text-red-500 pt-1">{{ t('register.email_error') }}</div>
 					</div>
 
-					<label class="block text-sm font-medium text-gray-700">{{ t('register.password') }}</label>
+					<label class="block text-sm font-medium text-gray-700 dark:text-white">{{ t('register.password') }}</label>
 					<div class="mt-1 mb-4">
 						<Input
 							v-model="registerForm.password"
 							type="password"
 							required
+							class="dark:text-black"
 						/>
 
 						<div v-if="passwordErrors.length > 0" class="text-sm text-red-500 py-1">{{ t('register.password_error') }}</div>
@@ -143,7 +145,7 @@ const submitForm = async (event: Event) => {
 						<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordHasSpecialCharacter">{{ t('register.password_validation_6') }}</FormValidationRule>
 					</div>
 
-					<label class="block text-sm font-medium text-gray-700">{{ t('register.repeat_password') }}</label>
+					<label class="block text-sm font-medium text-gray-700 dark:text-white">{{ t('register.repeat_password') }}</label>
 					<div class="mt-1 mb-4">
 						<Input
 							v-model="registerForm.repeatPassword"
@@ -184,7 +186,7 @@ const submitForm = async (event: Event) => {
 					</Button>
 
 					<div class="mt-1.5">
-						<span class="text-sm mr-1">{{ t('register.question') }}</span>
+						<span class="text-sm mr-1 dark:text-white">{{ t('register.question') }}</span>
 
 						<NuxtLinkLocale
 							to="/login"
