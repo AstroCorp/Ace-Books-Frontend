@@ -247,11 +247,19 @@
 }
 
 :root {
-  --ui-bg: var(--color-white);
+	--ui-bg: var(--color-white);
+	--ui-text: var(--color-black);
+	--ui-text-muted: var(--color-black);
+	--ui-text-toned: var(--color-black);
+	--ui-text-highlighted: var(--color-black);
 }
 
 .dark {
-  --ui-bg: var(--color-black);
+	--ui-bg: var(--color-black);
+	--ui-text: var(--color-gray-200);
+	--ui-text-muted: var(--color-gray-200);
+	--ui-text-toned: var(--color-gray-200);
+	--ui-text-highlighted: var(--color-gray-200);
 }
 
 .logo {
