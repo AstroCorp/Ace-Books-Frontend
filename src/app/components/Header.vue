@@ -26,8 +26,8 @@ const applyNavBackground = computed(() => {
 		class="fixed w-full h-20 z-20 transition-all duration-200"
 		:class="{
 			'h-full': applyNavStyle,
-			'bg-acebooks-green-700/0': !applyNavBackground && !applyNavStyle,
-			'bg-acebooks-green-700/75 backdrop-blur-xs': applyNavBackground || applyNavStyle,
+			'bg-green-700/0': !applyNavBackground && !applyNavStyle,
+			'bg-green-700/75 backdrop-blur-xs': applyNavBackground || applyNavStyle,
 		}"
 	>
 		<nav class="flex flex-col">
@@ -43,16 +43,17 @@ const applyNavBackground = computed(() => {
 					class="sm:hidden cursor-pointer w-6 h-6"
 					@click="toggleNav"
 				>
-					<nuxt-icon
-						:name="navActive ? 'close' : 'menu'"
-						class="flex w-full h-full text-white"
+					<SvgIcon
+						:name="navActive ? 'i-fluent-dismiss-20-regular' : 'i-fluent-navigation-20-regular'"
+						mode="svg"
+						class="flex w-full h-full text-white fill-current"
 					/>
 				</button>
 
 				<NuxtLinkLocale class="hidden sm:block" to="/login">
-					<LandingButton>
+					<Button preset="outline">
 						{{ t('header.sign_in') }}
-					</LandingButton>
+					</Button>
 				</NuxtLinkLocale>
 			</div>
 
@@ -70,9 +71,9 @@ const applyNavBackground = computed(() => {
 				>
 					<li class="sm:inline-flex sm:w-auto w-full items-center justify-center">
 						<NuxtLinkLocale to="/login">
-							<LandingButton>
+							<Button preset="outline">
 								{{ t('header.sign_in') }}
-							</LandingButton>
+							</Button>
 						</NuxtLinkLocale>
 					</li>
 				</ul>

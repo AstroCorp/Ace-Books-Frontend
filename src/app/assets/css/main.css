@@ -220,30 +220,6 @@
 }
 
 @theme {
-	--color-acebooks-green-50: #f4faf3;
-	--color-acebooks-green-100: #e5f4e4;
-	--color-acebooks-green-200: #cbe8ca;
-	--color-acebooks-green-300: #a0d5a0;
-	--color-acebooks-green-400: #72bb72;
-	--color-acebooks-green-500: #4a9d4b;
-	--color-acebooks-green-600: #398039;
-	--color-acebooks-green-700: #2f6630;
-	--color-acebooks-green-800: #2a512b;
-	--color-acebooks-green-900: #244325;
-	--color-acebooks-green-950: #0f2410;
-
-	--color-acebooks-brown-50: #f9f9f1;
-	--color-acebooks-brown-100: #eaecd9;
-	--color-acebooks-brown-200: #d4d8af;
-	--color-acebooks-brown-300: #c1c485;
-	--color-acebooks-brown-400: #babb72;
-	--color-acebooks-brown-500: #aaa456;
-	--color-acebooks-brown-600: #968949;
-	--color-acebooks-brown-700: #7d6c40;
-	--color-acebooks-brown-800: #685838;
-	--color-acebooks-brown-900: #574930;
-	--color-acebooks-brown-950: #302718;
-
 	--font-Rubik: "Rubik", "sans-serif";
 	--font-Wittgenstein: "Wittgenstein", "serif";
 
@@ -270,13 +246,31 @@
 	text-shadow: 0 2px 5px var(--tw-shadow-color);
 }
 
+:root {
+	--ui-bg: var(--color-white);
+	--ui-text: var(--color-black);
+	--ui-text-muted: var(--color-black);
+	--ui-text-toned: var(--color-black);
+	--ui-text-highlighted: var(--color-black);
+}
+
+.dark {
+	--ui-bg: var(--color-black);
+	--ui-text: var(--color-gray-200);
+	--ui-text-muted: var(--color-gray-200);
+	--ui-text-toned: var(--color-gray-200);
+	--ui-text-highlighted: var(--color-gray-200);
+}
+
 .logo {
 	@apply font-Wittgenstein font-semibold;
 	font-size: 2.5rem;
 	line-height: 1;
 }
 
-.nuxt-icon svg {
+.svg-icon svg,
+.icon svg,
+.iconify svg {
 	margin-bottom: 0;
 	width: auto !important;
 	height: auto !important;

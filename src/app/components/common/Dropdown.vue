@@ -1,78 +1,77 @@
 <script setup lang="ts">
-import { OnClickOutside } from '@vueuse/components';
-import { useElementBounding, useWindowScroll } from '@vueuse/core';
+import type { DropdownMenuItem } from '@nuxt/ui';
 
-const props = defineProps<{
-	items: { text: string, value: string; }[];
+interface DropdownOption {
+	label: string;
+	value: string;
+}
+
+const {
+	modelValue,
+	options,
+	variation = 'outline',
+} = defineProps<{
+	modelValue: string;
+	options: DropdownOption[];
+	variation?: 'outline' | 'solid';
 }>();
 
-const model = defineModel();
-const isOpen = ref(false);
-const dropdown = ref<HTMLElement | null>(null);
-const dropdownMenu = ref<HTMLElement | null>(null);
+const emit = defineEmits<{
+	(e: 'update:modelValue', value: string): void;
+}>();
 
-const { x: dropdownX, y: dropdownY, width: dropdownWidth } = useElementBounding(dropdown);
-const { height: dropdownMenuHeight, width: dropdownMenuWidth } = useElementBounding(dropdownMenu);
-const { x: windowX, y: windowY } = useWindowScroll();
-
-const top = computed(() => {
-	const MARGIN = 8;
-
-	if (!isOpen.value) return 0;
-
-	return windowY.value + dropdownY.value - dropdownMenuHeight.value - MARGIN;
-});
-const left = computed(() => {
-	if (!isOpen.value) return 0;
-
-	return dropdownX.value + windowX.value - ((dropdownMenuWidth.value - dropdownWidth.value) / 2);
+const selectedOptionLabel = computed(() => {
+	return options.find(option => option.value === modelValue)?.label ?? modelValue;
 });
 
-const toggleDropdown = () => {
-	isOpen.value = !isOpen.value;
-};
-
-const closeDropdown = (ev: any) => {
-	const isDropdownButton = ev.target.closest('.dropdown-button');
-
-	if (isDropdownButton) return;
-
-	isOpen.value = false;
-};
-
-const selectItem = (item: string) => {
-	model.value = item;
-	isOpen.value = false;
-};
+const items = computed((): DropdownMenuItem[] => {
+	return options.map(option => ({
+		label: option.label,
+		onSelect: () => emit('update:modelValue', option.value),
+	}));
+});
 </script>
 
 <template>
-	<div class="relative" ref="dropdown" @click="toggleDropdown">
-		<div class="dropdown-button">
-			<slot name="trigger" :selected="model"></slot>
-		</div>
-		<Teleport to="#teleports">
-			<OnClickOutside @trigger="closeDropdown">
-				<div
-					ref="dropdownMenu"
-					class="absolute bg-white/50 rounded-md border border-white text-black backdrop-blur-xs shadow-lg z-50 flex flex-col"
-					:class="{
-						'pointer-events-none invisible': !isOpen,
-					}"
-					:style="{
-						left: left + 'px',
-						top: top + 'px',
-					}"
-				>
-					<slot
-						name="item"
-						v-for="(item, index) in items"
-						:key="index"
-						:item="item"
-						:onClick="selectItem"
-					></slot>
-				</div>
-			</OnClickOutside>
-		</Teleport>
-	</div>
+	<UDropdownMenu
+		:items="items"
+		:modal="false"
+		:ui="{
+			content: variation === 'solid'
+				? 'w-36 bg-white text-green-950 rounded-md ring-0'
+				: 'w-36 bg-green-950/75 backdrop-blur-xs text-white rounded-md ring-0',
+			viewport: 'w-full',
+			item: variation === 'solid'
+				? 'w-full px-4 py-2 text-sm text-green-950 data-highlighted:text-green-950 data-[state=checked]:text-green-950 cursor-pointer hover:bg-green-100 rounded-md'
+				: 'w-full px-4 py-2 text-sm text-white data-highlighted:text-white data-[state=checked]:text-white cursor-pointer hover:bg-green-800/80 rounded-md',
+			itemLabel: variation === 'solid' ? 'text-green-950' : 'text-white',
+			itemDescription: variation === 'solid' ? 'text-green-900/80' : 'text-white/80'
+		}"
+	>
+		<Button
+			type="button"
+			:preset="variation"
+			class="appearance-none rounded-md text-sm flex items-center justify-between gap-2"
+			:class="{
+				'w-32 px-3 py-2 border border-white/80 hover:bg-green-50/10': variation === 'outline',
+				'w-auto': variation === 'solid'
+			}"
+		>
+			<span class="truncate">{{ selectedOptionLabel }}</span>
+			<SvgIcon
+				name="i-fluent-chevron-down-32-filled"
+				class="shrink-0 text-white/80"
+			/>
+		</Button>
+		<template #item="{ item }">
+			<div class="flex items-center gap-2">
+				<UIcon
+					v-if="item.icon"
+					:name="item.icon"
+					class="shrink-0 text-white/80"
+				/>
+				<span>{{ item.label }}</span>
+			</div>
+		</template>
+	</UDropdownMenu>
 </template>

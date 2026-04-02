@@ -12,7 +12,7 @@ defineProps<{
 			'text-green-500': isValid,
 		}"
 	>
-		<nuxt-icon :name="isValid ? 'check' : 'error'" class="flex w-3 h-3 mr-1" />
+		<SvgIcon :name="isValid ? 'i-fluent-checkmark-20-regular' : 'i-fluent-dismiss-20-regular'" mode="svg" class="flex w-3 h-3 mr-1 fill-current" />
 		<slot></slot>
 	</div>
 </template>

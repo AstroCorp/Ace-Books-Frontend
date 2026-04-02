@@ -31,9 +31,9 @@ useHead({
 				<p class="text-sm mt-2 mb-6 text-shadow shadow-black/75">{{ t('home.p') }}</p>
 
 				<NuxtLinkLocale to="/register">
-					<LandingButton>
+					<Button preset="outline">
 						<div class="px-2 py-1 uppercase">{{ t('home.button') }}</div>
-					</LandingButton>
+					</Button>
 				</NuxtLinkLocale>
 
 				<NuxtImg src="/images/bg.webp" placeholder preload loading="lazy" class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />
@@ -48,7 +48,7 @@ useHead({
 					href="#content"
 				>
 					<div class="absolute flex h-full w-full justify-center items-center bg-white/70 rounded-full z-10">
-						<nuxt-icon name="down" class="text-green-700" />
+						<SvgIcon name="i-fluent-chevron-down-32-filled" mode="svg" class="text-green-700 fill-current" />
 					</div>
 
 					<div
@@ -63,8 +63,8 @@ useHead({
 
 		<div id="content" class="flex flex-col px-6 md:px-0 md:w-2/3 md:mx-auto scroll-mt-20">
 			<div class="text-center my-16">
-				<h2 class="text-3xl font-semibold tracking-wider mb-3 uppercase">{{ t('home.section_1_title') }}</h2>
-				<p class="font-thin leading-7">{{ t('home.section_1_content') }}</p>
+				<h2 class="text-3xl font-semibold tracking-wider mb-3 uppercase dark:text-gray-200">{{ t('home.section_1_title') }}</h2>
+				<p class="font-thin leading-7 dark:text-gray-200">{{ t('home.section_1_content') }}</p>
 			</div>
 
 			<div class="flex flex-col lg:flex-row justify-center">
@@ -87,7 +87,7 @@ useHead({
 					<p class="font-thin leading-7">{{ t('home.section_2_content') }}</p>
 				</div>
 
-				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-acebooks-green-300"></div>
+				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-black dark:bg-gray-200"></div>
 
 				<div class="xl:w-1/2">
 					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">{{ t('home.section_3_title') }}</h3>

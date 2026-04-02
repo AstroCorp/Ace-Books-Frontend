@@ -39,9 +39,9 @@ useHead({
 			<article class="flex flex-col items-center text-center">
 				<h1 class="text-9xl text-white/60 mb-6 text-shadow shadow-black/40">{{ error.statusCode }}</h1>
 
-				<LandingButton @click="handleError">
+				<Button preset="outline" @click="handleError">
 					{{ t('error.button') }}
-				</LandingButton>
+				</Button>
 			</article>
 
 			<NuxtImg src="/images/bg.webp" placeholder preload loading="lazy" class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />

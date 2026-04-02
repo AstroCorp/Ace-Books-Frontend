@@ -6,5 +6,8 @@
 	"support": "Soporte",
 	"faqs": "Preguntas frecuentes",
 	"contact": "Contacto",
-	"copyright": "Todos los derechos reservados."
+	"copyright": "Todos los derechos reservados.",
+	"system": "Sistema",
+	"light": "Claro",
+	"dark": "Oscuro"
 }
