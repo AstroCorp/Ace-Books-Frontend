@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@plugin "@tailwindcss/forms";
-
 @layer base {
 	/* Wittgenstein */
 	@font-face {
@@ -219,7 +217,19 @@
 	}
 }
 
-@theme {
+@theme static {
+	--color-acebooks-green-50: oklch(96.423% 0.00916 150.69);
+	--color-acebooks-green-100: oklch(92.523% 0.01848 150.55);
+	--color-acebooks-green-200: oklch(84.761% 0.04107 149.72);
+	--color-acebooks-green-300: oklch(76.804% 0.06092 149.4);
+	--color-acebooks-green-400: oklch(68.715% 0.08195 149.32);
+	--color-acebooks-green-500: oklch(59.724% 0.08755 148.65);
+	--color-acebooks-green-600: oklch(49.099% 0.07114 148.7);
+	--color-acebooks-green-700: oklch(37.643% 0.05106 148.23);
+	--color-acebooks-green-800: oklch(30% 0.06 163.01);
+	--color-acebooks-green-900: oklch(10.349% 0.00545 145.17);
+	--color-acebooks-green-950: oklch(0% 0 none);
+
 	--font-Rubik: "Rubik", "sans-serif";
 	--font-Wittgenstein: "Wittgenstein", "serif";
 
@@ -246,20 +256,8 @@
 	text-shadow: 0 2px 5px var(--tw-shadow-color);
 }
 
-:root {
-	--ui-bg: var(--color-white);
-	--ui-text: var(--color-black);
-	--ui-text-muted: var(--color-black);
-	--ui-text-toned: var(--color-black);
-	--ui-text-highlighted: var(--color-black);
-}
-
-.dark {
-	--ui-bg: var(--color-black);
-	--ui-text: var(--color-gray-200);
-	--ui-text-muted: var(--color-gray-200);
-	--ui-text-toned: var(--color-gray-200);
-	--ui-text-highlighted: var(--color-gray-200);
+body {
+	@apply antialiased dark:bg-black scheme-light dark:scheme-dark;
 }
 
 .logo {

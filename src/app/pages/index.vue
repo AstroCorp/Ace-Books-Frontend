@@ -61,41 +61,14 @@ useHead({
 			</div>
 		</div>
 
-		<div id="content" class="flex flex-col px-6 md:px-0 md:w-2/3 md:mx-auto scroll-mt-20">
-			<div class="text-center my-16">
-				<h2 class="text-3xl font-semibold tracking-wider mb-3 uppercase dark:text-gray-200">{{ t('home.section_1_title') }}</h2>
-				<p class="font-thin leading-7 dark:text-gray-200">{{ t('home.section_1_content') }}</p>
-			</div>
+		<div id="content" class="flex flex-col scroll-mt-20 px-6 md:px-0 md:w-2/3 md:mx-auto text-center my-16">
+			<h2 class="text-3xl sm:text-4xl lg:text-5xl font-thin italic tracking-wider mb-3 uppercase dark:text-white sm:w-2/3 mx-auto">{{ t('home.section_1_title') }}</h2>
 
-			<div class="flex flex-col lg:flex-row justify-center">
-				<div class="lg:w-1/3">
-					<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded-sm w-full h-full object-cover" />
-				</div>
+			<div class="h-0.5 w-1/5 mx-auto my-8 lg:my-14 bg-gray-300"></div>
 
-				<div class="my-16 lg:my-0 lg:mx-4 xl:mx-6 lg:w-1/3">
-					<NuxtImg src="/images/info_2.webp" placeholder preload loading="lazy" class="rounded-sm w-full  h-full object-cover" />
-				</div>
+			<p class="font-thin leading-7 w-2/3 mx-auto dark:text-white">{{ t('home.section_1_content') }}</p>
 
-				<div class="lg:w-1/3">
-					<NuxtImg src="/images/info_3.webp" placeholder preload loading="lazy" class="rounded-sm w-full  h-full object-cover" />
-				</div>
-			</div>
-
-			<div class="flex flex-col xl:flex-row my-16">
-				<div class="xl:w-1/2 text-right">
-					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">{{ t('home.section_2_title') }}</h3>
-					<p class="font-thin leading-7">{{ t('home.section_2_content') }}</p>
-				</div>
-
-				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-black dark:bg-gray-200"></div>
-
-				<div class="xl:w-1/2">
-					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">{{ t('home.section_3_title') }}</h3>
-					<ul class="list-inside list-disc font-thin leading-7">
-						<li v-for="index in 7">{{ t('home.section_3_content_' + index) }}</li>
-					</ul>
-				</div>
-			</div>
+			<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded-md w-full h-[500px] object-cover mt-8 lg:mt-16" />
 		</div>
 
 		<Footer />
