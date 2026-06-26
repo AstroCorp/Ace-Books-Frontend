@@ -17,7 +17,7 @@ defineProps<{
 				ul: h('ul', { class: 'list-outside list-disc font-thin ml-5 mb-2' }, h('slot')),
 				li: h('li', { class: 'ml-5' }, h('slot')),
 				table: h('table', { class: 'mt-3 w-full table-fixed border-separate border-spacing-0 overflow-hidden rounded-md border border-gray-300 text-left dark:border-gray-700' }, h('slot')),
-				thead: h('thead', { class: 'bg-acebooks-green-200 dark:bg-acebooks-green-700' }, h('slot')),
+				thead: h('thead', { class: 'bg-acebooks-green-200 dark:bg-acebooks-green-700 text-acebooks-green-700 dark:text-white' }, h('slot')),
 				tbody: h('tbody', {}, h('slot')),
 				tr: h('tr', { class: 'last:[&>td]:border-b-0' }, h('slot')),
 				th: h('th', { class: 'border-r border-b border-acebooks-green-200 py-2 px-3 last:border-r-0 dark:border-acebooks-green-700' }, h('slot')),
