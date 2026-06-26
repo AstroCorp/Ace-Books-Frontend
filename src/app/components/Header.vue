@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { useBreakpoints, breakpointsTailwind, useScroll } from '@vueuse/core';
 
+const { floating = false } = defineProps<{
+	floating?: boolean;
+}>();
+
 const { y: topScroll } = useScroll(document);
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isResponsiveMenu = breakpoints.smaller('sm');
@@ -23,11 +27,12 @@ const applyNavBackground = computed(() => {
 
 <template>
 	<header
-		class="fixed w-full h-20 z-20 transition-all duration-200"
+		class="w-full h-20 z-20 transition-all duration-200"
 		:class="{
 			'h-full': applyNavStyle,
-			'bg-green-700/0': !applyNavBackground && !applyNavStyle,
-			'bg-green-700/75 backdrop-blur-xs': applyNavBackground || applyNavStyle,
+			'fixed': floating,
+			'bg-green-800/80 sticky top-0': !floating,
+			'bg-green-800/80 backdrop-blur-xs': applyNavBackground || applyNavStyle,
 		}"
 	>
 		<nav class="flex flex-col">

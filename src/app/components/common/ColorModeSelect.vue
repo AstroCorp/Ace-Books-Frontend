@@ -17,7 +17,6 @@ const onUpdateColorMode = async (option: string) => {
 	<Dropdown
 		:model-value="colorMode.preference"
 		:options="items"
-		variation="outline"
 		@update:model-value="onUpdateColorMode"
 	/>
 </template>

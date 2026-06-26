@@ -21,7 +21,7 @@ useHead({
 
 <template>
 	<div class="h-screen flex flex-col">
-		<Header />
+		<Header :floating="true" />
 
 		<div class="min-h-svh flex flex-col justify-between relative">
 			<div class="h-8 w-full pt-12"></div>
@@ -68,7 +68,7 @@ useHead({
 
 			<p class="font-thin leading-7 w-2/3 mx-auto dark:text-white">{{ t('home.section_1_content') }}</p>
 
-			<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded-md w-full h-[500px] object-cover mt-8 lg:mt-16" />
+			<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded-md w-full h-[600px] object-cover mt-8 lg:mt-16" />
 		</div>
 
 		<Footer />

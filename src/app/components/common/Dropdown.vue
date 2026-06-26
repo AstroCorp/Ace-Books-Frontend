@@ -9,11 +9,9 @@ interface DropdownOption {
 const {
 	modelValue,
 	options,
-	variation = 'outline',
 } = defineProps<{
 	modelValue: string;
 	options: DropdownOption[];
-	variation?: 'outline' | 'solid';
 }>();
 
 const emit = defineEmits<{
@@ -21,11 +19,11 @@ const emit = defineEmits<{
 }>();
 
 const selectedOptionLabel = computed(() => {
-	return options.find(option => option.value === modelValue)?.label ?? modelValue;
+	return options.find((option: DropdownOption) => option.value === modelValue)?.label ?? modelValue;
 });
 
 const items = computed((): DropdownMenuItem[] => {
-	return options.map(option => ({
+	return options.map((option: DropdownOption) => ({
 		label: option.label,
 		onSelect: () => emit('update:modelValue', option.value),
 	}));
@@ -37,23 +35,15 @@ const items = computed((): DropdownMenuItem[] => {
 		:items="items"
 		:modal="false"
 		:ui="{
-			content: variation === 'solid'
-				? 'w-36 rounded-md ring-0'
-				: 'w-36 rounded-md ring-0 backdrop-blur-xs',
+			content: 'w-36 rounded-md bg-white/80 dark:bg-black/80 backdrop-blur-xs shadow-md',
 			viewport: 'w-full',
-			item: variation === 'solid'
-				? 'w-full px-4 py-2 text-sm cursor-pointer rounded-md'
-				: 'w-full px-4 py-2 text-sm cursor-pointer rounded-md'
+			item: 'w-full px-4 py-2 text-sm cursor-pointer rounded-md hover:bg-acebooks-green-500 dark:hover:bg-acebooks-green-600 hover:text-white'
 		}"
 	>
 		<Button
 			type="button"
-			:preset="variation"
+			preset="dropdown-outline"
 			class="appearance-none rounded-md text-sm flex items-center justify-between gap-2"
-			:class="{
-				'w-32 px-3 py-2 border': variation === 'outline',
-				'w-auto': variation === 'solid'
-			}"
 		>
 			<span class="truncate">{{ selectedOptionLabel }}</span>
 			<SvgIcon

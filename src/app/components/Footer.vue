@@ -4,8 +4,8 @@ const config = useRuntimeConfig();
 </script>
 
 <template>
-	<footer class="bg-acebooks-green-50 py-16">
-		<div class="mx-auto md:w-3/4 flex flex-col md:flex-row text-acebooks-green-800">
+	<footer class="bg-acebooks-green-50 dark:bg-acebooks-green-800 py-16">
+		<div class="mx-auto md:w-3/4 flex flex-col md:flex-row text-acebooks-green-800 dark:text-white">
 			<div>
 				<h3 class="text-xl uppercase mb-2">{{ t('footer.legal') }}</h3>
 				<ul class="font-light">
@@ -37,7 +37,7 @@ const config = useRuntimeConfig();
 		<div class="mx-auto md:w-3/4 border-t border-gray-300 my-8"></div>
 
 		<div class="mx-auto md:w-3/4 flex flex-col-reverse md:flex-row items-center">
-			<div class="w-full md:w-4/5 mt-4 text-sm md:mt-0 text-center md:text-left text-acebooks-green-800">
+			<div class="w-full md:w-4/5 mt-4 text-sm md:mt-0 text-center md:text-left text-acebooks-green-800 dark:text-white">
 				Copyright &copy; {{ new Date().getFullYear() }} Ace Books. {{ t('footer.copyright') }}
 			</div>
 
