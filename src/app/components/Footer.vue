@@ -5,7 +5,7 @@ const config = useRuntimeConfig();
 
 <template>
 	<footer class="bg-acebooks-green-50 dark:bg-acebooks-green-800 py-16">
-		<div class="mx-auto md:w-3/4 flex flex-col md:flex-row text-acebooks-green-800 dark:text-white">
+		<div class="mx-auto text-center sm:text-left sm:w-3/4 flex flex-col sm:flex-row text-acebooks-green-800 dark:text-white">
 			<div>
 				<h3 class="text-xl uppercase mb-2">{{ t('footer.legal') }}</h3>
 				<ul class="font-light">
@@ -21,7 +21,7 @@ const config = useRuntimeConfig();
 				</ul>
 			</div>
 
-			<div class="mt-10 md:mt-0 md:ml-24">
+			<div class="mt-10 sm:mt-0 sm:ml-24">
 				<h3 class="text-xl uppercase mb-2">{{ t('footer.support') }}</h3>
 				<ul class="font-light">
 					<li class="mb-2 hover:underline">
@@ -34,9 +34,9 @@ const config = useRuntimeConfig();
 			</div>
 		</div>
 
-		<div class="mx-auto md:w-3/4 border-t border-gray-300 my-8"></div>
+		<div class="mx-auto w-3/4 border-t border-gray-300 my-8"></div>
 
-		<div class="mx-auto md:w-3/4 flex flex-col-reverse md:flex-row items-center">
+		<div class="mx-auto w-3/4 flex flex-col-reverse md:flex-row items-center">
 			<div class="w-full md:w-4/5 mt-4 text-sm md:mt-0 text-center md:text-left text-acebooks-green-800 dark:text-white">
 				Copyright &copy; {{ new Date().getFullYear() }} Ace Books. {{ t('footer.copyright') }}
 			</div>
