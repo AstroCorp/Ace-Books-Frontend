@@ -2,6 +2,16 @@
 const { t } = useI18n();
 const i18Markdown = useI18nMarkdown();
 
+definePageMeta({
+	layout: {
+		name: 'legal',
+		props: {
+			titleKey: 'terms.title',
+			dateKey: 'terms.date',
+		},
+	},
+});
+
 defineRouteRules({
 	prerender: true,
 });
@@ -25,18 +35,5 @@ useHead({
 </script>
 
 <template>
-	<div class="flex flex-col justify-between min-h-screen">
-		<Header />
-
-		<div class="mx-auto my-10 w-3/4 lg:w-2/3">
-			<div class="flex flex-col mb-8">
-				<h1 class="text-3xl sm:text-4xl lg:text-5xl font-thin italic tracking-wider mb-4 uppercase dark:text-white">{{ t('terms.title') }}</h1>
-				<time class="border-l-3 pl-4 border-acebooks-green-100">{{ t('terms.date') }}</time>
-			</div>
-
-			<RenderMarkdown :value="i18Markdown('terms.line_', 25)" />
-		</div>
-
-		<Footer />
-	</div>
+	<RenderMarkdown :value="i18Markdown('terms.line_', 25)" />
 </template>

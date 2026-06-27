@@ -14,7 +14,7 @@ const {
 	<UButton
 		:type="type"
 		:disabled="disabled"
-		class="cursor-pointer p-2 text-sm !text-white rounded-md transition duration-300 ease-in-out disabled:bg-acebooks-green-600/80 disabled:cursor-not-allowed"
+		class="!cursor-pointer p-2 text-sm !text-white rounded-md transition duration-300 ease-in-out disabled:bg-acebooks-green-600/80 disabled:cursor-not-allowed"
 		:class="{
 			'text-shadow shadow-sm shadow-black/70 border-2 font-medium border-white hover:bg-white/20': preset === 'outline',
 			'bg-acebooks-green-500 hover:bg-acebooks-green-600': preset === 'solid',
