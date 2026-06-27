@@ -226,8 +226,9 @@
 	--color-acebooks-green-500: oklch(59.724% 0.08755 148.65);
 	--color-acebooks-green-600: oklch(49.099% 0.07114 148.7);
 	--color-acebooks-green-700: oklch(39.174% 0.06151 163.01);
+	--color-acebooks-green-750: oklch(25% 0.04 152.86);
 	--color-acebooks-green-800: oklch(30% 0.06 163.01);
-	--color-acebooks-green-900: oklch(10.349% 0.00545 145.17);
+	--color-acebooks-green-900: oklch(25% 0.05 160.02);
 	--color-acebooks-green-950: oklch(0% 0 none);
 
 	--font-Rubik: "Rubik", "sans-serif";
