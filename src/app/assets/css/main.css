@@ -272,7 +272,7 @@
 	 * ========================================================== */
 
 	/* Bordes normales */
-	--color-acebooks-border: oklch(92.523% 0.01848 150.55);
+	--color-acebooks-border: oklch(87.523% 0.01848 150.55);
 
 	/* Bordes destacados */
 	--color-acebooks-border-strong: oklch(30% 0.06 163.01);
@@ -303,8 +303,11 @@
 	/* Fondo del header y footer */
 	--color-acebooks-nav-background: oklch(30% 0.06 163.01);
 
-	/* Texto/iconos del header y footer */
-	--color-acebooks-nav-text: oklch(24.761% 0.04107 149.72);
+	/* Texto principal del header y footer */
+	--color-acebooks-nav-text-title: oklch(35.164% 0.04107 149.72);
+
+	/* Texto secundario del header y footer */
+	--color-acebooks-nav-text-subtitle: oklch(39.826% 0.04107 149.72);
 
 	/* ==========================================================
 	 * FEEDBACK
@@ -382,7 +385,7 @@
 	 * ========================================================== */
 
 	/* Bordes normales */
-	--color-acebooks-border: oklch(39.174% 0.06151 163.01);
+	--color-acebooks-border: oklch(51.174% 0.06151 163.01);
 
 	/* Bordes destacados */
 	--color-acebooks-border-strong: oklch(68.715% 0.08195 149.32);
@@ -413,8 +416,11 @@
 	/* Fondo del header y footer */
 	--color-acebooks-nav-background: oklch(30% 0.06 163.01);
 
-	/* Texto/iconos del header y footer */
-	--color-acebooks-nav-text: oklch(84.761% 0.04107 149.72);
+	/* Texto principal del header y footer */
+	--color-acebooks-nav-text-title: oklch(96.761% 0.04107 149.72);
+
+	/* Texto secundario del header y footer */
+	--color-acebooks-nav-text-subtitle: oklch(81.581% 0.04107 149.72);
 
 	/* ==========================================================
 	 * FEEDBACK
@@ -470,7 +476,8 @@
 
 	/* NAVEGACIÓN */
 	--color-acebooks-nav-background: var(--color-acebooks-nav-background);
-	--color-acebooks-nav-text: var(--color-acebooks-nav-text);
+	--color-acebooks-nav-text-title: var(--color-acebooks-nav-text-title);
+	--color-acebooks-nav-text-subtitle: var(--color-acebooks-nav-text-subtitle);
 
 	/* FEEDBACK */
 	--color-acebooks-success-background: var(--color-acebooks-success-background);

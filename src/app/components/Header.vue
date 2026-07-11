@@ -31,15 +31,15 @@ const applyNavBackground = computed(() => {
 		:class="{
 			'h-full': applyNavStyle,
 			'fixed': floating,
-			'bg-green-800/80 sticky top-0': !floating,
-			'bg-green-800/80 backdrop-blur-xs': applyNavBackground || applyNavStyle,
+			'bg-acebooks-nav-background/80 sticky top-0': !floating,
+			'bg-acebooks-nav-background/80 backdrop-blur-xs': applyNavBackground || applyNavStyle,
 		}"
 	>
 		<nav class="flex flex-col">
 			<div class="flex p-4 h-20 justify-between items-center">
 				<NuxtLinkLocale
 					to="/"
-					class="logo cursor-pointer text-white text-shadow shadow-black/70"
+					class="logo cursor-pointer text-acebooks-brand-text text-shadow shadow-black/70"
 				>
 					Ace Books
 				</NuxtLinkLocale>
@@ -51,7 +51,7 @@ const applyNavBackground = computed(() => {
 					<SvgIcon
 						:name="navActive ? 'i-fluent-dismiss-20-regular' : 'i-fluent-navigation-20-regular'"
 						mode="svg"
-						class="flex w-full h-full text-white fill-current"
+						class="flex w-full h-full text-acebooks-brand-text fill-current"
 					/>
 				</button>
 
