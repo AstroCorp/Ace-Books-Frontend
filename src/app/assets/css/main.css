@@ -282,10 +282,10 @@
 	 * ========================================================== */
 
 	/* Fondo del input */
-	--color-acebooks-input-background: oklch(96.423% 0.00916 150.69);
+	--color-acebooks-input-background: oklch(95% 0.01 153.78);
 
 	/* Texto del input */
-	--color-acebooks-input-text: oklch(0% 0 0);
+	--color-acebooks-input-text: oklch(46% 0.01 153.48);
 
 	/* Placeholder */
 	--color-acebooks-input-placeholder: oklch(60.804% 0.06092 149.4);
@@ -314,19 +314,19 @@
 	 * ========================================================== */
 
 	/* Mensajes de éxito */
-	--color-acebooks-success-background: oklch(49.099% 0.07114 148.7);
+	--color-acebooks-success-background: oklch(65.745% 0.15604 146.683);
 	--color-acebooks-success-text: oklch(100% 0.00011 271.152);
 
 	/* Advertencias */
-	--color-acebooks-warning-background: oklch(66.497% 0.11932 80.897);
+	--color-acebooks-warning-background: oklch(75.521% 0.2581 93.092);;
 	--color-acebooks-warning-text: oklch(100% 0.00011 271.152);
 
 	/* Información */
-	--color-acebooks-info-background: oklch(51.367% 0.06697 271.366);
+	--color-acebooks-info-background: oklch(59.605% 0.18561 267.592);
 	--color-acebooks-info-text: oklch(100% 0.00011 271.152);
 
 	/* Errores y acciones destructivas */
-	--color-acebooks-error-background: oklch(52.282% 0.07036 19.668);
+	--color-acebooks-error-background: oklch(58.833% 0.20702 26.367);
 	--color-acebooks-error-text: oklch(100% 0.00011 271.152);
 }
 
@@ -404,7 +404,7 @@
 	--color-acebooks-input-placeholder: oklch(68.715% 0.08195 149.32);
 
 	/* Borde normal */
-	--color-acebooks-input-border: oklch(84.761% 0.04107 149.72);
+	--color-acebooks-input-border: oklch(35% 0.04 155.86);
 
 	/* Focus del input */
 	--color-acebooks-input-focus: oklch(59.724% 0.08755 148.65);
@@ -439,7 +439,7 @@
 	--color-acebooks-info-text: oklch(100% 0.00011 271.152);
 
 	/* Errores y acciones destructivas */
-	--color-acebooks-error-background: oklch(52.282% 0.07036 19.668);
+	--color-acebooks-error-background: oklch(45.612% 0.1416 24.706);
 	--color-acebooks-error-text: oklch(100% 0.00011 271.152);
 }
 
