@@ -72,7 +72,7 @@ const resendVerificationEmail = async (event: Event) => {
 
 <template>
 	<form @submit="resendVerificationEmail">
-		<div class="mb-4 bg-yellow-100 text-yellow-700 rounded-md p-4" role="alert">
+		<div class="mb-4 bg-acebooks-warning-background text-acebooks-warning-text rounded-md p-4" role="alert">
 			<p>{{ t('verify.warning_message') }}</p>
 		</div>
 
@@ -80,7 +80,7 @@ const resendVerificationEmail = async (event: Event) => {
 			type="submit"
 			:disabled="fetching"
 		>
-			<Spinner v-if="fetching" :color="100" />
+			<Spinner v-if="fetching" />
 			<span v-else>{{ t('verify.resend_button') }}</span>
 		</Button>
 	</form>

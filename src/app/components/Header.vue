@@ -39,7 +39,7 @@ const applyNavBackground = computed(() => {
 			<div class="flex p-4 h-20 justify-between items-center">
 				<NuxtLinkLocale
 					to="/"
-					class="logo cursor-pointer text-acebooks-brand-text text-shadow shadow-black/70"
+					class="logo cursor-pointer text-acebooks-brand-text text-shadow shadow-acebooks-shadow/70"
 				>
 					Ace Books
 				</NuxtLinkLocale>

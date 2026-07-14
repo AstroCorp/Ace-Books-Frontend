@@ -4,7 +4,7 @@ const { t } = useI18n();
 
 <template>
 	<footer class="flex flex-col-reverse items-center">
-		<div class="w-full mt-4 text-sm text-center dark:text-white">
+		<div class="w-full mt-4 text-sm text-center text-acebooks-text">
 			Copyright &copy; {{ new Date().getFullYear() }} Ace Books. {{ t('footer.copyright') }}
 		</div>
 

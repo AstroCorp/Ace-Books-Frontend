@@ -35,7 +35,7 @@ const items = computed((): DropdownMenuItem[] => {
 		:items="items"
 		:modal="false"
 		:ui="{
-			content: 'w-36 rounded-md bg-acebooks-surface-elevated/80 backdrop-blur-xs shadow-md',
+			content: 'w-36 rounded-md bg-acebooks-surface-elevated/80 backdrop-blur-xs shadow-md shadow-acebooks-shadow/25',
 			viewport: 'w-full',
 			item: 'w-full px-4 py-2 text-sm cursor-pointer rounded-md hover:bg-acebooks-brand dark:hover:bg-acebooks-brand-hover hover:text-acebooks-brand-text',
 		}"

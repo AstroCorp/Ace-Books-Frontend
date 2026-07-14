@@ -79,13 +79,12 @@ const submitForm = async (event: Event) => {
 
 <template>
 	<form @submit="submitForm">
-		<label class="block text-sm font-medium text-gray-700 dark:text-white">{{ t('reset.email') }}</label>
+		<label class="block text-sm font-medium text-acebooks-input-label">{{ t('reset.email') }}</label>
 		<div class="mt-1 mb-4">
 			<Input
 				v-model="resetForm.email"
 				type="email"
 				required
-				class="dark:text-black"
 			/>
 		</div>
 
@@ -93,27 +92,27 @@ const submitForm = async (event: Event) => {
 			type="submit"
 			:disabled="!readyForSubmit || fetching"
 		>
-			<Spinner v-if="fetching" :color="100" />
+			<Spinner v-if="fetching" />
 			<span v-else>{{ t('reset.reset') }}</span>
 		</Button>
 
 		<div class="mt-1.5">
-			<span class="text-sm mr-1 dark:text-white">{{ t('reset.question_1') }}</span>
+			<span class="text-sm mr-1 text-acebooks-text">{{ t('reset.question_1') }}</span>
 
 			<NuxtLinkLocale
 				to="/login"
-				class="text-sm font-medium text-green-600 hover:text-green-500"
+				class="text-sm font-medium text-acebooks-link hover:text-acebooks-brand-hover"
 			>
 				{{ t('reset.login') }}
 			</NuxtLinkLocale>
 		</div>
 
 		<div class="mt-1.5">
-			<span class="text-sm mr-1 dark:text-white">{{ t('reset.question_2') }}</span>
+			<span class="text-sm mr-1 text-acebooks-text">{{ t('reset.question_2') }}</span>
 
 			<NuxtLinkLocale
 				to="/register"
-				class="text-sm font-medium text-green-600 hover:text-green-500"
+				class="text-sm font-medium text-acebooks-link hover:text-acebooks-brand-hover"
 			>
 				{{ t('reset.register') }}
 			</NuxtLinkLocale>

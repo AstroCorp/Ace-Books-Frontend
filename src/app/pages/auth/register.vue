@@ -103,28 +103,26 @@ const submitForm = async (event: Event) => {
 
 <template>
 	<form @submit="submitForm">
-		<label class="block text-sm font-medium text-gray-700 dark:text-white">{{ t('register.email') }}</label>
+		<label class="block text-sm font-medium text-acebooks-input-label">{{ t('register.email') }}</label>
 		<div class="mt-1 mb-4">
 			<Input
 				v-model="registerForm.email"
 				type="email"
 				required
-				class="dark:text-black"
 			/>
 
-			<div v-if="emailErrors.length > 0" class="text-sm text-red-500 pt-1">{{ t('register.email_error') }}</div>
+			<div v-if="emailErrors.length > 0" class="text-sm text-acebooks-error-background pt-1">{{ t('register.email_error') }}</div>
 		</div>
 
-		<label class="block text-sm font-medium text-gray-700 dark:text-white">{{ t('register.password') }}</label>
+		<label class="block text-sm font-medium text-acebooks-input-label">{{ t('register.password') }}</label>
 		<div class="mt-1 mb-4">
 			<Input
 				v-model="registerForm.password"
 				type="password"
 				required
-				class="dark:text-black"
 			/>
 
-			<div v-if="passwordErrors.length > 0" class="text-sm text-red-500 py-1">{{ t('register.password_error') }}</div>
+			<div v-if="passwordErrors.length > 0" class="text-sm text-acebooks-error-background py-1">{{ t('register.password_error') }}</div>
 
 			<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordMinLength">{{ t('register.password_validation_1') }}</FormValidationRule>
 			<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordMaxLength">{{ t('register.password_validation_2') }}</FormValidationRule>
@@ -134,7 +132,7 @@ const submitForm = async (event: Event) => {
 			<FormValidationRule v-if="registerForm.password.length > 0" :isValid="passwordHasSpecialCharacter">{{ t('register.password_validation_6') }}</FormValidationRule>
 		</div>
 
-		<label class="block text-sm font-medium text-gray-700 dark:text-white">{{ t('register.repeat_password') }}</label>
+		<label class="block text-sm font-medium text-acebooks-input-label">{{ t('register.repeat_password') }}</label>
 		<div class="mt-1 mb-4">
 			<Input
 				v-model="registerForm.repeatPassword"
@@ -142,7 +140,7 @@ const submitForm = async (event: Event) => {
 				required
 			/>
 
-			<div v-if="!samePassword" class="text-sm text-red-500 pt-1">{{ t('register.repeat_password_error') }}</div>
+			<div v-if="!samePassword" class="text-sm text-acebooks-error-background pt-1">{{ t('register.repeat_password_error') }}</div>
 		</div>
 
 		<i18n-t keypath="register.warning" tag="p" class="text-xs mb-3">
@@ -150,7 +148,7 @@ const submitForm = async (event: Event) => {
 				<NuxtLinkLocale
 					to="/legal/terms-and-conditions"
 					target="_blank"
-					class="font-medium text-green-600 hover:text-green-500"
+					class="font-medium text-acebooks-link hover:text-acebooks-brand-hover"
 				>
 					{{ t('register.terms-of-use') }}
 				</NuxtLinkLocale>
@@ -160,7 +158,7 @@ const submitForm = async (event: Event) => {
 				<NuxtLinkLocale
 					to="/legal/privacy-notice"
 					target="_blank"
-					class="font-medium text-green-600 hover:text-green-500"
+					class="font-medium text-acebooks-link hover:text-acebooks-brand-hover"
 				>
 					{{ t('register.privacy-policy') }}
 				</NuxtLinkLocale>
@@ -175,11 +173,11 @@ const submitForm = async (event: Event) => {
 		</Button>
 
 		<div class="mt-1.5">
-			<span class="text-sm mr-1 dark:text-white">{{ t('register.question') }}</span>
+			<span class="text-sm mr-1 text-acebooks-text">{{ t('register.question') }}</span>
 
 			<NuxtLinkLocale
 				to="/login"
-				class="text-sm font-medium text-green-600 hover:text-green-500"
+				class="text-sm font-medium text-acebooks-link hover:text-acebooks-brand-hover"
 			>
 				{{ t('register.login') }}
 			</NuxtLinkLocale>

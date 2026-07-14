@@ -1,0 +1,25 @@
+{
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"editor.quickSuggestions": {
+		"strings": "on"
+	},
+	"tailwindCSS.experimental.configFile": {
+		"src/app/assets/css/main.css": "src/**"
+	},
+	"tailwindCSS.classAttributes": [
+		"class",
+		":class",
+		"className",
+		"ngClass",
+		"class:list",
+		"ui"
+	],
+	"tailwindCSS.experimental.classRegex": [
+		[
+			"ui:\\s*{([^)]*)\\s*}",
+			"(?:'|\"|`)([^']*)(?:'|\"|`)"
+		]
+	]
+}

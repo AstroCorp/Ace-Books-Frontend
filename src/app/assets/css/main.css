@@ -246,7 +246,7 @@
 	--color-acebooks-text-title: oklch(30% 0.06 163.01);
 
 	/* Texto secundario, descripciones */
-	--color-acebooks-text-subtitle: oklch(60.804% 0.06092 149.4);
+	--color-acebooks-text-subtitle: oklch(55.804% 0.06092 149.4);
 
 	/* ==========================================================
 	 * MARCA
@@ -286,6 +286,9 @@
 
 	/* Texto del input */
 	--color-acebooks-input-text: oklch(46% 0.01 153.48);
+
+	/* Label del input */
+	--color-acebooks-input-label: oklch(27% 0.01 158.33);
 
 	/* Placeholder */
 	--color-acebooks-input-placeholder: oklch(60.804% 0.06092 149.4);
@@ -328,6 +331,13 @@
 	/* Errores y acciones destructivas */
 	--color-acebooks-error-background: oklch(58.833% 0.20702 26.367);
 	--color-acebooks-error-text: oklch(100% 0.00011 271.152);
+
+	/* ==========================================================
+	 * SOMBRAS
+	 * ========================================================== */
+
+	/* Color base para text-shadow y box-shadow */
+	--color-acebooks-shadow: oklch(0% 0 0);
 }
 
 /* ==========================================================
@@ -359,7 +369,7 @@
 	--color-acebooks-text-title: oklch(84.761% 0.04107 149.72);
 
 	/* Texto secundario, descripciones */
-	--color-acebooks-text-subtitle: oklch(68.715% 0.08195 149.32);
+	--color-acebooks-text-subtitle: oklch(75.715% 0.08195 149.32);
 
 	/* ==========================================================
 	 * MARCA
@@ -399,6 +409,9 @@
 
 	/* Texto del input */
 	--color-acebooks-input-text: oklch(100% 0.00011 271.152);
+
+	/* Label del input */
+	--color-acebooks-input-label: oklch(82% 0.03 143.77);
 
 	/* Placeholder */
 	--color-acebooks-input-placeholder: oklch(68.715% 0.08195 149.32);
@@ -441,6 +454,13 @@
 	/* Errores y acciones destructivas */
 	--color-acebooks-error-background: oklch(45.612% 0.1416 24.706);
 	--color-acebooks-error-text: oklch(100% 0.00011 271.152);
+
+	/* ==========================================================
+	 * SOMBRAS
+	 * ========================================================== */
+
+	/* Color base para text-shadow y box-shadow */
+	--color-acebooks-shadow: oklch(0% 0 0);
 }
 
 @theme {
@@ -470,6 +490,7 @@
 	/* INPUTS */
 	--color-acebooks-input-background: var(--color-acebooks-input-background);
 	--color-acebooks-input-text: var(--color-acebooks-input-text);
+	--color-acebooks-input-label: var(--color-acebooks-input-label);
 	--color-acebooks-input-placeholder: var(--color-acebooks-input-placeholder);
 	--color-acebooks-input-border: var(--color-acebooks-input-border);
 	--color-acebooks-input-focus: var(--color-acebooks-input-focus);
@@ -488,6 +509,9 @@
 	--color-acebooks-info-text: var(--color-acebooks-info-text);
 	--color-acebooks-error-background: var(--color-acebooks-error-background);
 	--color-acebooks-error-text: var(--color-acebooks-error-text);
+
+	/* SOMBRAS */
+	--color-acebooks-shadow: var(--color-acebooks-shadow);
 
 	/* ==========================================================
 	 * FUENTES
@@ -520,7 +544,7 @@
 }
 
 @utility text-shadow {
-	text-shadow: 0 2px 5px var(--tw-shadow-color);
+	text-shadow: 0 2px 5px var(--tw-shadow-color, var(--color-acebooks-shadow));
 }
 
 body {

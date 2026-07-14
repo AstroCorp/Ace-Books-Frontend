@@ -1,19 +1,13 @@
-<script setup lang="ts">
-const props = defineProps<{
-	color: 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
-}>();
-</script>
-
 <template>
 	<div class="spinner flex justify-center items-center w-full h-full">
 		<div
 			v-for="value in 3"
-			class="w-2 h-2 inline-block rounded-full"
+			:key="value"
+			class="w-2 h-2 inline-block rounded-full bg-acebooks-brand"
 			:class="{
 				[`bounce${value}`]: true,
 				'mx-1': value === 2,
 			}"
-			:style="{ backgroundColor: `var(--ab-color-brand-${props.color})` }"
 		></div>
 	</div>
 </template>

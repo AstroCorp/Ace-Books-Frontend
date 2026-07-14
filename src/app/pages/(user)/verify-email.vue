@@ -66,8 +66,8 @@ onMounted(async () => {
 		v-if="!fetching"
 		class="mb-4 rounded-md p-4 text-center"
 		:class="{
-			'bg-green-100 text-green-700': !showError,
-			'bg-red-100 text-red-700': showError,
+			'bg-acebooks-success-background text-acebooks-success-text': !showError,
+			'bg-acebooks-error-background text-acebooks-error-text': showError,
 		}"
 		role="alert"
 	>
@@ -75,7 +75,7 @@ onMounted(async () => {
 	</div>
 
 	<div v-else class="flex flex-col justify-center items-center mb-4 p-4">
-		<Spinner :color="400" />
+		<Spinner />
 		<p class="mt-4 text-center">{{ t('verify.loading_message') }}</p>
 	</div>
 </template>
