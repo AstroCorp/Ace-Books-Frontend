@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { useBreakpoints, breakpointsTailwind, useScroll } from '@vueuse/core';
 
-const { floating = false } = defineProps<{
-	floating?: boolean;
-}>();
-
 const { y: topScroll } = useScroll(document);
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isResponsiveMenu = breakpoints.smaller('sm');
 const { t } = useI18n();
+const { logout } = useAuth();
 
 const navActive = ref(false);
 
@@ -26,12 +23,6 @@ const applyNavBackground = computed(() => {
 </script>
 
 <template>
-	<div
-		v-if="!floating"
-		class="h-20 shrink-0"
-		aria-hidden="true"
-	/>
-
 	<header
 		class="fixed inset-x-0 top-0 z-20 w-full bg-acebooks-nav-background/80 transition-all duration-200"
 		:class="{
@@ -43,7 +34,7 @@ const applyNavBackground = computed(() => {
 		<nav class="flex flex-col">
 			<div class="flex p-4 h-20 justify-between items-center">
 				<NuxtLinkLocale
-					to="/"
+					to="/library"
 					class="logo cursor-pointer text-acebooks-brand-text text-shadow shadow-acebooks-shadow/70"
 				>
 					Ace Books
@@ -60,11 +51,9 @@ const applyNavBackground = computed(() => {
 					/>
 				</button>
 
-				<NuxtLinkLocale class="hidden sm:block" to="/login">
-					<Button preset="outline">
-						{{ t('header.sign_in') }}
-					</Button>
-				</NuxtLinkLocale>
+				<Button class="hidden sm:block" preset="outline" @click="logout">
+					{{ t('headerUser.sign_out') }}
+				</Button>
 			</div>
 
 			<div
@@ -80,11 +69,9 @@ const applyNavBackground = computed(() => {
 					}"
 				>
 					<li class="sm:inline-flex sm:w-auto w-full items-center justify-center">
-						<NuxtLinkLocale to="/login">
-							<Button preset="outline">
-								{{ t('header.sign_in') }}
-							</Button>
-						</NuxtLinkLocale>
+						<Button preset="outline" @click="logout">
+							{{ t('headerUser.sign_out') }}
+						</Button>
 					</li>
 				</ul>
 			</div>

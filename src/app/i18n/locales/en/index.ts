@@ -3,6 +3,7 @@ import error from './error.json';
 import faqs from './faqs.json';
 import footer from './footer.json';
 import header from './header.json';
+import headerUser from './header-user.json';
 import home from './home.json';
 import library from './library.json';
 import login from './login.json';
@@ -18,6 +19,7 @@ const en = {
 	faqs,
 	footer,
 	header,
+	headerUser,
 	home,
 	library,
 	login,
