@@ -28,7 +28,7 @@ useHead({
 			<nav class="flex items-center p-4 flex-wrap">
 				<button
 					@click="handleError"
-					class="p-2 mr-4 inline-flex items-center text-white md:text-white text-4xl cursor-pointer text-shadow shadow-black/75"
+					class="p-2 mr-4 inline-flex items-center text-acebooks-brand-text text-4xl cursor-pointer text-shadow shadow-acebooks-shadow/75"
 				>
 					Ace Books
 				</button>
@@ -37,7 +37,7 @@ useHead({
 
 		<div class="h-screen flex flex-col justify-center">
 			<article class="flex flex-col items-center text-center">
-				<h1 class="text-9xl text-white/60 mb-6 text-shadow shadow-black/40">{{ error.statusCode }}</h1>
+				<h1 class="text-9xl text-acebooks-brand-text/60 mb-6 text-shadow shadow-acebooks-shadow/40">{{ error.statusCode }}</h1>
 
 				<Button preset="outline" @click="handleError">
 					{{ t('error.button') }}

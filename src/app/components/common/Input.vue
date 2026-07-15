@@ -3,8 +3,11 @@ const model = defineModel();
 </script>
 
 <template>
-	<input
+	<UInput
 		v-model="model"
-		class="shadow-xs block w-full h-10 sm:text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 dark:bg-gray-800 dark:border-gray-600"
+		:ui="{
+			root: 'w-full',
+			base: 'bg-acebooks-input-background text-acebooks-input-text border border-acebooks-input-border text-sm w-full p-2 rounded-md',
+		}"
 	/>
 </template>

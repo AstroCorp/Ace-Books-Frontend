@@ -21,14 +21,14 @@ useHead({
 
 <template>
 	<div class="h-screen flex flex-col">
-		<Header />
+		<Header :floating="true" />
 
 		<div class="min-h-svh flex flex-col justify-between relative">
 			<div class="h-8 w-full pt-12"></div>
 
-			<article class="text-white w-full p-4 mx-auto md:w-2/3 xl:w-1/2 xl:ml-32">
-				<h1 class="text-4xl font-semibold text-shadow shadow-black/75">{{ t('home.h1') }}</h1>
-				<p class="text-sm mt-2 mb-6 text-shadow shadow-black/75">{{ t('home.p') }}</p>
+			<article class="w-full p-4 mx-auto md:w-2/3 xl:w-1/2 xl:ml-32">
+				<h1 class="text-4xl font-semibold text-acebooks-brand-text text-shadow shadow-acebooks-shadow/75">{{ t('home.h1') }}</h1>
+				<p class="text-sm mt-2 mb-6 text-acebooks-brand-text text-shadow shadow-acebooks-shadow/75">{{ t('home.p') }}</p>
 
 				<NuxtLinkLocale to="/register">
 					<Button preset="outline">
@@ -47,55 +47,28 @@ useHead({
 					}"
 					href="#content"
 				>
-					<div class="absolute flex h-full w-full justify-center items-center bg-white/70 rounded-full z-10">
-						<SvgIcon name="i-fluent-chevron-down-32-filled" mode="svg" class="text-green-700 fill-current" />
+					<div class="absolute flex h-full w-full justify-center items-center bg-acebooks-brand-text/70 rounded-full z-10">
+						<SvgIcon name="i-fluent-chevron-down-32-filled" mode="svg" class="text-acebooks-brand-hover fill-current" />
 					</div>
 
 					<div
 						class="absolute top-0 left-0 h-full w-full rounded-full"
 						:class="{
-							'animate-pulse-v2 bg-white opacity-70': topScroll === 0,
+							'animate-pulse-v2 bg-acebooks-brand-text opacity-70': topScroll === 0,
 						}"
 					></div>
 				</a>
 			</div>
 		</div>
 
-		<div id="content" class="flex flex-col px-6 md:px-0 md:w-2/3 md:mx-auto scroll-mt-20">
-			<div class="text-center my-16">
-				<h2 class="text-3xl font-semibold tracking-wider mb-3 uppercase dark:text-gray-200">{{ t('home.section_1_title') }}</h2>
-				<p class="font-thin leading-7 dark:text-gray-200">{{ t('home.section_1_content') }}</p>
-			</div>
+		<div id="content" class="flex flex-col scroll-mt-36 px-6 md:px-0 md:w-2/3 md:mx-auto text-center my-16">
+			<h2 class="text-3xl sm:text-4xl lg:text-5xl font-thin italic tracking-wider mb-3 uppercase text-acebooks-text-title sm:w-2/3 mx-auto">{{ t('home.section_1_title') }}</h2>
 
-			<div class="flex flex-col lg:flex-row justify-center">
-				<div class="lg:w-1/3">
-					<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded-sm w-full h-full object-cover" />
-				</div>
+			<div class="h-0.5 w-1/5 mx-auto my-8 lg:my-14 bg-acebooks-border"></div>
 
-				<div class="my-16 lg:my-0 lg:mx-4 xl:mx-6 lg:w-1/3">
-					<NuxtImg src="/images/info_2.webp" placeholder preload loading="lazy" class="rounded-sm w-full  h-full object-cover" />
-				</div>
+			<p class="font-thin leading-7 w-2/3 mx-auto text-acebooks-text">{{ t('home.section_1_content') }}</p>
 
-				<div class="lg:w-1/3">
-					<NuxtImg src="/images/info_3.webp" placeholder preload loading="lazy" class="rounded-sm w-full  h-full object-cover" />
-				</div>
-			</div>
-
-			<div class="flex flex-col xl:flex-row my-16">
-				<div class="xl:w-1/2 text-right">
-					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">{{ t('home.section_2_title') }}</h3>
-					<p class="font-thin leading-7">{{ t('home.section_2_content') }}</p>
-				</div>
-
-				<div class="h-0.5 w-full xl:w-0.5 my-16 xl:my-0 xl:mx-8 xl:h-full bg-black dark:bg-gray-200"></div>
-
-				<div class="xl:w-1/2">
-					<h3 class="text-2xl font-semibold tracking-wider uppercase mb-4">{{ t('home.section_3_title') }}</h3>
-					<ul class="list-inside list-disc font-thin leading-7">
-						<li v-for="index in 7">{{ t('home.section_3_content_' + index) }}</li>
-					</ul>
-				</div>
-			</div>
+			<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded-md w-full h-[600px] object-cover mt-8 lg:mt-16" />
 		</div>
 
 		<Footer />

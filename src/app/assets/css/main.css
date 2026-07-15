@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@plugin "@tailwindcss/forms";
-
 @layer base {
 	/* Wittgenstein */
 	@font-face {
@@ -219,9 +217,312 @@
 	}
 }
 
+/* ==========================================================
+ * ACE BOOKS THEME
+ * ========================================================== */
+
+ :root {
+	/* ==========================================================
+	 * LAYOUT
+	 * ========================================================== */
+
+	/* Fondo principal de la aplicación */
+	--color-acebooks-background: oklch(100% 0.00011 271.152);
+
+	/* Tarjetas, paneles */
+	--color-acebooks-surface: oklch(96.423% 0.00916 150.69);
+
+	/* Dropdowns, thead tablas */
+	--color-acebooks-surface-elevated: oklch(84.761% 0.04107 149.72);
+
+	/* ==========================================================
+	 * TEXTO
+	 * ========================================================== */
+
+	/* Texto base */
+	--color-acebooks-text: oklch(0% 0 0);
+
+	/* Texto principal en títulos, encabezados, etc. */
+	--color-acebooks-text-title: oklch(30% 0.06 163.01);
+
+	/* Texto secundario, descripciones */
+	--color-acebooks-text-subtitle: oklch(55.804% 0.06092 149.4);
+
+	/* ==========================================================
+	 * MARCA
+	 * ========================================================== */
+
+	/* Color principal */
+	--color-acebooks-brand: oklch(59.724% 0.08755 148.65);
+
+	/* Hover del color principal */
+	--color-acebooks-brand-hover: oklch(49.099% 0.07114 148.7);
+
+	/* Estado pulsado */
+	--color-acebooks-brand-active: oklch(39.174% 0.06151 163.01);
+
+	/* Texto sobre fondos brand */
+	--color-acebooks-brand-text: oklch(100% 0.00011 271.152);
+
+	/* Enlaces */
+	--color-acebooks-link: oklch(59.724% 0.08755 148.65);
+
+	/* ==========================================================
+	 * BORDES
+	 * ========================================================== */
+
+	/* Bordes normales */
+	--color-acebooks-border: oklch(87.523% 0.01848 150.55);
+
+	/* Bordes destacados */
+	--color-acebooks-border-strong: oklch(30% 0.06 163.01);
+
+	/* ==========================================================
+	 * INPUTS
+	 * ========================================================== */
+
+	/* Fondo del input */
+	--color-acebooks-input-background: oklch(95% 0.01 153.78);
+
+	/* Texto del input */
+	--color-acebooks-input-text: oklch(46% 0.01 153.48);
+
+	/* Label del input */
+	--color-acebooks-input-label: oklch(27% 0.01 158.33);
+
+	/* Placeholder */
+	--color-acebooks-input-placeholder: oklch(60.804% 0.06092 149.4);
+
+	/* Borde normal */
+	--color-acebooks-input-border: oklch(84.761% 0.04107 149.72);
+
+	/* Focus del input */
+	--color-acebooks-input-focus: oklch(59.724% 0.08755 148.65);
+
+	/* ==========================================================
+	 * NAVEGACIÓN
+	 * ========================================================== */
+
+	/* Fondo del header y footer */
+	--color-acebooks-nav-background: oklch(30% 0.06 163.01);
+
+	/* Texto principal del header y footer */
+	--color-acebooks-nav-text-title: oklch(35.164% 0.04107 149.72);
+
+	/* Texto secundario del header y footer */
+	--color-acebooks-nav-text-subtitle: oklch(39.826% 0.04107 149.72);
+
+	/* ==========================================================
+	 * FEEDBACK
+	 * ========================================================== */
+
+	/* Mensajes de éxito */
+	--color-acebooks-success-background: oklch(65.745% 0.15604 146.683);
+	--color-acebooks-success-text: oklch(100% 0.00011 271.152);
+
+	/* Advertencias */
+	--color-acebooks-warning-background: oklch(75.521% 0.2581 93.092);;
+	--color-acebooks-warning-text: oklch(100% 0.00011 271.152);
+
+	/* Información */
+	--color-acebooks-info-background: oklch(59.605% 0.18561 267.592);
+	--color-acebooks-info-text: oklch(100% 0.00011 271.152);
+
+	/* Errores y acciones destructivas */
+	--color-acebooks-error-background: oklch(58.833% 0.20702 26.367);
+	--color-acebooks-error-text: oklch(100% 0.00011 271.152);
+
+	/* ==========================================================
+	 * SOMBRAS
+	 * ========================================================== */
+
+	/* Color base para text-shadow y box-shadow */
+	--color-acebooks-shadow: oklch(0% 0 0);
+}
+
+/* ==========================================================
+ * DARK THEME
+ * ========================================================== */
+
+.dark {
+	/* ==========================================================
+	 * LAYOUT
+	 * ========================================================== */
+
+	/* Fondo principal de la aplicación */
+	--color-acebooks-background: oklch(0% 0 none);
+
+	/* Tarjetas, paneles */
+	--color-acebooks-surface: oklch(25% 0.05 160.02);
+
+	/* Dropdowns, thead tablas */
+	--color-acebooks-surface-elevated: oklch(39.174% 0.06151 163.01);
+
+	/* ==========================================================
+	 * TEXTO
+	 * ========================================================== */
+
+	/* Texto base */
+	--color-acebooks-text: oklch(100% 0.00011 271.152);
+
+	/* Texto principal en títulos, encabezados, etc. */
+	--color-acebooks-text-title: oklch(84.761% 0.04107 149.72);
+
+	/* Texto secundario, descripciones */
+	--color-acebooks-text-subtitle: oklch(75.715% 0.08195 149.32);
+
+	/* ==========================================================
+	 * MARCA
+	 * ========================================================== */
+
+	/* Botón principal */
+	--color-acebooks-brand: oklch(59.724% 0.08755 148.65);
+
+	/* Hover del color principal */
+	--color-acebooks-brand-hover: oklch(49.099% 0.07114 148.7);
+
+	/* Estado pulsado */
+	--color-acebooks-brand-active: oklch(68.715% 0.08195 149.32);
+
+	/* Texto sobre fondos brand */
+	--color-acebooks-brand-text: oklch(100% 0.00011 271.152);
+
+	/* Enlaces */
+	--color-acebooks-link: oklch(59.724% 0.08755 148.65);
+
+	/* ==========================================================
+	 * BORDES
+	 * ========================================================== */
+
+	/* Bordes normales */
+	--color-acebooks-border: oklch(51.174% 0.06151 163.01);
+
+	/* Bordes destacados */
+	--color-acebooks-border-strong: oklch(68.715% 0.08195 149.32);
+
+	/* ==========================================================
+	 * INPUTS
+	 * ========================================================== */
+
+	/* Fondo del input */
+	--color-acebooks-input-background: oklch(25% 0.04 152.86);
+
+	/* Texto del input */
+	--color-acebooks-input-text: oklch(100% 0.00011 271.152);
+
+	/* Label del input */
+	--color-acebooks-input-label: oklch(82% 0.03 143.77);
+
+	/* Placeholder */
+	--color-acebooks-input-placeholder: oklch(68.715% 0.08195 149.32);
+
+	/* Borde normal */
+	--color-acebooks-input-border: oklch(35% 0.04 155.86);
+
+	/* Focus del input */
+	--color-acebooks-input-focus: oklch(59.724% 0.08755 148.65);
+
+	/* ==========================================================
+	 * NAVEGACIÓN
+	 * ========================================================== */
+
+	/* Fondo del header y footer */
+	--color-acebooks-nav-background: oklch(30% 0.06 163.01);
+
+	/* Texto principal del header y footer */
+	--color-acebooks-nav-text-title: oklch(96.761% 0.04107 149.72);
+
+	/* Texto secundario del header y footer */
+	--color-acebooks-nav-text-subtitle: oklch(81.581% 0.04107 149.72);
+
+	/* ==========================================================
+	 * FEEDBACK
+	 * ========================================================== */
+
+	/* Mensajes de éxito */
+	--color-acebooks-success-background: oklch(49.099% 0.07114 148.7);
+	--color-acebooks-success-text: oklch(100% 0.00011 271.152);
+
+	/* Advertencias */
+	--color-acebooks-warning-background: oklch(66.497% 0.11932 80.897);
+	--color-acebooks-warning-text: oklch(100% 0.00011 271.152);
+
+	/* Información */
+	--color-acebooks-info-background: oklch(51.367% 0.06697 271.366);
+	--color-acebooks-info-text: oklch(100% 0.00011 271.152);
+
+	/* Errores y acciones destructivas */
+	--color-acebooks-error-background: oklch(45.612% 0.1416 24.706);
+	--color-acebooks-error-text: oklch(100% 0.00011 271.152);
+
+	/* ==========================================================
+	 * SOMBRAS
+	 * ========================================================== */
+
+	/* Color base para text-shadow y box-shadow */
+	--color-acebooks-shadow: oklch(0% 0 0);
+}
+
 @theme {
+	--color-*: initial;
+
+	/* LAYOUT */
+	--color-acebooks-background: var(--color-acebooks-background);
+	--color-acebooks-surface: var(--color-acebooks-surface);
+	--color-acebooks-surface-elevated: var(--color-acebooks-surface-elevated);
+
+	/* TEXTO */
+	--color-acebooks-text: var(--color-acebooks-text);
+	--color-acebooks-text-title: var(--color-acebooks-text-title);
+	--color-acebooks-text-subtitle: var(--color-acebooks-text-subtitle);
+
+	/* MARCA */
+	--color-acebooks-brand: var(--color-acebooks-brand);
+	--color-acebooks-brand-hover: var(--color-acebooks-brand-hover);
+	--color-acebooks-brand-active: var(--color-acebooks-brand-active);
+	--color-acebooks-brand-text: var(--color-acebooks-brand-text);
+	--color-acebooks-link: var(--color-acebooks-link);
+
+	/* BORDES */
+	--color-acebooks-border: var(--color-acebooks-border);
+	--color-acebooks-border-strong: var(--color-acebooks-border-strong);
+
+	/* INPUTS */
+	--color-acebooks-input-background: var(--color-acebooks-input-background);
+	--color-acebooks-input-text: var(--color-acebooks-input-text);
+	--color-acebooks-input-label: var(--color-acebooks-input-label);
+	--color-acebooks-input-placeholder: var(--color-acebooks-input-placeholder);
+	--color-acebooks-input-border: var(--color-acebooks-input-border);
+	--color-acebooks-input-focus: var(--color-acebooks-input-focus);
+
+	/* NAVEGACIÓN */
+	--color-acebooks-nav-background: var(--color-acebooks-nav-background);
+	--color-acebooks-nav-text-title: var(--color-acebooks-nav-text-title);
+	--color-acebooks-nav-text-subtitle: var(--color-acebooks-nav-text-subtitle);
+
+	/* FEEDBACK */
+	--color-acebooks-success-background: var(--color-acebooks-success-background);
+	--color-acebooks-success-text: var(--color-acebooks-success-text);
+	--color-acebooks-warning-background: var(--color-acebooks-warning-background);
+	--color-acebooks-warning-text: var(--color-acebooks-warning-text);
+	--color-acebooks-info-background: var(--color-acebooks-info-background);
+	--color-acebooks-info-text: var(--color-acebooks-info-text);
+	--color-acebooks-error-background: var(--color-acebooks-error-background);
+	--color-acebooks-error-text: var(--color-acebooks-error-text);
+
+	/* SOMBRAS */
+	--color-acebooks-shadow: var(--color-acebooks-shadow);
+
+	/* ==========================================================
+	 * FUENTES
+	 * ========================================================== */
+
 	--font-Rubik: "Rubik", "sans-serif";
 	--font-Wittgenstein: "Wittgenstein", "serif";
+
+	/* ==========================================================
+	 * ANIMACIONES
+	 * ========================================================== */
 
 	@keyframes pulse-effect {
 		0% {
@@ -243,23 +544,11 @@
 }
 
 @utility text-shadow {
-	text-shadow: 0 2px 5px var(--tw-shadow-color);
+	text-shadow: 0 2px 5px var(--tw-shadow-color, var(--color-acebooks-shadow));
 }
 
-:root {
-	--ui-bg: var(--color-white);
-	--ui-text: var(--color-black);
-	--ui-text-muted: var(--color-black);
-	--ui-text-toned: var(--color-black);
-	--ui-text-highlighted: var(--color-black);
-}
-
-.dark {
-	--ui-bg: var(--color-black);
-	--ui-text: var(--color-gray-200);
-	--ui-text-muted: var(--color-gray-200);
-	--ui-text-toned: var(--color-gray-200);
-	--ui-text-highlighted: var(--color-gray-200);
+body {
+	@apply antialiased bg-acebooks-background text-acebooks-text scheme-light dark:scheme-dark;
 }
 
 .logo {

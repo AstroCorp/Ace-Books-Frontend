@@ -25,7 +25,6 @@ const onUpdateLocale = async (value: string) => {
 	<Dropdown
 		:model-value="locale"
 		:options="localeOptions"
-		variation="outline"
 		@update:model-value="onUpdateLocale"
 	/>
 </template>

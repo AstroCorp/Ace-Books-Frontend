@@ -2,6 +2,16 @@
 const { t } = useI18n();
 const i18Markdown = useI18nMarkdown();
 
+definePageMeta({
+	layout: {
+		name: 'legal',
+		props: {
+			titleKey: 'cookies.title',
+			dateKey: 'cookies.date',
+		},
+	},
+});
+
 defineRouteRules({
 	prerender: true,
 });
@@ -25,19 +35,5 @@ useHead({
 </script>
 
 <template>
-	<div class="flex flex-col justify-between min-h-screen">
-		<Header />
-
-		<div class="relative px-4 pt-14 h-64 flex flex-col items-center justify-center bg-green-700 text-white">
-			<h1 class="text-2xl">{{ t('cookies.title') }}</h1>
-			<div class="border my-2 border-white/40 w-1/6"></div>
-			<time class="trext-lg">{{ t('cookies.date') }}</time>
-		</div>
-
-		<div class="mx-auto my-10 w-3/4 lg:w-2/3">
-			<RenderMarkdown :value="i18Markdown('cookies.line_', 11)" />
-		</div>
-
-		<Footer />
-	</div>
+	<RenderMarkdown :value="i18Markdown('cookies.line_', 11)" />
 </template>

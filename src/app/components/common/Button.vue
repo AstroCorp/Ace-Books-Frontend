@@ -4,7 +4,7 @@ const {
 	type = 'button',
 	disabled = false,
 } = defineProps<{
-	preset?: 'solid' | 'outline';
+	preset?: 'solid' | 'outline' | 'dropdown-outline';
 	type?: 'submit' | 'button';
 	disabled?: boolean;
 }>();
@@ -12,13 +12,14 @@ const {
 
 <template>
 	<UButton
-		unstyled
 		:type="type"
 		:disabled="disabled"
-		class="text-white! rounded-md cursor-pointer disabled:cursor-not-allowed disabled:bg-green-800/80"
+		class="cursor-pointer! p-2 text-sm rounded-md transition duration-300 ease-in-out disabled:cursor-not-allowed"
 		:class="{
-			'w-full h-10 px-4 py-2 border border-transparent text-sm font-medium shadow-xs bg-green-500 hover:bg-green-600 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-green-500': preset === 'solid',
-			'text-shadow shadow-sm shadow-black/70 border-2 border-white bg-transparent hover:bg-white/20 active:bg-white/20 transition duration-300 ease-in-out p-2': preset === 'outline',
+			'text-shadow shadow-sm shadow-acebooks-shadow/70 border-2 font-medium text-acebooks-brand-text! border-acebooks-brand-text hover:bg-acebooks-brand-text/20': preset === 'outline',
+			'text-acebooks-brand-text! bg-acebooks-brand hover:bg-acebooks-brand-hover disabled:bg-acebooks-brand-hover/80': preset === 'solid',
+			'dark:text-shadow shadow-sm dark:shadow-acebooks-shadow/70 border text-acebooks-text-title! border-acebooks-border-strong dark:text-acebooks-brand-text! dark:border-acebooks-brand-text': preset === 'dropdown-outline',
+			'w-full': type === 'submit',
 		}"
 	>
 		<slot />

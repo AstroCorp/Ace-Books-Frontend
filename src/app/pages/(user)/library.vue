@@ -10,6 +10,7 @@ defineI18nRoute({
 });
 
 definePageMeta({
+	layout: 'user',
 	middleware: ["require-session", "require-email-verified"],
 });
 
@@ -25,9 +26,9 @@ useHead({
 </script>
 
 <template>
-	<div class="p-2">
-		<div class="mb-4">{{ session }}</div>
-		<div class="mb-4">{{ user }}</div>
-		<button class="border p-2 cursor-pointer hover:bg-slate-100" @click="logout">Logout</button>
+	<div class="max-w-full overflow-hidden p-2">
+		<div class="mb-4 max-w-full break-all text-sm">{{ session }}</div>
+		<div class="mb-4 max-w-full break-all text-sm">{{ user }}</div>
+		<button class="border border-acebooks-border p-2 cursor-pointer hover:bg-acebooks-surface" @click="logout">Logout</button>
 	</div>
 </template>

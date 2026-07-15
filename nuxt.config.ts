@@ -122,4 +122,9 @@ export default defineNuxtConfig({
 				: process.env.VERCEL_URL) || "http://localhost:3000",
 		],
 	},
+	ui: {
+		theme: {
+			unstyled: true,
+		},
+	},
 });

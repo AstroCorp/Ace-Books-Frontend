@@ -3,8 +3,8 @@
 		<NuxtLayout>
 			<NuxtLoadingIndicator
 				:height="4"
-				color="#22c55e"
-				error-color="#ef4444"
+				color="var(--color-acebooks-success-background)"
+				error-color="var(--color-acebooks-error-background)"
 			/>
 			<NuxtPage />
 		</NuxtLayout>
