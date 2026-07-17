@@ -16,12 +16,12 @@ const toggleNav = () => {
 	navActive.value = !navActive.value;
 };
 
-const applyNavStyle = computed(() => {
+const responsiveMenuOpened = computed(() => {
 	return navActive.value && isResponsiveMenu.value;
 });
 
 const applyNavBackground = computed(() => {
-	return topScroll.value > 0;
+	return topScroll.value > 0 || !floating || responsiveMenuOpened.value;
 });
 </script>
 
@@ -33,11 +33,11 @@ const applyNavBackground = computed(() => {
 	/>
 
 	<header
-		class="fixed inset-x-0 top-0 z-20 w-full bg-acebooks-nav-background/80 transition-all duration-200"
+		class="fixed inset-x-0 top-0 z-20 w-full transition-all duration-200"
 		:class="{
-			'h-20': !applyNavStyle,
-			'h-dvh': applyNavStyle,
-			'backdrop-blur-xs': applyNavBackground || applyNavStyle,
+			'h-20': !responsiveMenuOpened,
+			'h-dvh': responsiveMenuOpened,
+			'bg-acebooks-nav-background/80 backdrop-blur-xs': applyNavBackground,
 		}"
 	>
 		<nav class="flex flex-col">
@@ -70,13 +70,13 @@ const applyNavBackground = computed(() => {
 			<div
 				class="relative w-full sm:hidden"
 				:class="{
-					'hidden': !applyNavStyle,
+					'hidden': !responsiveMenuOpened,
 				}"
 			>
 				<ul
 					class="sm:inline-flex sm:flex-row sm:ml-auto sm:w-auto w-full sm:items-center items-start flex flex-col sm:h-auto sm:text-right sm:mt-0"
 					:class="{
-						'text-center mt-8': applyNavStyle,
+						'text-center mt-8': responsiveMenuOpened,
 					}"
 				>
 					<li class="sm:inline-flex sm:w-auto w-full items-center justify-center">
