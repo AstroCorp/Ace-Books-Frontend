@@ -24,7 +24,7 @@ defineI18nRoute({
 });
 
 useHead({
-	title: t('home.title') + ' - ' + t('cookies.title'),
+	title: t('cookies.title'),
 	meta: [
 		{
 			name: 'description',

@@ -19,7 +19,7 @@ definePageMeta({
 });
 
 useHead({
-	title: t('home.title') + ' - ' + t('reset.title'),
+	title: t('reset.title'),
 	meta: [
 		{
 			name: 'description',
