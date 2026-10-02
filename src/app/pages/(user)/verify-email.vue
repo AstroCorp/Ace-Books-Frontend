@@ -15,7 +15,7 @@ definePageMeta({
 });
 
 useHead({
-	title: t('home.title') + ' - ' + t('verify.title'),
+	title: t('verify.title'),
 	meta: [
 		{
 			name: 'description',

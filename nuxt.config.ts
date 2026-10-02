@@ -43,6 +43,9 @@ export default defineNuxtConfig({
 			],
 		},
 	},
+	site: {
+		name: "Ace Books",
+	},
 	// Github Actions no reconoce correctamente que se hará un deploy a Vercel
 	// por lo que se debe especificar el preset de Vercel
 	nitro: {

@@ -12,7 +12,7 @@ defineProps<Props>();
 const handleError = () => clearError({ redirect: '/' });
 
 useHead({
-	title: t('home.title') + ' - ' + t('error.title'),
+	title: t('error.title'),
 	meta: [
 		{
 			name: 'description',
@@ -44,7 +44,7 @@ useHead({
 				</Button>
 			</article>
 
-			<NuxtImg src="/images/bg.webp" placeholder preload loading="lazy" class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />
+			<DynamicBackground class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />
 		</div>
 
 		<Footer />

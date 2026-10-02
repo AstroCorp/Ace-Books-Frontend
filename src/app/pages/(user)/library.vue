@@ -15,7 +15,7 @@ definePageMeta({
 });
 
 useHead({
-	title: t('home.title') + ' - ' + t('library.title'),
+	title: t('library.title'),
 	meta: [
 		{
 			name: 'description',

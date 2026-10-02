@@ -36,7 +36,7 @@ useHead({
 					</Button>
 				</NuxtLinkLocale>
 
-				<NuxtImg src="/images/bg.webp" placeholder preload loading="lazy" class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />
+				<DynamicBackground class="absolute top-0 left-0 -z-10 w-full h-full object-cover" />
 			</article>
 
 			<div class="flex justify-center h-8 w-full mb-8">
@@ -68,7 +68,7 @@ useHead({
 
 			<p class="font-thin leading-7 w-2/3 mx-auto text-acebooks-text">{{ t('home.section_1_content') }}</p>
 
-			<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded-md w-full h-[600px] object-cover mt-8 lg:mt-16" />
+			<NuxtImg src="/images/info_1.webp" placeholder preload loading="lazy" class="rounded-md w-full h-150 object-cover mt-8 lg:mt-16" />
 		</div>
 
 		<Footer />

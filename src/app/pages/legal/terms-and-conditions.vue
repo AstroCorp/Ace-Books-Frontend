@@ -24,7 +24,7 @@ defineI18nRoute({
 });
 
 useHead({
-	title: t('home.title') + ' - ' + t('terms.title'),
+	title: t('terms.title'),
 	meta: [
 		{
 			name: 'description',
