@@ -11,15 +11,15 @@
 		"postinstall": "nuxt prepare"
 	},
 	"dependencies": {
-		"@nuxt/image": "^2.1.0",
-		"@nuxt/ui": "^4.11.3",
+		"@nuxt/image": "^2.2.1",
+		"@nuxt/ui": "^4.12.0",
 		"@nuxtjs/i18n": "^10.6.0",
 		"@nuxtjs/mdc": "^0.23.2",
 		"@nuxtjs/seo": "^6.0.1",
-		"@vueuse/components": "^14.4.0",
-		"@vueuse/core": "^14.4.0",
-		"nuxt": "^4.6.1",
-		"nuxt-auth-utils": "^0.5.31",
+		"@vueuse/components": "^15.0.0",
+		"@vueuse/core": "^15.0.0",
+		"nuxt": "^4.6.4",
+		"nuxt-auth-utils": "^0.6.0",
 		"nuxt-icons": "^4.0.0",
 		"vue": "^3.5.44",
 		"vue-router": "^5.4.0",
@@ -27,14 +27,14 @@
 		"zod": "^4.6.7"
 	},
 	"devDependencies": {
-		"@iconify-json/fluent": "^1.2.60",
-		"@tailwindcss/vite": "^4.3.3",
-		"autoprefixer": "^10.6.1",
-		"postcss": "^8.5.30",
-		"tailwindcss": "^4.3.3"
+		"@iconify-json/fluent": "^1.2.61",
+		"@tailwindcss/vite": "^4.3.4",
+		"autoprefixer": "^10.6.2",
+		"postcss": "^8.5.32",
+		"tailwindcss": "^4.3.4"
 	},
-	"packageManager": "pnpm@12.11.2",
+	"packageManager": "pnpm@12.16.1",
 	"engines": {
-		"node": "^22.22.3 || ^24.15.0 || >=26.0.0"
+		"node": ">=26.13.0"
 	}
 }

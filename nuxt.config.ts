@@ -9,9 +9,13 @@ export default defineNuxtConfig({
 		public: "src/public",
 	},
 	css: ["~/assets/css/main.css"],
+	devServer: {
+		host: "0.0.0.0",
+	},
 	vite: {
 		plugins: [tailwindcss()],
 		server: {
+			allowedHosts: true,
 			watch: {
 				usePolling: true,
 				interval: 100,
